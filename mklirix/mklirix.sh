@@ -29,22 +29,22 @@ cleanTarget() {
 }
 
 ensureGoodEnvironment() {
-	if [ ! -f "pacman.conf" ]
+	if [ ! -f "pacman.conf" ]; then
 		log "No pacman configuration file found; will not make Lirix here!";
 		exit;
 	fi
 
-	if [ ! -f "packages" ]
+	if [ ! -f "packages" ]; then
 		log "No package list for Lirix found; will not make Lirix here!";
 		exit;
 	fi
 
-	if [ ! -f "conflirix.sh" ]
+	if [ ! -f "conflirix.sh" ]; then
 		log "No conflirix found; will not make Lirix here!";
 		exit;
 	fi
 
-	if [ ! -d "target" ]
+	if [ ! -d "target" ]; then
 		log "Creating Target Directory"
 		mkdir -pv "target"
 	fi
@@ -53,7 +53,7 @@ ensureGoodEnvironment() {
 
 createRootFS() {
 	log "Creating new Target Virtual Filesystem for Lirix";
-	fallocate -l 4G $lirixvirtfs
+	fallocate -l 6G $lirixvirtfs
 	mkfs.ext4 $lirixvirtfs
 
 	log "Mounting Target Virtual Filesystem for Lirix";
