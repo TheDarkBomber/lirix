@@ -11,7 +11,7 @@ ncurses5-compat-libs
 noto-fonts
 noto-fonts-extra
 gdm
-network-manager
+networkmanager
 xorg-server
 xorg-server-common
 xorg-server-devel
@@ -32,8 +32,8 @@ xorg-fonts-alias-100dpi
 xorg-fonts-alias-75dpi
 xorg-fonts-encodings
 xorg-iceauth
-xoth-mkfontscale
-xorg-setkbmap
+xorg-mkfontscale
+xorg-setxkbmap
 xorg-smproxy
 xorg-util-macros
 xorg-x11perf
