@@ -1,0 +1,9 @@
+NAME="Lirix"
+PRETTY_NAME="Lirix"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;165;159;128"
+DOCUMENTATION_URL="https://caesar-rylan.60.nu/lirix"
+SUPPORT_URL="https://caesar-rylan.60.nu/lirix"
+BUG_REPORT_URL="https://github.com/TheDarkBomber/lirix/issues"
+LOGO=lirix

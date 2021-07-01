@@ -1,0 +1,18 @@
+pkgname=lirix-files
+pkgver=1
+pkgrel=1
+pkgdesc='Branding files for Lirix'
+arch=('x86_64')
+license=('BSD3')
+source=('os-release' 'issue' 'lirix.png' 'lirix-logo.png')
+sha512sums=('SKIP')
+
+package() {
+	cd "$pkgdir"
+	install -Dm644 "$srcdir"/os-release usr/lib/os-release
+	install -Dm644 "$srcdir"/os-release etc/os-release
+	install -m644 "$srcdir"/issue etc/issue
+	
+	install -Dm644 "$srcdir"/lirix.png usr/share/pixmaps/lirix.png
+	install -m644 "$srcdir"/lirix-logo.png usr/share/pixmaps/lirix-logo.png 
+}
