@@ -66,6 +66,8 @@ xorg-xwininfo
 xorg-xwud
 xorgproto
 xorg-xclock
+htop
+vim
 pavucontrol
 firefox
 gimp
