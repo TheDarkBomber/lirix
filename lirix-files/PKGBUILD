@@ -8,6 +8,7 @@ source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'issue' 'ld.so.conf' 'locale.sh' 'motd' 'nsswitch.conf' 'os-release'
         'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl'
         'sysusers' 'tmpfiles')
+replaces=('filesystem')
 sha512sums=('d73fd912071588f46a92dd55e0e1e6fabd078876f6089aa6b05b79e52c03e58aa90a8bc18e5346e588b18295187cdb40dc69916b0e478a901d09b9ba4fd94ff5'
             '46e17cf2b19377c9849d42012cf2ba920801c5b3d54fc09b2805c0e07acb14b4f6814b4fa7d476ea8543cafc6e7de115bd371fc807fc23517174365c84ab3762'
             'e0b1230e16444c6483c067691453bcd8ca9cbbedd45b3834350b41e477bdf91db7663da55092975c573c763e17107b1ae7c69c4bb9309096e204b81d97f4febf'
