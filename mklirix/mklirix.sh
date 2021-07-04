@@ -53,7 +53,7 @@ ensureGoodEnvironment() {
 
 createRootFS() {
 	log "Creating new Target Virtual Filesystem for Lirix";
-	fallocate -l 6G $lirixvirtfs
+	fallocate -l 8G $lirixvirtfs
 	mkfs.ext4 $lirixvirtfs
 
 	log "Mounting Target Virtual Filesystem for Lirix";
