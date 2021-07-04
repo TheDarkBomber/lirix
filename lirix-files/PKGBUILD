@@ -4,11 +4,17 @@ pkgrel=1
 pkgdesc='Branding files for Lirix + Filesystem generator'
 arch=('x86_64')
 license=('BSD3')
+depends=('iana-etc')
+backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
+        'etc/hosts' 'etc/issue' 'etc/ld.so.conf' 'etc/motd' 'etc/nsswitch.conf'
+        'etc/passwd' 'etc/profile' 'etc/resolv.conf' 'etc/securetty'
+        'etc/shadow' 'etc/shells')
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'issue' 'ld.so.conf' 'locale.sh' 'motd' 'nsswitch.conf' 'os-release'
         'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl'
         'sysusers' 'tmpfiles')
-replaces=('filesystem')
+conflicts=('filesystem')
+provides=('filesystem=2020.09.03')
 sha512sums=('d73fd912071588f46a92dd55e0e1e6fabd078876f6089aa6b05b79e52c03e58aa90a8bc18e5346e588b18295187cdb40dc69916b0e478a901d09b9ba4fd94ff5'
             '46e17cf2b19377c9849d42012cf2ba920801c5b3d54fc09b2805c0e07acb14b4f6814b4fa7d476ea8543cafc6e7de115bd371fc807fc23517174365c84ab3762'
             'e0b1230e16444c6483c067691453bcd8ca9cbbedd45b3834350b41e477bdf91db7663da55092975c573c763e17107b1ae7c69c4bb9309096e204b81d97f4febf'
@@ -16,7 +22,7 @@ sha512sums=('d73fd912071588f46a92dd55e0e1e6fabd078876f6089aa6b05b79e52c03e58aa90
             '2bc2e0373db2d589d806c16918fb97a7212c65d1bde6c9ef90372194979b7a4539aee530c5077adba66ccab284332bad0340333480f103495768517deaf52259'
             '80d46df5700438df884704901b7b1d4cebd4bb65c82871a48c03f3a47976efc88b52ea4983b6a09538bbb62ae3cadf08c38e4dd49e2fa700d6f627f4c4820770'
             'b6ee380fb17f6bc714a7174a942a76804790b8bed4277b39b277b6324c74365b4b15d298339c2292efa026b50981f3896aa6bcf9b25f143899f16e370d5039c4'
-            '057b1ed7bd45a8e69f0776101996540355a9e65922abdfb919a080c858c190bffe606d19af7769fb77197c3a303b18cad2c555d8b2974dfca590d24f93fe35cd'
+            '34e7d30b107275cbd30140ebbd619d26e343347792d1d0fc684ce7a91d7fc1f3f670fc1625070ad669b77c2160738a75a2cb3f78ac7b21bfb7dec03fde0f606c'
             '489a440750cab754d3d0769e28e75723868a6d246647b9800f5113edb0178c535b7c415d8ce8697cc60c28c1ee91dcd37a17482017c42ce9139818f66bf84a77'
             '24899489c38ab711f239f62be98ffde9afc4b620773a01896ed5455d01f60b7ad6a1366892cbb23d6695cd45eceb54b59e8cfa29acbf9c2c9356bba5c495193b'
             'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e'
