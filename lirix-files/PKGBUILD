@@ -99,7 +99,7 @@ package() {
 	ln -s bin usr/sbin
 
 	# Add /usr/people symlink
-	ln -s home usr/people
+	ln -s usr/people home
 
 	# Setup /usr/local hierarchy
 	for d in bin etc games include lib man sbin share src; do
