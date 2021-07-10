@@ -10,8 +10,10 @@ libjpeg6-turbo
 ncurses5-compat-libs
 noto-fonts
 noto-fonts-extra
+ttf-dejavu
 gdm
 networkmanager
+sgi-openinventor
 xorg-server
 xorg-server-common
 xorg-server-devel
@@ -66,7 +68,9 @@ xorg-xwininfo
 xorg-xwud
 xorgproto
 xorg-xclock
+xorg-xcalc
 htop
+nano
 vim
 pavucontrol
 firefox
