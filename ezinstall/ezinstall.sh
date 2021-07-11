@@ -64,12 +64,12 @@ ezautopart() {
 		if ezconfirm "Selecting yes now WILL cause data loss.\nContinue?"; then
 			recswapend=$(( $recswapsize + 130))MiB
 
-			parted --script "${1}" -a optimal -- mklabel dos \
+			parted --script "${1}" -a optimal -- mklabel msdos \
 			mkpart primary linux-swap 512MiB ${recswapend} \
-			set 1 swap on \
 			mkpart primary ext4 ${recswapend} 100%
 
-			sfdisk --change-id ${1} 2 83
+			sfdisk --part-type ${1} 2 83
+			sfdisk --part-type ${1} 1 82
 
 			partlist=$(lsblk -plnx size $device -o name,size | grep -Ev "boot|rpmb|loop" | sort | tail -n +2)
 			swappartition=$(echo $partlist | cut -d ' ' -f 1)
