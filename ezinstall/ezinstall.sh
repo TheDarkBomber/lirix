@@ -12,6 +12,47 @@ ezconfirm() {
 	dialog --stdout --aspect 120 --yesno "$@" 0 0
 }
 
+ezbtrfs() {
+	btsubvols="\n/\n/usr/people\n/var/log"
+	ezmessage "Customising BTRFS subvolumes not yet implemented, will create subvolumes: ${btsubvols}"
+	mkfs.btrfs -f "$1"
+	mount -v "$1" /mnt/lirix
+	btrfs su cr /mnt/lirix/@
+	btrfs su cr /mnt/lirix/@usrpeople
+	btrfs su cr /mnt/lirix/@varlog
+	umount /mnt/lirix
+	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@ "$1" /mnt/lirix
+	mkdir -pv /mnt/lirix/{usr/people,var/log}
+	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@usrpeople "$1" /mnt/lirix/usr/people
+	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@varlog "$1" /mnt/lirix/var/log
+	ezmessage "Created BTRFS filesystem on $1"
+}
+
+ezfilesystem() {
+	ezfs=$(dialog --stdout --aspect 120 --no-cancel --menu "Select filesystem to use for Lirix" 0 0 0 "BTRFS" "Stable filesystem that uses B-Trees. Very good." "XFS" "Default filesystem for SGI's IRIX. Journaling cannot be disabled." "EXT4" "Default filesystem for many Linux distributions. Use if uncomfortable with other options.")
+	case $ezfs in
+		"BTRFS")
+			ezbtrfs $1
+			;;
+		
+		"XFS")
+			mkfs.xfs -f -m bigtime=1 "$1"
+			ezmessage "Created XFS filesystem on $1"
+			mount -v "$1" /mnt/lirix
+			;;
+		
+		"EXT4")
+			mkfs.ext4 "$1"
+			ezmessage "Created EXT4 filesystem on $1"
+			mount -v "$1" /mnt/lirix
+			;;
+
+		*)
+			exit 2;
+			;;
+	esac
+}
+
 ezautopart() {
 	ezmessage "EZAutopartitioning selected.\nWill partition device $1"
 	if [ -d "/sys/firmware/efi/efivars" ]; then
@@ -41,12 +82,11 @@ ezautopart() {
 
 			mkfs.vfat -F32 "${bootpartition}"
 			mkswap "${swappartition}"
-			mkfs.ext4 "${lirixpartition}"
 
 			ezmessage "EZAutopartitioning complete."
 			swapon "${swappartition}"
 			mkdir -pv /mnt/lirix
-			mount -v "${lirixpartition}" /mnt/lirix
+			ezfilesystem "${lirixpartition}"
 			mkdir -pv /mnt/lirix/boot
 			mount -v "${bootpartition}" /mnt/lirix/boot
 
@@ -76,12 +116,11 @@ ezautopart() {
 			lirixpartition=$(echo $partlist | cut -d ' ' -f 3)
 
 			mkswap "${swappartition}"
-			mkfs.ext4 "${lirixpartition}"
 
 			ezmessage "EZAutopartitioning complete."
 			swapon "${swappartition}"
 			mkdir -pv /mnt/lirix/
-			mount -v "${lirixpartition}" /mnt/lirix
+			ezfilesystem "${lirixpartition}"
 			mkdir -pv /mnt/lirix/boot
 
 			ezmessage $partlist
@@ -119,8 +158,7 @@ if [[ "$autopart" != "value" ]]; then
 	lirixpartition=$(dialog --stdout --aspect 120 --no-cancel --menu "Select Lirix partition" 0 0 0 ${partlist});
 
 	mkdir -pv /mnt/lirix
-	mkfs.ext4 $lirixpartition
-	mount -v $lirixpartition /mnt/lirix
+	ezfilesystem "${lirixpartition}"
 	mkdir -pv /mnt/lirix/boot
 
 	if [[ "$bootpartition" != "" ]]; then
@@ -193,6 +231,7 @@ else
 	arch-chroot /mnt/lirix grub-install --target=i386-pc "$device"
 fi
 arch-chroot /mnt/lirix grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt/lirix mkinitcpio -P
 
 
 if ezconfirm "Lirix setup complete. Reboot now?"; then
