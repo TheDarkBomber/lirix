@@ -177,12 +177,24 @@ unsquashfs -f -d /mnt/lirix /opt/lirix/rootfs.squashfs
 ezmessage "Installation complete. Setup will now continue."
 genfstab -U /mnt/lirix >> /mnt/lirix/etc/fstab
 
-hostname=$(dialog --stdout --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0); 
+while ! [[ "$hostname" =~ ^[a-z-]*$ ]]; do
+	hostname=$(dialog --stdout --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
+	if ! [[ "$hostname" =~ ^[a-z-]*$ ]]; then
+		ezmessage "Hostname must only contain lowercase letters or the dash (-) symbol."
+	fi
+done
+
 if [[ "$hostname" == "" ]]; then
 	hostname="apioform-hive"
 fi
 
-lirixuser=$(dialog --stdout --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
+while ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; do
+	lirixuser=$(dialog --stdout --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
+	if ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; then
+		ezmessage "Username must only contain lowercase letters or the dash (-) symbol."
+	fi
+done
+
 if [[ "$lirixuser" == "" ]]; then
 	lirixuser="aamoo"
 fi
