@@ -177,6 +177,7 @@ unsquashfs -f -d /mnt/lirix /opt/lirix/rootfs.squashfs
 ezmessage "Installation complete. Setup will now continue."
 genfstab -U /mnt/lirix >> /mnt/lirix/etc/fstab
 
+hostname="3"
 while ! [[ "$hostname" =~ ^[a-z-]*$ ]]; do
 	hostname=$(dialog --stdout --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
 	if ! [[ "$hostname" =~ ^[a-z-]*$ ]]; then
@@ -188,6 +189,7 @@ if [[ "$hostname" == "" ]]; then
 	hostname="apioform-hive"
 fi
 
+lirixuser="3"
 while ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; do
 	lirixuser=$(dialog --stdout --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
 	if ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; then
