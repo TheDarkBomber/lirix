@@ -75,7 +75,7 @@ ezautopart() {
 			sgdisk -t 1:ef00 ${1}
 			sgdisk -t 3:8304 ${1}
 
-			partlist=$(lsblk -plnx size $device -o name,size | grep -Ev "boot|rpmb|loop" | sort | tail -n +2)
+			partlist=$(lsblk -plnx name $device -o name,size | grep -Ev "boot|rpmb|loop" | tail -n +2)
 			bootpartition=$(echo $partlist | cut -d ' ' -f 1)
 			swappartition=$(echo $partlist | cut -d ' ' -f 3)
 			lirixpartition=$(echo $partlist | cut -d ' ' -f 5)
@@ -89,8 +89,6 @@ ezautopart() {
 			ezfilesystem "${lirixpartition}"
 			mkdir -pv /mnt/lirix/boot
 			mount -v "${bootpartition}" /mnt/lirix/boot
-
-			ezmessage $partlist
 		else
 			exit 1;
 		fi
@@ -105,13 +103,13 @@ ezautopart() {
 			recswapend=$(( $recswapsize + 130))MiB
 
 			parted --script "${1}" -a optimal -- mklabel msdos \
-			mkpart primary linux-swap 512MiB ${recswapend} \
+			mkpart primary linux-swap 1MiB ${recswapend} \
 			mkpart primary ext4 ${recswapend} 100%
 
 			sfdisk --part-type ${1} 2 83
 			sfdisk --part-type ${1} 1 82
 
-			partlist=$(lsblk -plnx size $device -o name,size | grep -Ev "boot|rpmb|loop" | sort | tail -n +2)
+			partlist=$(lsblk -plnx name $device -o name,size | grep -Ev "boot|rpmb|loop" | tail -n +2)
 			swappartition=$(echo $partlist | cut -d ' ' -f 1)
 			lirixpartition=$(echo $partlist | cut -d ' ' -f 3)
 
@@ -122,8 +120,6 @@ ezautopart() {
 			mkdir -pv /mnt/lirix/
 			ezfilesystem "${lirixpartition}"
 			mkdir -pv /mnt/lirix/boot
-
-			ezmessage $partlist
 		else
 			exit 1;
 		fi
@@ -135,7 +131,7 @@ if ! ezconfirm "Would you like to install Lirix at this moment?"; then
 	exit 0;
 fi
 
-devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
+devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
 if ! device=$(dialog --stdout --aspect 120 --menu "Select installation disk" 0 0 0 ${devicelist}); then
 	exit 1;
 else
@@ -150,7 +146,7 @@ else
 fi
 
 if [[ "$autopart" != "value" ]]; then
-	partlist=$(lsblk -plnx size $device -o name,size | grep -Ev "boot|rpmb|loop" | sort | tail -n +2)
+	partlist=$(lsblk -plnx name $device -o name,size | grep -Ev "boot|rpmb|loop" | tail -n +2)
 	if [ -d "/sys/firmware/efi/efivars" ]; then
 		bootpartition=$(dialog --stdout --aspect 120 --no-cancel --menu "Select boot partition" 0 0 0 ${partlist})
 	fi
