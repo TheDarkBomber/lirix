@@ -62,7 +62,11 @@ package() {
 		install -m600 "$srcdir"/$f etc/
 		install -m600 "$srcdir"/$f usr/share/factory/etc/
 	done
-	touch etc/arch-release
+	touch etc/lirix-release
+	echo "Lirix BETA // rolling" > etc/lirix-release
+	# Trick /opt/MaXX/bin/tellversion
+	ln -s etc/lirix-release etc/redhat-release
+	
 	install -m644 "$srcdir"/locale.sh etc/profile.d/locale.sh
 	install -Dm644 "$srcdir"/os-release usr/lib/os-release
 
