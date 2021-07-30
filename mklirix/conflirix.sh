@@ -1,5 +1,6 @@
 systemctl enable lightdm
 systemctl enable NetworkManager
+systemctl enable cups
 sed -i 's/#greeter-session=example-gtk-greeter/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Lirix"/' /etc/default/grub
