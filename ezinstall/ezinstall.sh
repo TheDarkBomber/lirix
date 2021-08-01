@@ -3,13 +3,14 @@
 # Licensed under the BSD 3-Clause License; for more information, see LICENSE.
 
 echo "Installer for the Lirix distribution of XFree86/Linux"
+ezbt=`cat /etc/lirix-release`
 
 ezmessage() {
-	dialog --stdout --aspect 120 --msgbox "$@" 0 0
+	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --msgbox "$@" 0 0
 }
 
 ezconfirm() {
-	dialog --stdout --aspect 120 --yesno "$@" 0 0
+	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --yesno "$@" 0 0
 }
 
 ezbtrfs() {
@@ -29,7 +30,7 @@ ezbtrfs() {
 }
 
 ezfilesystem() {
-	ezfs=$(dialog --stdout --aspect 120 --no-cancel --menu "Select filesystem to use for Lirix" 0 0 0 "BTRFS" "Stable filesystem that uses B-Trees. Very good." "XFS" "Default filesystem for SGI's IRIX. Journaling cannot be disabled." "EXT4" "Default filesystem for many Linux distributions. Use if uncomfortable with other options.")
+	ezfs=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select filesystem to use for Lirix" 0 0 0 "BTRFS" "Stable filesystem that uses B-Trees. Very good." "XFS" "Default filesystem for SGI's IRIX. Journaling cannot be disabled." "EXT4" "Default filesystem for many Linux distributions. Use if uncomfortable with other options.")
 	case $ezfs in
 		"BTRFS")
 			ezbtrfs $1
@@ -132,7 +133,7 @@ if ! ezconfirm "Would you like to install Lirix at this moment?"; then
 fi
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
-if ! device=$(dialog --stdout --aspect 120 --menu "Select installation disk" 0 0 0 ${devicelist}); then
+if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "Select installation disk" 0 0 0 ${devicelist}); then
 	exit 1;
 else
 	if ezconfirm "Do you wish to partition $device?"; then
@@ -148,10 +149,10 @@ fi
 if [[ "$autopart" != "value" ]]; then
 	partlist=$(lsblk -plnx name $device -o name,size | grep -Ev "boot|rpmb|loop" | tail -n +2)
 	if [ -d "/sys/firmware/efi/efivars" ]; then
-		bootpartition=$(dialog --stdout --aspect 120 --no-cancel --menu "Select boot partition" 0 0 0 ${partlist})
+		bootpartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --no-cancel --menu "Select boot partition" 0 0 0 ${partlist})
 	fi
-	swappartition=$(dialog --stdout --aspect 120 --menu "Select swap partition" 0 0 0 ${partlist});
-	lirixpartition=$(dialog --stdout --aspect 120 --no-cancel --menu "Select Lirix partition" 0 0 0 ${partlist});
+	swappartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "Select swap partition" 0 0 0 ${partlist});
+	lirixpartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --no-cancel --menu "Select Lirix partition" 0 0 0 ${partlist});
 
 	mkdir -pv /mnt/lirix
 	ezfilesystem "${lirixpartition}"
@@ -175,7 +176,7 @@ genfstab -U /mnt/lirix >> /mnt/lirix/etc/fstab
 
 hostname="3"
 while ! [[ "$hostname" =~ ^[a-z-]*$ ]]; do
-	hostname=$(dialog --stdout --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
+	hostname=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
 	if ! [[ "$hostname" =~ ^[a-z-]*$ ]]; then
 		ezmessage "Hostname must only contain lowercase letters or the dash (-) symbol."
 	fi
@@ -187,7 +188,7 @@ fi
 
 lirixuser="3"
 while ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; do
-	lirixuser=$(dialog --stdout --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
+	lirixuser=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
 	if ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; then
 		ezmessage "Username must only contain lowercase letters or the dash (-) symbol."
 	fi
@@ -201,13 +202,13 @@ lirixpasswd="apa"
 lirixpasswdconf="aaa"
 
 while ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; do
-	lirixpasswd=$(dialog --stdout --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
+	lirixpasswd=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
 	if [[ "$lirixpasswd" == "" ]]; then
 		lirixpasswd="apioforms"
 		lirixpasswdconf="apioforms"
 		break;
 	fi
-	lirixpasswdconf=$(dialog --stdout --passwordbox "Me password again." 0 0)
+	lirixpasswdconf=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
 	if ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; then
 		ezmessage "Passwords do NOT match!!"
 	fi
