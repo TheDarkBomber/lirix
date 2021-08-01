@@ -17,6 +17,7 @@ sgi-openinventor
 alsa-utils
 tkpacman
 cups
+dialog
 xorg-server
 xorg-server-common
 xorg-server-devel
