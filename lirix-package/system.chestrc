@@ -7,6 +7,8 @@ Menu ToolChest
 {
 	"Desktop"	f.menu	Desktop
 	separator	f.separator
+	"Selected"	f.menu	Selected
+	separator	f.separator
 	"Internet"	f.menu	Internet
 	separator	f.separator
 	"Find"		f.menu	Find
@@ -63,7 +65,7 @@ Menu Customize
 	"Utilities"		f.checkexec.sh.le "dtutilities"
 	separator		f.separator
 	"Background"		f.menu Backgrounds
-	"Color Schemes"		f.checkexec.sh.le "$MAXX_BIN/winterm DialogSchemeSelect.sh"
+	"Color Schemes"		f.checkexec.sh.le "$MAXX_BIN/winterm scheme_selector.sh"
 	"Screen Saver"		f.checkexec.sh "xscreensaver-command -demo"
 	"Classic Look"		f.exec "$MAXX_BIN/switch-classic"
 	"Modern Look"		f.exec "$MAXX_BIN/switch-modern"
