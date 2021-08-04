@@ -1,0 +1,27 @@
+pkgname=lirix
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Lirix distribution-maintenance package'
+arch=('x86_64')
+license=('BSD3')
+source=('syncrecpkg.sh' 
+        'conflirix.sh'
+		'mklirix.sh'
+		'packages'
+		'pacman.conf')
+sha256sums=('9243471b5bdff35b939fb091846db532c32718d321c57a716a0e44c99b6ad584'
+            '221fe034f8e5038f449a699b0e734e8f82f4b2757da77767ec1d9b982840c719'
+            'e2d2bfce136de936ff77dc266d7774af4cca9229b93e5b8a46c816a3201d6ae6'
+            '431db58130905730893d13303a15799a50a672f3a19b51e2aff8462ff624a3a2'
+            '1eb17d5753db769147c7ce0b080b16977114977ffb40e1ec00eba5556b0cb1dc')
+
+package() {
+	cd "$pkgdir"
+	install -d -m755 opt/lirix
+	install -m644 "$srcdir"/syncrecpkg.sh opt/lirix/syncrecpkg
+	install -D -m644 "$srcdir"/conflirix.sh opt/lirix/mklirix/conflirix.sh
+	install -m644 "$srcdir"/mklirix.sh opt/lirix/mklirix/mklirix.sh
+	install -m644 "$srcdir"/packages opt/lirix/mklirix/packages
+	install -m644 "$srcdir"/pacman.conf opt/lirix/mklirix/pacman.conf
+	chmod +x opt/lirix/syncrecpkg
+}
