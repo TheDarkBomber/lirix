@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Type = Package
+Target = noto-fonts
+
+[Action]
+Description = Modern Look & Feel Font Warning
+When = PreTransaction
+Depends = dialog
+Exec = /usr/bin/dialog --stdout --aspect 120 --backtitle "FONT WARNING" --msgbox "Noto Sans is INCOMPATIBLE with Modern Look & Feel. Modern L&F may continue to work but your aesthetic experience will be degraded." 0 0
