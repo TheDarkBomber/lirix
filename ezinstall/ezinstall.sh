@@ -130,7 +130,7 @@ ezautopart() {
 ezadduser() {
 	newlirixuser="3"
 	while ! [[ "$newlirixuser" =~ ^[a-z-]+$ ]]; do
-		newlirixuser=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter username for new user" 0 0);
+		newlirixuser=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter username for new user" 0 0);
 		if ! [[ "$newlirixuser" =~ ^[a-z-]+$ ]]; then
 			ezmessage "Username must only contain lowercase letters or the dash (-) symbol and must not be empty."
 		fi
@@ -141,26 +141,26 @@ ezadduser() {
 	newlirixpasswdconf="aaa"
 
 	while ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; do
-		newlirixpasswd=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
+		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
 		if [[ "$newlirixpasswd" == "" ]]; then
 			newlirixpasswd="apioforms"
 			newlirixpasswdconf="apioforms"
 			break;
 		fi
-		newlirixpasswdconf=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
+		newlirixpasswdconf=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
 		if ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; then
 			ezmessage "Passwords do NOT match!!"
 		fi
 	done
 
-	ezuserdescription=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${newlirixuser}" 0 0 "${newlirixuser}")
+	ezuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${newlirixuser}" 0 0 "${newlirixuser}")
 
 	ezgroups="uucp,video,audio,storage,games,input"
 	if ezconfirm "Do you wish to enable administrative (sudo) privileges for this user?"; then
 		ezgroups="wheel,${ezgroups}"
 	fi
 
-	ezhomedir=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter home directory for user ${newlirixuser}" 0 0 "/usr/people/${newlirixuser}")
+	ezhomedir=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter home directory for user ${newlirixuser}" 0 0 "/usr/people/${newlirixuser}")
 
 	if ezconfirm "Do you want this user to be able to login?"; then
 		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" "$lirixuser"
@@ -220,7 +220,7 @@ genfstab -U /mnt/lirix >> /mnt/lirix/etc/fstab
 
 hostname="3"
 while ! [[ "$hostname" =~ ^[a-z-]*$ ]]; do
-	hostname=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
+	hostname=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
 	if ! [[ "$hostname" =~ ^[a-z-]*$ ]]; then
 		ezmessage "Hostname must only contain lowercase letters or the dash (-) symbol."
 	fi
@@ -232,7 +232,7 @@ fi
 
 lirixuser="3"
 while ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; do
-	lirixuser=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
+	lirixuser=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
 	if ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; then
 		ezmessage "Username must only contain lowercase letters or the dash (-) symbol."
 	fi
@@ -246,19 +246,19 @@ lirixpasswd="apa"
 lirixpasswdconf="aaa"
 
 while ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; do
-	lirixpasswd=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
+	lirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
 	if [[ "$lirixpasswd" == "" ]]; then
 		lirixpasswd="apioforms"
 		lirixpasswdconf="apioforms"
 		break;
 	fi
-	lirixpasswdconf=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
+	lirixpasswdconf=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
 	if ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; then
 		ezmessage "Passwords do NOT match!!"
 	fi
 done
 
-lirixuserdescription=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${lirixuser}" 0 0 "${lirixuser}")
+lirixuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${lirixuser}" 0 0 "${lirixuser}")
 
 echo "${hostname}" >> /mnt/lirix/etc/hostname
 echo "127.0.0.1		localhost" >> /mnt/lirix/etc/hosts
