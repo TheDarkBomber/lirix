@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = grub
+
+[Action]
+Description = Correcting /etc/grub.d/10_linux by only using GRUB_DISTRIBUTOR as OS name
+When = PostTransaction
+Depends = lirix
+Exec = /usr/bin/sed -i 's/OS="${GRUB_DISTRIBUTOR} Linux"/OS="${GRUB_DISTRIBUTOR}"/' /etc/grub.d/10_linux
