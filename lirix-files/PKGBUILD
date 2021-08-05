@@ -63,7 +63,7 @@ package() {
 		install -m600 "$srcdir"/$f usr/share/factory/etc/
 	done
 	touch etc/lirix-release
-	echo "Lirix BETA // rolling" > etc/lirix-release
+	echo "Lirix GAMMA // rolling" > etc/lirix-release
 	# Trick /opt/MaXX/bin/tellversion
 	ln -s /etc/lirix-release etc/redhat-release
 	
