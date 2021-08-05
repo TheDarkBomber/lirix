@@ -3,6 +3,7 @@ base-devel
 linux
 grub
 lirix-files
+lirix
 lightdm
 lightdm-gtk-greeter
 maxxdesktop
