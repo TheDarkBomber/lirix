@@ -127,6 +127,50 @@ ezautopart() {
 	fi	
 }
 
+ezadduser() {
+	newlirixuser="3"
+	while ! [[ "$newlirixuser" =~ ^[a-z-]+$ ]]; do
+		newlirixuser=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter username for new user" 0 0);
+		if ! [[ "$newlirixuser" =~ ^[a-z-]+$ ]]; then
+			ezmessage "Username must only contain lowercase letters or the dash (-) symbol and must not be empty."
+		fi
+	done
+
+
+	newlirixpasswd="apa"
+	newlirixpasswdconf="aaa"
+
+	while ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; do
+		newlirixpasswd=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
+		if [[ "$newlirixpasswd" == "" ]]; then
+			newlirixpasswd="apioforms"
+			newlirixpasswdconf="apioforms"
+			break;
+		fi
+		newlirixpasswdconf=$(dialog --stdout --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
+		if ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; then
+			ezmessage "Passwords do NOT match!!"
+		fi
+	done
+
+	ezuserdescription=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${newlirixuser}" 0 0 "${newlirixuser}")
+
+	ezgroups="uucp,video,audio,storage,games,input"
+	if ezconfirm "Do you wish to enable administrative (sudo) privileges for this user?"; then
+		ezgroups="wheel,${ezgroups}"
+	fi
+
+	ezhomedir=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter home directory for user ${newlirixuser}" 0 0 "/usr/people/${newlirixuser}")
+
+	if ezconfirm "Do you want this user to be able to login?"; then
+		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" "$lirixuser"
+	else
+		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" -s /usr/bin/nologin "$lirixuser"
+	fi
+
+	echo "$newlirixuser:$newlirixpasswd" | chpasswd --root /mnt/lirix
+}
+
 ezmessage "Welcome to EZInstall, the installer for Lirix!"
 if ! ezconfirm "Would you like to install Lirix at this moment?"; then
 	exit 0;
@@ -214,10 +258,24 @@ while ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; do
 	fi
 done
 
+lirixuserdescription=$(dialog --stdout --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${lirixuser}" 0 0 "${lirixuser}")
+
 echo "${hostname}" >> /mnt/lirix/etc/hostname
 echo "127.0.0.1		localhost" >> /mnt/lirix/etc/hosts
 echo "::1		localhost" >> /mnt/lirix/etc/hosts
 echo "127.0.0.1		${hostname}.localdomain		${hostname}" >> /mnt/lirix/etc/hosts
+
+arch-chroot /mnt/lirix useradd -d /usr/people/"$lirixuser" -mU -G wheel,uucp,video,audio,storage,games,input -k /etc/skel -c "$lirixuserdescription" "$lirixuser"
+echo "$lirixuser:$lirixpasswd" | chpasswd --root /mnt/lirix
+
+ezaddmoreusers="yes"
+while [[ "$ezaddmoreusers" == "yes" ]]; do
+	if ezconfirm "Do you wish to add an additional user?"; then
+		ezadduser
+	else
+		ezaddmoreusers="no"
+	fi
+done
 
 #regionlist=$(ls -1 /mnt/lirix/usr/share/zoneinfo)
 #timeregion=$(dialog --stdout --aspect 120 --no-cancel --menu "Select time region" 0 0 0 ${regionlist});
@@ -232,9 +290,6 @@ sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /mnt/lirix/etc/locale.gen
 arch-chroot /mnt/lirix locale-gen
 touch /mnt/lirix/etc/locale.conf
 echo 'LANG=en_US.UTF-8' >> /mnt/lirix/etc/locale.conf
-
-arch-chroot /mnt/lirix useradd -d /usr/people/"$lirixuser" -mU -G wheel,uucp,video,audio,storage,games,input -k /etc/skel "$lirixuser"
-echo "$lirixuser:$lirixpasswd" | chpasswd --root /mnt/lirix
 
 if [ -d "/sys/firmware/efi/efivars" ]; then
 	arch-chroot /mnt/lirix grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
