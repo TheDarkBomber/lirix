@@ -9,14 +9,15 @@ source=('syncrecpkg.sh'
 		'mklirix.sh'
 		'packages'
 		'pacman.conf'
-		'grub-unlinux.hook')
+		'grub-unlinux.hook'
+		'noto-warning.hook')
 sha256sums=('9243471b5bdff35b939fb091846db532c32718d321c57a716a0e44c99b6ad584'
-            '221fe034f8e5038f449a699b0e734e8f82f4b2757da77767ec1d9b982840c719'
+            '86bd4e2620cace6e27dd0001491296dc3b2cb8fe45814acfd567068ab0ff41a2'
             'e2d2bfce136de936ff77dc266d7774af4cca9229b93e5b8a46c816a3201d6ae6'
-            'c762cdc964e4977b6acd63061df70c3c2b8ab2f4a349d2a1f1efd493972220f1'
+            '30f3a6f852c6c7958aef035ba928e6f4ec2ae1aa099e544ebbc68893d6b73afa'
             '1eb17d5753db769147c7ce0b080b16977114977ffb40e1ec00eba5556b0cb1dc'
-            'd090e8dba66b8430b0fd54587f14dd5b41e09c5f8e7e279f3f30c35444765665')
-
+            'd090e8dba66b8430b0fd54587f14dd5b41e09c5f8e7e279f3f30c35444765665'
+            '7311bb6dac6486fe3c883393fd2edb7970024ecb3b7afd81f20ed7877c44de5f')
 package() {
 	cd "$pkgdir"
 	install -d -m755 opt/lirix
@@ -26,5 +27,6 @@ package() {
 	install -m644 "$srcdir"/packages opt/lirix/mklirix/packages
 	install -m644 "$srcdir"/pacman.conf opt/lirix/mklirix/pacman.conf
 	install -D -m644 "$srcdir"/grub-unlinux.hook usr/share/libalpm/hooks/grub-unlinux.hook
+	install -m644 "$srcdir"/noto-warning.hook usr/share/libalpm/hooks/noto-warning.hook
 	chmod +x opt/lirix/syncrecpkg
 }
