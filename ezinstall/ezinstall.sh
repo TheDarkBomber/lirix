@@ -160,7 +160,7 @@ ezadduser() {
 	newlirixpasswdconf="aaa"
 
 	while ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; do
-		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
+		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${newlirixuser}\n(default is apioforms)" 0 0)
 		if [[ "$newlirixpasswd" == "" ]]; then
 			newlirixpasswd="apioforms"
 			newlirixpasswdconf="apioforms"
@@ -182,9 +182,9 @@ ezadduser() {
 	ezhomedir=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter home directory for user ${newlirixuser}" 0 0 "/usr/people/${newlirixuser}")
 
 	if ezconfirm "Do you want this user to be able to login?"; then
-		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" "$lirixuser"
+		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" "$newlirixuser"
 	else
-		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" -s /usr/bin/nologin "$lirixuser"
+		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" -s /usr/bin/nologin "$newlirixuser"
 	fi
 
 	echo "$newlirixuser:$newlirixpasswd" | chpasswd --root /mnt/lirix
