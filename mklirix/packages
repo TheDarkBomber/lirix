@@ -1,6 +1,10 @@
 base
 base-devel
 linux
+linux-headers
+linux-firmware
+amd-ucode
+intel-ucode
 grub
 lirix-files
 lirix
