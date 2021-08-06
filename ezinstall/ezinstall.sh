@@ -13,9 +13,13 @@ ezconfirm() {
 	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --yesno "$@" 0 0
 }
 
+ezconfirmno() {
+	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --defaultno --yesno "$@" 0 0
+}
+
 ezbtrfs() {
 	btsubvols="\n/\n/usr/people\n/var/log"
-	ezmessage "Customising BTRFS subvolumes not yet implemented, will create subvolumes: ${btsubvols}"
+	ezmessage "Will create subvolumes: ${btsubvols}"
 	mkfs.btrfs -f "$1"
 	mount -v "$1" /mnt/lirix
 	btrfs su cr /mnt/lirix/@
@@ -30,7 +34,7 @@ ezbtrfs() {
 }
 
 ezfilesystem() {
-	ezfs=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select filesystem to use for Lirix" 0 0 0 "BTRFS" "Stable filesystem that uses B-Trees. Very good." "XFS" "Default filesystem for SGI's IRIX. Journaling cannot be disabled." "EXT4" "Default filesystem for many Linux distributions. Use if uncomfortable with other options.")
+	ezfs=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select filesystem to use for Lirix" 0 0 0 "BTRFS" "Stable filesystem that uses B-Trees. Very good." "XFS" "Default filesystem for SGI's IRIX. Journaling cannot be disabled." "EXT4" "Default filesystem for many Linux distributions. Use if uncomfortable with other options." "Shell" "Manually format partition using a shell.")
 	case $ezfs in
 		"BTRFS")
 			ezbtrfs $1
@@ -47,6 +51,15 @@ ezfilesystem() {
 			ezmessage "Created EXT4 filesystem on $1"
 			mount -v "$1" /mnt/lirix
 			;;
+		
+		"Shell")
+			echo ">> Entering interactive Bourne Again Shell."
+			echo ">> Format partition $1 in whichever way you desire."
+			echo ">> The mountpoint for your Lirix installation is /mnt/lirix"
+			echo ">> Mount $1 to there when you have completed your manual formatting."
+			echo ">> To return to EZInstall, type exit."
+			/usr/bin/env PS1="\d \t [EZInstall] (\w) > " /bin/bash --norc -i
+			;;
 
 		*)
 			exit 2;
@@ -58,8 +71,14 @@ ezautopart() {
 	ezmessage "EZAutopartitioning selected.\nWill partition device $1"
 	if [ -d "/sys/firmware/efi/efivars" ]; then
 		ezmessage "UEFI detected. Will use GPT for partitioning."
-		if ezconfirm "Use fixed swap size 1024MiB?"; then
-			recswapsize=1024
+		if ezconfirmno "Specify swap size in MiB?"; then
+			recswapsize="N/A"
+			while ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; do
+				recswapsize=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter swap size" 0 0 "1024");
+				if ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; then
+					ezmessage "Swap size must be an integer!"
+				fi
+			done
 		else
 			recswapsize=$(free --mebi | awk '/Mem:/ {print $2}')
 		fi
@@ -211,6 +230,13 @@ if [[ "$autopart" != "value" ]]; then
 		mkswap $swappartition
 		swapon $swappartition
 	fi
+
+	if ezconfirmno "Would you like to enter an interactive shell to manually configure more advanced options before proceeding?"; then
+		echo ">> Entering interactive Bourne Again Shell."
+		echo ">> The root mountpoint of the Lirix installation is /mnt/lirix"
+		echo ">> Once complete, return to EZInstall by typing exit."
+		/usr/bin/env PS1="\d \t [EZInstall] (\w) > " /bin/bash --norc -i
+	fi
 fi
 
 ezmessage "Starting installation of Lirix. Setup will continue shortly hereafter."
@@ -270,7 +296,7 @@ echo "$lirixuser:$lirixpasswd" | chpasswd --root /mnt/lirix
 
 ezaddmoreusers="yes"
 while [[ "$ezaddmoreusers" == "yes" ]]; do
-	if ezconfirm "Do you wish to add an additional user?"; then
+	if ezconfirmno "Do you wish to add an additional user?"; then
 		ezadduser
 	else
 		ezaddmoreusers="no"
