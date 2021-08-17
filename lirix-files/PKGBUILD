@@ -12,7 +12,7 @@ backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'issue' 'ld.so.conf' 'locale.sh' 'motd' 'nsswitch.conf' 'os-release'
         'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl'
-        'sysusers' 'tmpfiles')
+        'sysusers' 'tmpfiles' 'lirix-banner-icon.png' 'lirix-banner.png' 'lirix-icon-bg.png' 'lirix-icon-nohex.png' 'lirix-icon.png' 'lirix-wordmark-bg.png' 'lirix-wordmark.png')
 conflicts=('filesystem')
 provides=('filesystem=2020.09.03')
 sha512sums=('d73fd912071588f46a92dd55e0e1e6fabd078876f6089aa6b05b79e52c03e58aa90a8bc18e5346e588b18295187cdb40dc69916b0e478a901d09b9ba4fd94ff5'
@@ -36,7 +36,14 @@ sha512sums=('d73fd912071588f46a92dd55e0e1e6fabd078876f6089aa6b05b79e52c03e58aa90
             '78a7485b3f24f1bec8ba74979cc0c32793419356af82013f6ed6865ee3b5cb04891db82b63c3a0436ba1e4941f93bd84a067ed7cce025fc02da937c47cca8dfa'
             'b74af5d5c6b2b504ca963666d5bdc0a47ac759992d692c3e0203fabaa4552c68d0cca3a5703b0f38062bf95b00dab0ec969e88c99126bb71482cf2d6f2b86a8f'
             '6c75e8ba2a025e3637b63cd8e352ccbd4585a80573915affc723ba292952fde1adab4eecb8ad0fb37e96da29a86af20c9c2c2a4aa20ba454b5e0d612508e2582'
-            'fa6cc065bd3b51a754583b36369ac4400355af61bb99b05dc61bd04344991b262bef645789569fbdf240113ec68103e144455c6cdf235a36c4f980e369ab1ec0')
+            'fa6cc065bd3b51a754583b36369ac4400355af61bb99b05dc61bd04344991b262bef645789569fbdf240113ec68103e144455c6cdf235a36c4f980e369ab1ec0'
+            'f58359188e1ec68bcaa4184d90210aa279dc7ed89155e85b7ef27a07bfd20538c8a90971cb4c122a9d33757c48ec4ce084d4e0cee3512b3c3f6083fc009808e4'
+            '37b567d4b73d69ad1875b3a6d740ff3d740c9c1b21cb5d1d644b6120f9ce2ad940e1f7bd277d3941d57f365118e9ad79c8eea6104ae467d70e5a8cfe41eab92d'
+            'da0bd221f93c8410054fa72f743fcdb19267e6bad92597751d63d7c82e1a470447820fbf5c658da8dea0d1547fd599dd9d8406835e169d16b8a7fdc697386432'
+            'c6c66baf16d0e16de835e6f907d11d8842931cddfd6c0959b1f9220ac4e52f73fe7c86c2e628d0895cc722df0b87393a3650173742b2a33f75ff131d6064a22a'
+            'f2636ef0f5f4364f38700910ddb8589442f08da6d5f8a305eee0ca442ece6d36287f0fca0ea2c13de40fe6c2d96dd74f8967fcfd4e818e27fee85e180c9a6f67'
+            '1b7dc412e4a38f502021888ff2b4d0327cd1d7ce6f834fd765572ab4389ce71184f6b08e24cd4e61fa467296ec5bd4c9e01a85bd998d08035fc3960b2af95841'
+            'f8ab734cf5816c80cd3af0a7ec982b98d139cc205bf2f40b310c3ca32d5f418990f01c846b755b2a1ddf34ba3a5e56ddb9388a428eeeaffd6a8f034f960aa110')
 
 package() {
 	cd "$pkgdir"
@@ -123,6 +130,11 @@ package() {
 	# Setup systemd.environment-generator
 	install -D -m755 "$srcdir"/env-generator usr/lib/systemd/system-environment-generators/10-arch
 	
-	install -Dm644 "$srcdir"/lirix.png usr/share/pixmaps/lirix.png
-	install -m644 "$srcdir"/lirix-logo.png usr/share/pixmaps/lirix-logo.png 
+	install -Dm644 "$srcdir"/lirix-banner-icon.png usr/share/pixmaps/lirix-logo.png
+	install -m644 "$srcdir"/lirix-banner.png usr/share/pixmaps/lirix-logo-ni.png
+	install -m644 "$srcdir"/lirix-icon-bg.png usr/share/pixmaps/lirix-bg.png
+	install -m644 "$srcdir"/lirix-icon-nohex.png usr/share/pixmaps/lirix-nh.png
+	install -m644 "$srcdir"/lirix-icon.png usr/share/pixmaps/lirix.png
+	install -m644 "$srcdir"/lirix-wordmark-bg.png usr/share/pixmaps/lirix-wordmark-bg.png
+	install -m644 "$srcdir"/lirix-wordmark.png usr/share/pixmaps/lirix-wordmark.png
 }
