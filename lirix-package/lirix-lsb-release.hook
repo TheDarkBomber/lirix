@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = lsb-release
+
+[Action]
+Description = LSB Release for Lirix
+When = PostTransaction
+Depends = lirix
+Exec = /usr/bin/bash /opt/lirix/lirix-lsb-release.sh

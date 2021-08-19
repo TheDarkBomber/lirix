@@ -1,32 +1,38 @@
 pkgname=lirix
 pkgver=1.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc='Lirix distribution-maintenance package'
 arch=('x86_64')
 license=('BSD3')
 source=('syncrecpkg.sh' 
+		'lirix-lsb-release.sh'
         'conflirix.sh'
 		'mklirix.sh'
 		'packages'
 		'pacman.conf'
 		'grub-unlinux.hook'
-		'noto-warning.hook')
+		'noto-warning.hook'
+		'lirix-lsb-release.hook')
 sha256sums=('9243471b5bdff35b939fb091846db532c32718d321c57a716a0e44c99b6ad584'
+            '07d7f22a72e22708805b0bc25e848ec2db4410ca80cd1746ae735c567dcc80cc'
             '86bd4e2620cace6e27dd0001491296dc3b2cb8fe45814acfd567068ab0ff41a2'
             'e2d2bfce136de936ff77dc266d7774af4cca9229b93e5b8a46c816a3201d6ae6'
             'b7ffccc592a96545c634ca84333c0ba3226d383347ccfadfd3382fb6454efd28'
             '1eb17d5753db769147c7ce0b080b16977114977ffb40e1ec00eba5556b0cb1dc'
             'd090e8dba66b8430b0fd54587f14dd5b41e09c5f8e7e279f3f30c35444765665'
-            '7311bb6dac6486fe3c883393fd2edb7970024ecb3b7afd81f20ed7877c44de5f')
+            '7311bb6dac6486fe3c883393fd2edb7970024ecb3b7afd81f20ed7877c44de5f'
+            'e4d365f26e02ad9898c7b85e8c9988b2c7309086696596f1b8c0b0c6b9a007d9')
 package() {
 	cd "$pkgdir"
 	install -d -m755 opt/lirix
 	install -m644 "$srcdir"/syncrecpkg.sh opt/lirix/syncrecpkg
+	install -m644 "$srcdir"/lirix-lsb-release.sh opt/lirix/lirix-lsb-release.sh
 	install -D -m644 "$srcdir"/conflirix.sh opt/lirix/mklirix/conflirix.sh
 	install -m644 "$srcdir"/mklirix.sh opt/lirix/mklirix/mklirix.sh
 	install -m644 "$srcdir"/packages opt/lirix/mklirix/packages
 	install -m644 "$srcdir"/pacman.conf opt/lirix/mklirix/pacman.conf
 	install -D -m644 "$srcdir"/grub-unlinux.hook usr/share/libalpm/hooks/grub-unlinux.hook
 	install -m644 "$srcdir"/noto-warning.hook usr/share/libalpm/hooks/noto-warning.hook
+	install -m644 "$srcdir"/lirix-lsb-release.hook usr/share/libalpm/hooks/lirix-lsb-release.hook
 	chmod +x opt/lirix/syncrecpkg
 }
