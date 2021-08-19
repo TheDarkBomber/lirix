@@ -5,6 +5,10 @@
 echo "Installer for the Lirix distribution of XFree86/Linux"
 ezbt=`cat /etc/lirix-release`
 
+mkdir -p /var/ezinstall
+exec 1> >(tee "/var/ezinstall/stdout.log")
+exec 2> >(tee "/var/ezinstall/stderr.log")
+
 ezmessage() {
 	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --msgbox "$@" 0 0
 }
