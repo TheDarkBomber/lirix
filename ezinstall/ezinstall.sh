@@ -308,7 +308,7 @@ while [[ "$ezaddmoreusers" == "yes" ]]; do
 done
 
 zonelist=$(find /usr/share/zoneinfo ! -type d | awk '1 ; {printf "-\n"}' | sed 's@/usr/share/zoneinfo/@@g')
-timeregion=$(dialog --stdout --aspect 120 --no-cancel --menu "Select timezone" 0 0 0 ${zonelist});
+timezone=$(dialog --stdout --aspect 120 --no-cancel --menu "Select timezone" 0 0 0 ${zonelist});
 
 ln -sfv /mnt/lirix/usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
 arch-chroot /mnt/lirix hwclock --systohc
