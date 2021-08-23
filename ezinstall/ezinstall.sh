@@ -307,14 +307,11 @@ while [[ "$ezaddmoreusers" == "yes" ]]; do
 	fi
 done
 
-#regionlist=$(ls -1 /mnt/lirix/usr/share/zoneinfo)
-#timeregion=$(dialog --stdout --aspect 120 --no-cancel --menu "Select time region" 0 0 0 ${regionlist});
+zonelist=$(find /usr/share/zoneinfo ! -type d | awk '1 ; {printf "-\n"}' | sed 's@/usr/share/zoneinfo/@@g')
+timeregion=$(dialog --stdout --aspect 120 --no-cancel --menu "Select timezone" 0 0 0 ${zonelist});
 
-#citylist=$(ls -1 /mnt/lirix/usr/share/zoneinfo/${timeregion})
-#timecity=$(dialog --stdout --aspect 120 --no-cancel --menu "Select time city" 0 0 0 ${citylist});
-
-#ln -sfv /mnt/lirix/usr/share/zoneinfo/${timeregion}/${timecity} /mnt/lirix/etc/localtime
-#arch-chroot /mnt/lirix hwclock --systohc
+ln -sfv /mnt/lirix/usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
+arch-chroot /mnt/lirix hwclock --systohc
 
 sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /mnt/lirix/etc/locale.gen
 arch-chroot /mnt/lirix locale-gen
