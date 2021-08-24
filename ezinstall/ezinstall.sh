@@ -308,15 +308,39 @@ while [[ "$ezaddmoreusers" == "yes" ]]; do
 done
 
 zonelist=$(find /usr/share/zoneinfo ! -type d | awk '1 ; {printf "-\n"}' | sed 's@/usr/share/zoneinfo/@@g')
-timezone=$(dialog --stdout --aspect 120 --no-cancel --menu "Select timezone" 0 0 0 ${zonelist});
+timezone=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select timezone" 0 0 0 ${zonelist});
 
 ln -sfv /mnt/lirix/usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
 arch-chroot /mnt/lirix hwclock --systohc
 
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /mnt/lirix/etc/locale.gen
+localelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g')
+checklistInDialogIsBad=()
+while IFS= read -r line; do
+	tests=$line
+    checklistInDialogIsBad+=("$line" "-" "off")
+done <<< "$localelist"
+IFS=" "
+locales=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --checklist "Select locale. To check a box, press the spacebar key. When you have completed your selection of locales, press the enter key." 0 0 0 "${checklistInDialogIsBad[@]}"})
+localenumber=$(echo -e "${locales}" | wc)
+if [[ "${localenumber}" == "0" ]]; then
+	locales="en_US"
+	localenumber="1"
+fi
+
+if ! [[ "${localenumber}" == "1"]]; then
+	localepreferencelist=$(echo -e "${locales}" | awk -v RS=" " '{print}' | awk '1 ; {printf "-\n"'})
+	preferredlocale=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select preferred locale" 0 0 0 "${localepreferencelist}")
+else
+	preferredlocale=locales
+fi
+
+for ezlocale in locales; do
+	sed -i 's/#${ezlocale}.UTF-8 UTF-8/${ezlocale}.UTF-8 UTF-8/' /mnt/lirix/etc/locale.gen
+done
+
 arch-chroot /mnt/lirix locale-gen
 touch /mnt/lirix/etc/locale.conf
-echo 'LANG=en_US.UTF-8' >> /mnt/lirix/etc/locale.conf
+echo 'LANG=${preferredlocale}.UTF-8' >> /mnt/lirix/etc/locale.conf
 
 if [ -d "/sys/firmware/efi/efivars" ]; then
 	arch-chroot /mnt/lirix grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
