@@ -118,8 +118,14 @@ ezautopart() {
 		fi
 	else
 		ezmessage "LegacyBIOS detected. Will use MBR for partitioning."
-		if ezconfirm "Use fixed swap size 1024MiB?"; then
-			recswapsize=1024
+		if ezconfirmno "Specify swap size in MiB?"; then
+			recswapsize="N/A"
+			while ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; do
+				recswapsize=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter swap size" 0 0 "1024");
+				if ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; then
+					ezmessage "Swap size must be an integer!"
+				fi
+			done
 		else
 			recswapsize=$(free --mebi | awk '/Mem:/ {print $2}')
 		fi
@@ -316,8 +322,7 @@ arch-chroot /mnt/lirix hwclock --systohc
 localelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g')
 checklistInDialogIsBad=()
 while IFS= read -r line; do
-	tests=$line
-    checklistInDialogIsBad+=("$line" "-" "off")
+	checklistInDialogIsBad+=("$line" "-" "off")
 done <<< "$localelist"
 IFS=" "
 locales=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --checklist "Select locale. To check a box, press the spacebar key. When you have completed your selection of locales, press the enter key." 0 0 0 "${checklistInDialogIsBad[@]}"})
