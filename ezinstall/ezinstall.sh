@@ -201,10 +201,6 @@ ezadduser() {
 }
 
 ezkeymap() {
-	keymaplist=$(localectl list-keymaps | awk '1; {printf "-\n"}')
-	keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select your keymap" 0 0 0 ${keymaplist})
-	localectl set-keymap "${keymap}"
-	cp -pv /etc/X11/xorg.conf.d/00-keyboard.conf /mnt/lirix/etc/X11.xorg.conf.d/00-keyboard.conf
 }
 
 ezmessage "Welcome to EZInstall, the installer for Lirix!"
@@ -212,7 +208,9 @@ if ! ezconfirm "Would you like to install Lirix at this moment?"; then
 	exit 0;
 fi
 
-ezkeymap
+keymaplist=$(localectl list-keymaps | awk '1; {printf "-\n"}')
+keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select your keymap" 0 0 0 ${keymaplist})
+localectl set-keymap "${keymap}"
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
 if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "Select installation disk" 0 0 0 ${devicelist}); then
@@ -262,6 +260,9 @@ ezmessage "Starting installation of Lirix. Setup will continue shortly hereafter
 unsquashfs -f -d /mnt/lirix /opt/lirix/rootfs.squashfs
 ezmessage "Installation complete. Setup will now continue."
 genfstab -U /mnt/lirix >> /mnt/lirix/etc/fstab
+
+cp -pv /etc/X11/xorg.conf.d/00-keyboard.conf /mnt/lirix/etc/X11/xorg.conf.d/00-keyboard.conf
+echo "KEYMAP=${keymap}" > /mnt/lirix/etc/vconsole.conf
 
 hostname="3"
 while ! [[ "$hostname" =~ ^[a-z-]*$ ]]; do
