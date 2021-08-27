@@ -200,10 +200,19 @@ ezadduser() {
 	echo "$newlirixuser:$newlirixpasswd" | chpasswd --root /mnt/lirix
 }
 
+ezkeymap() {
+	keymaplist=$(localectl list-keymaps | awk '1; {printf "-\n"}')
+	keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select your keymap" 0 0 0 ${keymaplist})
+	localectl set-keymap "${keymap}"
+	cp -pv /etc/X11/xorg.conf.d/00-keyboard.conf /mnt/lirix/etc/X11.xorg.conf.d/00-keyboard.conf
+}
+
 ezmessage "Welcome to EZInstall, the installer for Lirix!"
 if ! ezconfirm "Would you like to install Lirix at this moment?"; then
 	exit 0;
 fi
+
+ezkeymap
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
 if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "Select installation disk" 0 0 0 ${devicelist}); then
