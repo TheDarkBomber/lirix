@@ -1,0 +1,14 @@
+[Unit]
+Description=Starts script at TTY startup
+After=getty@ttyX.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/gettytab
+TTYPath=/dev/ttyX
+StandardInput=tty-force
+StandardOutput=inherit
+StandardError=inherit
+
+[Install]
+WantedBy=graphical.target

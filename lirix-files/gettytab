@@ -1,0 +1,2 @@
+#!/bin/sh
+setterm -clear all -background blue -bold on -store

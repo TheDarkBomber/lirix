@@ -1,6 +1,12 @@
 systemctl enable lightdm
 systemctl enable NetworkManager
 systemctl enable cups
+systemctl enable lirixgttab.tty1
+systemctl enable lirixgttab.tty2
+systemctl enable lirixgttab.tty3
+systemctl enable lirixgttab.tty4
+systemctl enable lirixgttab.tty5
+systemctl enable lirixgttab.tty6
 sed -i 's/#greeter-session=example-gtk-greeter/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Lirix"/' /etc/default/grub
