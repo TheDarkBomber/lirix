@@ -6,139 +6,150 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-29 18:28+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-08-29 18:03+0000\n"
+"Last-Translator: Victor Tran <vicr12345@gmail.com>\n"
+"Language-Team: Vietnamese <https://translate.vicr123.com/projects/lirix/"
+"ezinstall/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.2\n"
 
 #: ezinstall.sh:44
 msgid "Select filesystem to use for Lirix"
-msgstr ""
+msgstr "Chọn hệ thống tệp sử dụng với Lirix"
 
 #: ezinstall.sh:44
 msgid "Stable filesystem that uses B-Trees. Very good."
-msgstr ""
+msgstr "Hệ thống ổn định sử dụng \"B-Tree\". Rất hài lòng."
 
 #: ezinstall.sh:44
 msgid "Default filesystem for SGI's IRIX. Journaling cannot be disabled."
-msgstr ""
+msgstr "Hệ thống mặc định cho IRIX cửa SGI. Không thể vô hiệu nhật ký hệ thống."
 
 #: ezinstall.sh:44
 msgid ""
 "Default filesystem for many Linux distributions. Use if uncomfortable with "
 "other options."
 msgstr ""
+"Mẹ thống mặc định cho nhiều phân phối Linux. Sử dụng nếu không chắc chắn về "
+"hệ thống khác."
 
 #: ezinstall.sh:44
 msgid "Manually format partition using a shell."
-msgstr ""
+msgstr "Định dạng đĩa thủ công dùng đầu cuối."
 
 #: ezinstall.sh:63 ezinstall.sh:259
 msgid ">> Entering interactive Bourne Again Shell."
-msgstr ""
+msgstr ">> Vào Bourne Again Shell."
 
 #: ezinstall.sh:65
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
-msgstr ""
+msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 
 #: ezinstall.sh:67
 msgid ">> To return to EZInstall, type exit."
-msgstr ""
+msgstr ">> Để trở về EZInstall, gõ exit."
 
 #: ezinstall.sh:80
 msgid "UEFI detected. Will use GPT for partitioning."
-msgstr ""
+msgstr "Phát hiện UEFI. Sẽ sử dụng phân vùng GPT."
 
 #: ezinstall.sh:81 ezinstall.sh:124
 msgid "Specify swap size in MiB?"
-msgstr ""
+msgstr "Chọn kích cỡ phân vùng trao đổi (MiB)?"
 
 #: ezinstall.sh:84 ezinstall.sh:127
 msgid "Enter swap size"
-msgstr ""
+msgstr "Điền vào kích cỡ phân vùng trao đổi"
 
 #: ezinstall.sh:86 ezinstall.sh:129
 msgid "Swap size must be an integer!"
-msgstr ""
+msgstr "Kích cỡ phân vùng trao đổi là phải số nguyên!"
 
 #: ezinstall.sh:92 ezinstall.sh:135
 msgid "Selecting yes now WILL cause data loss.\\nContinue?"
 msgstr ""
+"Nếu bạn chọn \"Có\" đây, bạn có thể mất dữ liệu.\\n"
+"Tiếp tục?"
 
 #: ezinstall.sh:113 ezinstall.sh:151
 msgid "EZAutopartitioning complete."
-msgstr ""
+msgstr "Hoàn thành EZAutopartitioning."
 
 #: ezinstall.sh:123
 msgid "LegacyBIOS detected. Will use MBR for partitioning."
-msgstr ""
+msgstr "Phát hiện LegacyBIOS. Sẽ sử dụng phân vùng MBR."
 
 #: ezinstall.sh:165
 msgid "Enter username for new user"
-msgstr ""
+msgstr "Điền tên người dùng cho người dùng mới"
 
 #: ezinstall.sh:167
 msgid ""
 "Username must only contain lowercase letters or the dash (-) symbol and must "
 "not be empty."
 msgstr ""
+"Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-) "
+"và không thể để trống."
 
 #: ezinstall.sh:182 ezinstall.sh:308
 msgid "Me password again."
-msgstr ""
+msgstr "Mật khẩu lại."
 
 #: ezinstall.sh:184 ezinstall.sh:310
 msgid "Passwords do NOT match!!"
-msgstr ""
+msgstr "Mật khẩu không có khớp!!"
 
 #: ezinstall.sh:191
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
-msgstr ""
+msgstr "Bạn có muốn bắt quyền quản lý (sudo) cho người dùng này?"
 
 #: ezinstall.sh:197
 msgid "Do you want this user to be able to login?"
-msgstr ""
+msgstr "Bạn có muốn người dùng này có thể đăng nhập?"
 
 #: ezinstall.sh:213
 msgid "Welcome to EZInstall, the installer for Lirix!"
-msgstr ""
+msgstr "Chào mừng bạn với EZInstall, trình cài đặt cho Lirix!"
 
 #: ezinstall.sh:214
 msgid "Would you like to install Lirix at this moment?"
-msgstr ""
+msgstr "Bạn có muốn cài đặt Lirix ngay bây giờ?"
 
 #: ezinstall.sh:219
 msgid "Select your keymap"
-msgstr ""
+msgstr "Chọn bố trí bàn phím"
 
 #: ezinstall.sh:223
 msgid "Select installation disk"
-msgstr ""
+msgstr "Chọn đĩa để cài đặt vào"
 
 #: ezinstall.sh:239
 msgid "Select boot partition"
-msgstr ""
+msgstr "Chọn phân vùng khởi động"
 
 #: ezinstall.sh:241
 msgid "Select swap partition"
-msgstr ""
+msgstr "Chọn phân vùng trao đổi"
 
 #: ezinstall.sh:242
 msgid "Select Lirix partition"
-msgstr ""
+msgstr "Chọn phân vùng dành cho Lirix"
 
 #: ezinstall.sh:258
 msgid ""
 "Would you like to enter an interactive shell to manually configure more "
 "advanced options before proceeding?"
 msgstr ""
+"Bạn có muốn vào một đầu cuối để cấu hình tùy chọn nâng cao thủ công trước "
+"chị bạn tiếp tục?"
 
 #: ezinstall.sh:260
 msgid ">> The root mountpoint of the Lirix installation is /mnt/lirix"
-msgstr ""
+msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 
 #: ezinstall.sh:261
 msgid ">> Once complete, return to EZInstall by typing exit."
