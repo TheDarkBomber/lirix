@@ -9,6 +9,9 @@ mkdir -p /var/log/ezinstall
 exec 1> >(tee "/var/log/ezinstall/stdout.log")
 exec 2> >(tee "/var/log/ezinstall/stderr.log")
 
+TEXTDOMAINDIR=/usr/local/share/locale
+TEXTDOMAIN=/usr/bin/ezinstall
+
 ezmessage() {
 	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --msgbox "$@" 0 0
 }
@@ -23,7 +26,7 @@ ezconfirmno() {
 
 ezbtrfs() {
 	btsubvols="\n/\n/usr/people\n/var/log"
-	ezmessage "Will create subvolumes: ${btsubvols}"
+	ezmessage `gettext -s "Will create subvolumes: ${btsubvols}"`
 	mkfs.btrfs -f "$1"
 	mount -v "$1" /mnt/lirix
 	btrfs su cr /mnt/lirix/@
@@ -34,11 +37,11 @@ ezbtrfs() {
 	mkdir -pv /mnt/lirix/{usr/people,var/log}
 	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@usrpeople "$1" /mnt/lirix/usr/people
 	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@varlog "$1" /mnt/lirix/var/log
-	ezmessage "Created BTRFS filesystem on $1"
+	ezmessage `gettext -s "Created BTRFS filesystem on $1"`
 }
 
 ezfilesystem() {
-	ezfs=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select filesystem to use for Lirix" 0 0 0 "BTRFS" "Stable filesystem that uses B-Trees. Very good." "XFS" "Default filesystem for SGI's IRIX. Journaling cannot be disabled." "EXT4" "Default filesystem for many Linux distributions. Use if uncomfortable with other options." "Shell" "Manually format partition using a shell.")
+	ezfs=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu `gettext -s "Select filesystem to use for Lirix"` 0 0 0 "BTRFS" `gettext -s "Stable filesystem that uses B-Trees. Very good."` "XFS" `gettext -s "Default filesystem for SGI's IRIX. Journaling cannot be disabled."` "EXT4" `gettext -s "Default filesystem for many Linux distributions. Use if uncomfortable with other options."` "Shell" `gettext -s "Manually format partition using a shell."`)
 	case $ezfs in
 		"BTRFS")
 			ezbtrfs $1
@@ -46,22 +49,22 @@ ezfilesystem() {
 		
 		"XFS")
 			mkfs.xfs -f -m bigtime=1 "$1"
-			ezmessage "Created XFS filesystem on $1"
+			ezmessage `gettext -s "Created XFS filesystem on $1"`
 			mount -v "$1" /mnt/lirix
 			;;
 		
 		"EXT4")
 			mkfs.ext4 "$1"
-			ezmessage "Created EXT4 filesystem on $1"
+			ezmessage `gettext -s "Created EXT4 filesystem on $1"`
 			mount -v "$1" /mnt/lirix
 			;;
 		
 		"Shell")
-			echo ">> Entering interactive Bourne Again Shell."
-			echo ">> Format partition $1 in whichever way you desire."
-			echo ">> The mountpoint for your Lirix installation is /mnt/lirix"
-			echo ">> Mount $1 to there when you have completed your manual formatting."
-			echo ">> To return to EZInstall, type exit."
+			echo `gettext -s ">> Entering interactive Bourne Again Shell."`
+			echo `gettext -s ">> Format partition $1 in whichever way you desire."`
+			echo `gettext -s ">> The mountpoint for your Lirix installation is /mnt/lirix"`
+			echo `gettext -s ">> Mount $1 to there when you have completed your manual formatting."`
+			echo `gettext -s ">> To return to EZInstall, type exit."`
 			/usr/bin/env PS1="\d \t [EZInstall] (\w) > " /bin/bash --norc -i
 			;;
 
@@ -72,21 +75,21 @@ ezfilesystem() {
 }
 
 ezautopart() {
-	ezmessage "EZAutopartitioning selected.\nWill partition device $1"
+	ezmessage `gettext -s "EZAutopartitioning selected.\nWill partition device $1"`
 	if [ -d "/sys/firmware/efi/efivars" ]; then
-		ezmessage "UEFI detected. Will use GPT for partitioning."
-		if ezconfirmno "Specify swap size in MiB?"; then
+		ezmessage `gettext -s "UEFI detected. Will use GPT for partitioning."`
+		if ezconfirmno `gettext -s "Specify swap size in MiB?"`; then
 			recswapsize="N/A"
 			while ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; do
-				recswapsize=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter swap size" 0 0 "1024");
+				recswapsize=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter swap size"` 0 0 "1024");
 				if ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; then
-					ezmessage "Swap size must be an integer!"
+					ezmessage `gettext -s "Swap size must be an integer!"`
 				fi
 			done
 		else
 			recswapsize=$(free --mebi | awk '/Mem:/ {print $2}')
 		fi
-		if ezconfirm "Selecting yes now WILL cause data loss.\nContinue?"; then
+		if ezconfirm `gettext -s "Selecting yes now WILL cause data loss.\nContinue?"`; then
 			recswapend=$(( $recswapsize + 130))MiB
 
 			parted --script "${1}" -a optimal -- mklabel gpt \
@@ -107,7 +110,7 @@ ezautopart() {
 			mkfs.vfat -F32 "${bootpartition}"
 			mkswap "${swappartition}"
 
-			ezmessage "EZAutopartitioning complete."
+			ezmessage `gettext -s "EZAutopartitioning complete."`
 			swapon "${swappartition}"
 			mkdir -pv /mnt/lirix
 			ezfilesystem "${lirixpartition}"
@@ -117,19 +120,19 @@ ezautopart() {
 			exit 1;
 		fi
 	else
-		ezmessage "LegacyBIOS detected. Will use MBR for partitioning."
-		if ezconfirmno "Specify swap size in MiB?"; then
+		ezmessage `gettext -s "LegacyBIOS detected. Will use MBR for partitioning."`
+		if ezconfirmno `gettext -s "Specify swap size in MiB?"`; then
 			recswapsize="N/A"
 			while ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; do
-				recswapsize=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter swap size" 0 0 "1024");
+				recswapsize=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter swap size"` 0 0 "1024");
 				if ! [[ "$recswapsize" =~ ^[0-9]+$ ]]; then
-					ezmessage "Swap size must be an integer!"
+					ezmessage `gettext -s "Swap size must be an integer!"`
 				fi
 			done
 		else
 			recswapsize=$(free --mebi | awk '/Mem:/ {print $2}')
 		fi
-		if ezconfirm "Selecting yes now WILL cause data loss.\nContinue?"; then
+		if ezconfirm `gettext -s "Selecting yes now WILL cause data loss.\nContinue?"`; then
 			recswapend=$(( $recswapsize + 130))MiB
 
 			parted --script "${1}" -a optimal -- mklabel msdos \
@@ -145,7 +148,7 @@ ezautopart() {
 
 			mkswap "${swappartition}"
 
-			ezmessage "EZAutopartitioning complete."
+			ezmessage `gettext -s "EZAutopartitioning complete."`
 			swapon "${swappartition}"
 			mkdir -pv /mnt/lirix/
 			ezfilesystem "${lirixpartition}"
@@ -159,9 +162,9 @@ ezautopart() {
 ezadduser() {
 	newlirixuser="3"
 	while ! [[ "$newlirixuser" =~ ^[a-z-]+$ ]]; do
-		newlirixuser=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter username for new user" 0 0);
+		newlirixuser=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter username for new user"` 0 0);
 		if ! [[ "$newlirixuser" =~ ^[a-z-]+$ ]]; then
-			ezmessage "Username must only contain lowercase letters or the dash (-) symbol and must not be empty."
+			ezmessage `gettext -s "Username must only contain lowercase letters or the dash (-) symbol and must not be empty."`
 		fi
 	done
 
@@ -170,28 +173,28 @@ ezadduser() {
 	newlirixpasswdconf="aaa"
 
 	while ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; do
-		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${newlirixuser}\n(default is apioforms)" 0 0)
+		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Enter password for user ${newlirixuser}\n(default is apioforms)"` 0 0)
 		if [[ "$newlirixpasswd" == "" ]]; then
 			newlirixpasswd="apioforms"
 			newlirixpasswdconf="apioforms"
 			break;
 		fi
-		newlirixpasswdconf=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
+		newlirixpasswdconf=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Me password again."` 0 0)
 		if ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; then
-			ezmessage "Passwords do NOT match!!"
+			ezmessage `gettext -s "Passwords do NOT match!!"`
 		fi
 	done
 
-	ezuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${newlirixuser}" 0 0 "${newlirixuser}")
+	ezuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter description/full name for user ${newlirixuser}"` 0 0 "${newlirixuser}")
 
 	ezgroups="uucp,video,audio,storage,games,input"
-	if ezconfirm "Do you wish to enable administrative (sudo) privileges for this user?"; then
+	if ezconfirm `gettext -s "Do you wish to enable administrative (sudo) privileges for this user?"`; then
 		ezgroups="wheel,${ezgroups}"
 	fi
 
-	ezhomedir=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter home directory for user ${newlirixuser}" 0 0 "/usr/people/${newlirixuser}")
+	ezhomedir=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter home directory for user ${newlirixuser}"` 0 0 "/usr/people/${newlirixuser}")
 
-	if ezconfirm "Do you want this user to be able to login?"; then
+	if ezconfirm `gettext -s "Do you want this user to be able to login?"`; then
 		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" "$newlirixuser"
 	else
 		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" -s /usr/bin/nologin "$newlirixuser"
@@ -200,24 +203,28 @@ ezadduser() {
 	echo "$newlirixuser:$newlirixpasswd" | chpasswd --root /mnt/lirix
 }
 
-ezkeymap() {
+ezselectlanguage() {
+	languagelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g' | awk '1; {printf "-\n"}')
+	language=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "josar." 0 0 0 ${languagelist})
+	LC_ALL="${language}.UTF-8"
 }
 
-ezmessage "Welcome to EZInstall, the installer for Lirix!"
-if ! ezconfirm "Would you like to install Lirix at this moment?"; then
+ezselectlanguage
+ezmessage `gettext -s "Welcome to EZInstall, the installer for Lirix!"`
+if ! ezconfirm `gettext -s "Would you like to install Lirix at this moment?"`; then
 	exit 0;
 fi
 
 keymaplist=$(localectl list-keymaps | awk '1; {printf "-\n"}')
-keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select your keymap" 0 0 0 ${keymaplist})
+keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu `gettext -s "Select your keymap"` 0 0 0 ${keymaplist})
 localectl set-keymap "${keymap}"
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
-if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "Select installation disk" 0 0 0 ${devicelist}); then
+if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu `gettext -s "Select installation disk"` 0 0 0 ${devicelist}); then
 	exit 1;
 else
-	if ezconfirm "Do you wish to partition $device?"; then
-		if $(ezconfirm "Do you wish to autopartition $device?"); then
+	if ezconfirm `gettext -s "Do you wish to partition $device?"`; then
+		if $(ezconfirm `gettext -s "Do you wish to autopartition $device?"`); then
 			autopart="value"
 			ezautopart $device
 		else
@@ -229,10 +236,10 @@ fi
 if [[ "$autopart" != "value" ]]; then
 	partlist=$(lsblk -plnx name $device -o name,size | grep -Ev "boot|rpmb|loop" | tail -n +2)
 	if [ -d "/sys/firmware/efi/efivars" ]; then
-		bootpartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --no-cancel --menu "Select boot partition" 0 0 0 ${partlist})
+		bootpartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --no-cancel --menu `gettext -s "Select boot partition"` 0 0 0 ${partlist})
 	fi
-	swappartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "Select swap partition" 0 0 0 ${partlist});
-	lirixpartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --no-cancel --menu "Select Lirix partition" 0 0 0 ${partlist});
+	swappartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu `gettext -s "Select swap partition"` 0 0 0 ${partlist});
+	lirixpartition=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --no-cancel --menu `gettext -s "Select Lirix partition"` 0 0 0 ${partlist});
 
 	mkdir -pv /mnt/lirix
 	ezfilesystem "${lirixpartition}"
@@ -248,17 +255,17 @@ if [[ "$autopart" != "value" ]]; then
 		swapon $swappartition
 	fi
 
-	if ezconfirmno "Would you like to enter an interactive shell to manually configure more advanced options before proceeding?"; then
-		echo ">> Entering interactive Bourne Again Shell."
-		echo ">> The root mountpoint of the Lirix installation is /mnt/lirix"
-		echo ">> Once complete, return to EZInstall by typing exit."
+	if ezconfirmno `gettext -s "Would you like to enter an interactive shell to manually configure more advanced options before proceeding?"`; then
+		echo `gettext -s ">> Entering interactive Bourne Again Shell."`
+		echo `gettext -s ">> The root mountpoint of the Lirix installation is /mnt/lirix"`
+		echo `gettext -s ">> Once complete, return to EZInstall by typing exit."`
 		/usr/bin/env PS1="\d \t [EZInstall] (\w) > " /bin/bash --norc -i
 	fi
 fi
 
-ezmessage "Starting installation of Lirix. Setup will continue shortly hereafter."
+ezmessage `gettext -s "Starting installation of Lirix. Setup will continue shortly hereafter."`
 unsquashfs -f -d /mnt/lirix /opt/lirix/rootfs.squashfs
-ezmessage "Installation complete. Setup will now continue."
+ezmessage `gettext -s "Installation complete. Setup will now continue."`
 genfstab -U /mnt/lirix >> /mnt/lirix/etc/fstab
 
 cp -pv /etc/X11/xorg.conf.d/00-keyboard.conf /mnt/lirix/etc/X11/xorg.conf.d/00-keyboard.conf
@@ -266,9 +273,9 @@ echo "KEYMAP=${keymap}" > /mnt/lirix/etc/vconsole.conf
 
 hostname="3"
 while ! [[ "$hostname" =~ ^[a-z-]*$ ]]; do
-	hostname=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter hostname for system\n(default is apioform-hive)" 0 0);
+	hostname=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter hostname for system\n(default is apioform-hive)"` 0 0);
 	if ! [[ "$hostname" =~ ^[a-z-]*$ ]]; then
-		ezmessage "Hostname must only contain lowercase letters or the dash (-) symbol."
+		ezmessage `gettext -s "Hostname must only contain lowercase letters or the dash (-) symbol."`
 	fi
 done
 
@@ -278,9 +285,9 @@ fi
 
 lirixuser="3"
 while ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; do
-	lirixuser=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter username for main user\n(default is aamoo)" 0 0);
+	lirixuser=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter username for main user\n(default is aamoo)"` 0 0);
 	if ! [[ "$lirixuser" =~ ^[a-z-]*$ ]]; then
-		ezmessage "Username must only contain lowercase letters or the dash (-) symbol."
+		ezmessage `gettext -s "Username must only contain lowercase letters or the dash (-) symbol."`
 	fi
 done
 
@@ -292,19 +299,19 @@ lirixpasswd="apa"
 lirixpasswdconf="aaa"
 
 while ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; do
-	lirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Enter password for user ${lirixuser}\n(default is apioforms)" 0 0)
+	lirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Enter password for user ${lirixuser}\n(default is apioforms)"` 0 0)
 	if [[ "$lirixpasswd" == "" ]]; then
 		lirixpasswd="apioforms"
 		lirixpasswdconf="apioforms"
 		break;
 	fi
-	lirixpasswdconf=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox "Me password again." 0 0)
+	lirixpasswdconf=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Me password again."` 0 0)
 	if ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; then
-		ezmessage "Passwords do NOT match!!"
+		ezmessage `gettext -s "Passwords do NOT match!!"`
 	fi
 done
 
-lirixuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox "Enter description/full name for user ${lirixuser}" 0 0 "${lirixuser}")
+lirixuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter description/full name for user ${lirixuser}"` 0 0 "${lirixuser}")
 
 echo "${hostname}" >> /mnt/lirix/etc/hostname
 echo "127.0.0.1		localhost" >> /mnt/lirix/etc/hosts
@@ -316,7 +323,7 @@ echo "$lirixuser:$lirixpasswd" | chpasswd --root /mnt/lirix
 
 ezaddmoreusers="yes"
 while [[ "$ezaddmoreusers" == "yes" ]]; do
-	if ezconfirmno "Do you wish to add an additional user?"; then
+	if ezconfirmno `gettext -s "Do you wish to add an additional user?"`; then
 		ezadduser
 	else
 		ezaddmoreusers="no"
@@ -324,7 +331,7 @@ while [[ "$ezaddmoreusers" == "yes" ]]; do
 done
 
 zonelist=$(find /usr/share/zoneinfo ! -type d | awk '1 ; {printf "-\n"}' | sed 's@/usr/share/zoneinfo/@@g')
-timezone=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select timezone" 0 0 0 ${zonelist});
+timezone=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu `gettext -s "Select timezone"` 0 0 0 ${zonelist});
 
 ln -sfv /mnt/lirix/usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
 arch-chroot /mnt/lirix hwclock --systohc
@@ -335,7 +342,7 @@ while IFS= read -r line; do
 	checklistInDialogIsBad+=("$line" "-" "off")
 done <<< "$localelist"
 IFS=" "
-locales=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --checklist "Select locale. To check a box, press the spacebar key. When you have completed your selection of locales, press the enter key." 0 0 0 "${checklistInDialogIsBad[@]}"})
+locales=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --checklist `gettext -s "Select locale. To check a box, press the spacebar key. When you have completed your selection of locales, press the enter key."` 0 0 0 "${checklistInDialogIsBad[@]}"})
 localenumber=$(echo -e "${locales}" | wc)
 if [[ "${localenumber}" == "0" ]]; then
 	locales="en_US"
@@ -344,7 +351,7 @@ fi
 
 if ! [[ "${localenumber}" == "1"]]; then
 	localepreferencelist=$(echo -e "${locales}" | awk -v RS=" " '{print}' | awk '1 ; {printf "-\n"'})
-	preferredlocale=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "Select preferred locale" 0 0 0 "${localepreferencelist}")
+	preferredlocale=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu `gettext -s "Select preferred locale"` 0 0 0 "${localepreferencelist}")
 else
 	preferredlocale=locales
 fi
@@ -366,6 +373,6 @@ arch-chroot /mnt/lirix grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt/lirix mkinitcpio -P
 
 
-if ezconfirm "Lirix setup complete. Reboot now?"; then
+if ezconfirm `gettext -s "Lirix setup complete. Reboot now?"`; then
 	reboot
 fi
