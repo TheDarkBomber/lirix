@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-29 18:28+0100\n"
-"PO-Revision-Date: 2021-08-29 18:03+0000\n"
+"PO-Revision-Date: 2021-08-29 18:08+0000\n"
 "Last-Translator: Victor Tran <vicr12345@gmail.com>\n"
 "Language-Team: Vietnamese <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/vi/>\n"
@@ -153,50 +153,57 @@ msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 
 #: ezinstall.sh:261
 msgid ">> Once complete, return to EZInstall by typing exit."
-msgstr ""
+msgstr ">> Khi hoàn thành, trở về EZInstall bởi cách gõ exit."
 
 #: ezinstall.sh:266
 msgid "Starting installation of Lirix. Setup will continue shortly hereafter."
-msgstr ""
+msgstr "Đang bắt đầu cài đặt Lirix. Trình cài đặt sẽ tiếp tục sau đó."
 
 #: ezinstall.sh:268
 msgid "Installation complete. Setup will now continue."
-msgstr ""
+msgstr "Quá trình cài đặt hoàn thành. Trình cài đặt sẽ tiếp tục."
 
 #: ezinstall.sh:276
 msgid "Enter hostname for system\\n(default is apioform-hive)"
 msgstr ""
+"Điền tên mạng cho hệ thống\\n"
+"(mặc định là apioform-hive)"
 
 #: ezinstall.sh:278
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
-msgstr ""
+msgstr "Tên mạng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-)."
 
 #: ezinstall.sh:288
 msgid "Enter username for main user\\n(default is aamoo)"
 msgstr ""
+"Điền tên người dùng cho người dùng chính\\n"
+"(mặc định là aamoo)"
 
 #: ezinstall.sh:290
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
+"Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-)."
 
 #: ezinstall.sh:326
 msgid "Do you wish to add an additional user?"
-msgstr ""
+msgstr "Bạn có muốn thêm vào nữa một người dùng không?"
 
 #: ezinstall.sh:334
 msgid "Select timezone"
-msgstr ""
+msgstr "Chọn múi giờ"
 
 #: ezinstall.sh:345
 msgid ""
 "Select locale. To check a box, press the spacebar key. When you have "
 "completed your selection of locales, press the enter key."
 msgstr ""
+"Chọn ngôn ngữ. Để đánh dấu một hộp, sử dụng phím đầu cách. Khi bạn chọn các "
+"ngôn ngữ bạn muốn sử dụng, sử dụng phím Enter."
 
 #: ezinstall.sh:354
 msgid "Select preferred locale"
-msgstr ""
+msgstr "Chọn ngôn ngữ chính"
 
 #: ezinstall.sh:376
 msgid "Lirix setup complete. Reboot now?"
-msgstr ""
+msgstr "Cài đặt Lirix hoàn thành. Khởi động lại bây giờ?"
