@@ -120,10 +120,9 @@ msgstr ""
 "và không thể để trống."
 
 #: ezinstall.sh:176
-#, fuzzy, sh-format
-#| msgid "Enter hostname for system\\n(default is apioform-hive)"
+#, sh-format
 msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
-msgstr "Điền tên mạng cho hệ thống\\n(mặc định là apioform-hive)"
+msgstr ""
 
 #: ezinstall.sh:182 ezinstall.sh:308
 msgid "Me password again."
@@ -134,10 +133,9 @@ msgid "Passwords do NOT match!!"
 msgstr "Mật khẩu không có khớp!!"
 
 #: ezinstall.sh:188
-#, fuzzy, sh-format
-#| msgid "Enter username for new user"
+#, sh-format
 msgid "Enter description/full name for user ${newlirixuser}"
-msgstr "Điền tên người dùng cho người dùng mới"
+msgstr ""
 
 #: ezinstall.sh:191
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
@@ -169,16 +167,14 @@ msgid "Select installation disk"
 msgstr "Chọn đĩa để cài đặt vào"
 
 #: ezinstall.sh:226
-#, fuzzy, sh-format
-#| msgid "Do you wish to add an additional user?"
+#, sh-format
 msgid "Do you wish to partition $device?"
-msgstr "Bạn có muốn thêm vào nữa một người dùng không?"
+msgstr ""
 
 #: ezinstall.sh:227
-#, fuzzy, sh-format
-#| msgid "Do you wish to add an additional user?"
+#, sh-format
 msgid "Do you wish to autopartition $device?"
-msgstr "Bạn có muốn thêm vào nữa một người dùng không?"
+msgstr ""
 
 #: ezinstall.sh:239
 msgid "Select boot partition"
@@ -234,16 +230,14 @@ msgstr ""
 "Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-)."
 
 #: ezinstall.sh:302
-#, fuzzy, sh-format
-#| msgid "Enter hostname for system\\n(default is apioform-hive)"
+#, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
-msgstr "Điền tên mạng cho hệ thống\\n(mặc định là apioform-hive)"
+msgstr ""
 
 #: ezinstall.sh:314
-#, fuzzy, sh-format
-#| msgid "Enter username for new user"
+#, sh-format
 msgid "Enter description/full name for user ${lirixuser}"
-msgstr "Điền tên người dùng cho người dùng mới"
+msgstr ""
 
 #: ezinstall.sh:326
 msgid "Do you wish to add an additional user?"
