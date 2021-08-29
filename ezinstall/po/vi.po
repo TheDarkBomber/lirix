@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 18:28+0100\n"
+"POT-Creation-Date: 2021-08-29 19:00+0100\n"
 "PO-Revision-Date: 2021-08-29 18:08+0000\n"
 "Last-Translator: Victor Tran <vicr12345@gmail.com>\n"
 "Language-Team: Vietnamese <https://translate.vicr123.com/projects/lirix/"
@@ -17,6 +17,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.7.2\n"
 
+#: ezinstall.sh:29
+#, sh-format
+msgid "Will create subvolumes: ${btsubvols}"
+msgstr ""
+
 #: ezinstall.sh:44
 msgid "Select filesystem to use for Lirix"
 msgstr "Chọn hệ thống tệp sử dụng với Lirix"
@@ -27,7 +32,8 @@ msgstr "Hệ thống ổn định sử dụng \"B-Tree\". Rất hài lòng."
 
 #: ezinstall.sh:44
 msgid "Default filesystem for SGI's IRIX. Journaling cannot be disabled."
-msgstr "Hệ thống mặc định cho IRIX cửa SGI. Không thể vô hiệu nhật ký hệ thống."
+msgstr ""
+"Hệ thống mặc định cho IRIX cửa SGI. Không thể vô hiệu nhật ký hệ thống."
 
 #: ezinstall.sh:44
 msgid ""
@@ -41,17 +47,37 @@ msgstr ""
 msgid "Manually format partition using a shell."
 msgstr "Định dạng đĩa thủ công dùng đầu cuối."
 
+#: ezinstall.sh:52
+msgid "Created XFS filesystem on $1"
+msgstr ""
+
+#: ezinstall.sh:58
+msgid "Created EXT4 filesystem on $1"
+msgstr ""
+
 #: ezinstall.sh:63 ezinstall.sh:259
 msgid ">> Entering interactive Bourne Again Shell."
 msgstr ">> Vào Bourne Again Shell."
+
+#: ezinstall.sh:64
+msgid ">> Format partition $1 in whichever way you desire."
+msgstr ""
 
 #: ezinstall.sh:65
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 
+#: ezinstall.sh:66
+msgid ">> Mount $1 to there when you have completed your manual formatting."
+msgstr ""
+
 #: ezinstall.sh:67
 msgid ">> To return to EZInstall, type exit."
 msgstr ">> Để trở về EZInstall, gõ exit."
+
+#: ezinstall.sh:78
+msgid "EZAutopartitioning selected.\\nWill partition device $1"
+msgstr ""
 
 #: ezinstall.sh:80
 msgid "UEFI detected. Will use GPT for partitioning."
@@ -71,9 +97,7 @@ msgstr "Kích cỡ phân vùng trao đổi là phải số nguyên!"
 
 #: ezinstall.sh:92 ezinstall.sh:135
 msgid "Selecting yes now WILL cause data loss.\\nContinue?"
-msgstr ""
-"Nếu bạn chọn \"Có\" đây, bạn có thể mất dữ liệu.\\n"
-"Tiếp tục?"
+msgstr "Nếu bạn chọn \"Có\" đây, bạn có thể mất dữ liệu.\\nTiếp tục?"
 
 #: ezinstall.sh:113 ezinstall.sh:151
 msgid "EZAutopartitioning complete."
@@ -95,6 +119,12 @@ msgstr ""
 "Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-) "
 "và không thể để trống."
 
+#: ezinstall.sh:176
+#, fuzzy, sh-format
+#| msgid "Enter hostname for system\\n(default is apioform-hive)"
+msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
+msgstr "Điền tên mạng cho hệ thống\\n(mặc định là apioform-hive)"
+
 #: ezinstall.sh:182 ezinstall.sh:308
 msgid "Me password again."
 msgstr "Mật khẩu lại."
@@ -103,9 +133,20 @@ msgstr "Mật khẩu lại."
 msgid "Passwords do NOT match!!"
 msgstr "Mật khẩu không có khớp!!"
 
+#: ezinstall.sh:188
+#, fuzzy, sh-format
+#| msgid "Enter username for new user"
+msgid "Enter description/full name for user ${newlirixuser}"
+msgstr "Điền tên người dùng cho người dùng mới"
+
 #: ezinstall.sh:191
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
 msgstr "Bạn có muốn bắt quyền quản lý (sudo) cho người dùng này?"
+
+#: ezinstall.sh:195
+#, sh-format
+msgid "Enter home directory for user ${newlirixuser}"
+msgstr ""
 
 #: ezinstall.sh:197
 msgid "Do you want this user to be able to login?"
@@ -126,6 +167,18 @@ msgstr "Chọn bố trí bàn phím"
 #: ezinstall.sh:223
 msgid "Select installation disk"
 msgstr "Chọn đĩa để cài đặt vào"
+
+#: ezinstall.sh:226
+#, fuzzy, sh-format
+#| msgid "Do you wish to add an additional user?"
+msgid "Do you wish to partition $device?"
+msgstr "Bạn có muốn thêm vào nữa một người dùng không?"
+
+#: ezinstall.sh:227
+#, fuzzy, sh-format
+#| msgid "Do you wish to add an additional user?"
+msgid "Do you wish to autopartition $device?"
+msgstr "Bạn có muốn thêm vào nữa một người dùng không?"
 
 #: ezinstall.sh:239
 msgid "Select boot partition"
@@ -165,9 +218,7 @@ msgstr "Quá trình cài đặt hoàn thành. Trình cài đặt sẽ tiếp t�
 
 #: ezinstall.sh:276
 msgid "Enter hostname for system\\n(default is apioform-hive)"
-msgstr ""
-"Điền tên mạng cho hệ thống\\n"
-"(mặc định là apioform-hive)"
+msgstr "Điền tên mạng cho hệ thống\\n(mặc định là apioform-hive)"
 
 #: ezinstall.sh:278
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
@@ -175,14 +226,24 @@ msgstr "Tên mạng phải bao gồm chi chữ viết thường với ký hiệu
 
 #: ezinstall.sh:288
 msgid "Enter username for main user\\n(default is aamoo)"
-msgstr ""
-"Điền tên người dùng cho người dùng chính\\n"
-"(mặc định là aamoo)"
+msgstr "Điền tên người dùng cho người dùng chính\\n(mặc định là aamoo)"
 
 #: ezinstall.sh:290
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 "Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-)."
+
+#: ezinstall.sh:302
+#, fuzzy, sh-format
+#| msgid "Enter hostname for system\\n(default is apioform-hive)"
+msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
+msgstr "Điền tên mạng cho hệ thống\\n(mặc định là apioform-hive)"
+
+#: ezinstall.sh:314
+#, fuzzy, sh-format
+#| msgid "Enter username for new user"
+msgid "Enter description/full name for user ${lirixuser}"
+msgstr "Điền tên người dùng cho người dùng mới"
 
 #: ezinstall.sh:326
 msgid "Do you wish to add an additional user?"

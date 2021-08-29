@@ -76,9 +76,7 @@ msgstr ">> Skriv 'exit' for at komme tilbage til EZInstall."
 
 #: ezinstall.sh:78
 msgid "EZAutopartitioning selected.\\nWill partition device $1"
-msgstr ""
-"Du har valgt EZAutopartitioning.\\n"
-"Vil formatere disken $1"
+msgstr "Du har valgt EZAutopartitioning.\\nVil formatere disken $1"
 
 #: ezinstall.sh:80
 msgid "UEFI detected. Will use GPT for partitioning."
@@ -98,9 +96,7 @@ msgstr "Swap-størrelsen skal være et heltal!"
 
 #: ezinstall.sh:92 ezinstall.sh:135
 msgid "Selecting yes now WILL cause data loss.\\nContinue?"
-msgstr ""
-"At vælge ja nu VIL forårsage tab af data.\\n"
-"Fortsæt?"
+msgstr "At vælge ja nu VIL forårsage tab af data.\\nFortsæt?"
 
 #: ezinstall.sh:113 ezinstall.sh:151
 msgid "EZAutopartitioning complete."
@@ -125,9 +121,7 @@ msgstr ""
 #: ezinstall.sh:176
 #, sh-format
 msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
-msgstr ""
-"Vælg kodeord til brugeren ${newlirixuser}\\n"
-"(standard er apioforms)"
+msgstr "Vælg kodeord til brugeren ${newlirixuser}\\n(standard er apioforms)"
 
 #: ezinstall.sh:182 ezinstall.sh:308
 msgid "Me password again."
@@ -219,9 +213,7 @@ msgstr "Installation færdig. Opsætningen vil nu fortsætte."
 
 #: ezinstall.sh:276
 msgid "Enter hostname for system\\n(default is apioform-hive)"
-msgstr ""
-"Skriv navn til system\\n"
-"(standard er apioform-hive)"
+msgstr "Skriv navn til system\\n(standard er apioform-hive)"
 
 #: ezinstall.sh:278
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
@@ -229,9 +221,7 @@ msgstr "Navnet må kun indeholde små bogstaver og bindestreg (-)."
 
 #: ezinstall.sh:288
 msgid "Enter username for main user\\n(default is aamoo)"
-msgstr ""
-"Skriv brugernavn til hovedbruger\\n"
-"(standard er aamoo)"
+msgstr "Skriv brugernavn til hovedbruger\\n(standard er aamoo)"
 
 #: ezinstall.sh:290
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
@@ -240,9 +230,7 @@ msgstr "Brugernavnet må kun indeholde små bogstaver og bindestreg (-)."
 #: ezinstall.sh:302
 #, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
-msgstr ""
-"Vælg kodeord til brugeren ${newlirixuser}\\n"
-"(standard er apioforms)"
+msgstr "Vælg kodeord til brugeren ${newlirixuser}\\n(standard er apioforms)"
 
 #: ezinstall.sh:314
 #, sh-format
