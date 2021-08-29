@@ -1,12 +1,12 @@
-# EZInstall Master POT file
+# EZInstall
 # This file is distributed under the BSD 3-Clause License.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 18:28+0100\n"
-"PO-Revision-Date: 2021-08-29 18:28+0100\n"
+"POT-Creation-Date: 2021-08-29 19:00+0100\n"
+"PO-Revision-Date: 2021-08-29 19:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -14,6 +14,11 @@ msgstr ""
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ezinstall.sh:29
+#, sh-format
+msgid "Will create subvolumes: ${btsubvols}"
+msgstr "Will create subvolumes: ${btsubvols}"
 
 #: ezinstall.sh:44
 msgid "Select filesystem to use for Lirix"
@@ -39,17 +44,37 @@ msgstr ""
 msgid "Manually format partition using a shell."
 msgstr "Manually format partition using a shell."
 
+#: ezinstall.sh:52
+msgid "Created XFS filesystem on $1"
+msgstr "Created XFS filesystem on $1"
+
+#: ezinstall.sh:58
+msgid "Created EXT4 filesystem on $1"
+msgstr "Created EXT4 filesystem on $1"
+
 #: ezinstall.sh:63 ezinstall.sh:259
 msgid ">> Entering interactive Bourne Again Shell."
 msgstr ">> Entering interactive Bourne Again Shell."
+
+#: ezinstall.sh:64
+msgid ">> Format partition $1 in whichever way you desire."
+msgstr ">> Format partition $1 in whichever way you desire."
 
 #: ezinstall.sh:65
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ">> The mountpoint for your Lirix installation is /mnt/lirix"
 
+#: ezinstall.sh:66
+msgid ">> Mount $1 to there when you have completed your manual formatting."
+msgstr ">> Mount $1 to there when you have completed your manual formatting."
+
 #: ezinstall.sh:67
 msgid ">> To return to EZInstall, type exit."
 msgstr ">> To return to EZInstall, type exit."
+
+#: ezinstall.sh:78
+msgid "EZAutopartitioning selected.\\nWill partition device $1"
+msgstr "EZAutopartitioning selected.\\nWill partition device $1"
 
 #: ezinstall.sh:80
 msgid "UEFI detected. Will use GPT for partitioning."
@@ -91,6 +116,11 @@ msgstr ""
 "Username must only contain lowercase letters or the dash (-) symbol and must "
 "not be empty."
 
+#: ezinstall.sh:176
+#, sh-format
+msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
+msgstr "Enter password for user ${newlirixuser}\\n(default is apioforms)"
+
 #: ezinstall.sh:182 ezinstall.sh:308
 msgid "Me password again."
 msgstr "Me password again."
@@ -99,9 +129,19 @@ msgstr "Me password again."
 msgid "Passwords do NOT match!!"
 msgstr "Passwords do NOT match!!"
 
+#: ezinstall.sh:188
+#, sh-format
+msgid "Enter description/full name for user ${newlirixuser}"
+msgstr "Enter description/full name for user ${newlirixuser}"
+
 #: ezinstall.sh:191
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
 msgstr "Do you wish to enable administrative (sudo) privileges for this user?"
+
+#: ezinstall.sh:195
+#, sh-format
+msgid "Enter home directory for user ${newlirixuser}"
+msgstr "Enter home directory for user ${newlirixuser}"
 
 #: ezinstall.sh:197
 msgid "Do you want this user to be able to login?"
@@ -122,6 +162,16 @@ msgstr "Select your keymap"
 #: ezinstall.sh:223
 msgid "Select installation disk"
 msgstr "Select installation disk"
+
+#: ezinstall.sh:226
+#, sh-format
+msgid "Do you wish to partition $device?"
+msgstr "Do you wish to partition $device?"
+
+#: ezinstall.sh:227
+#, sh-format
+msgid "Do you wish to autopartition $device?"
+msgstr "Do you wish to autopartition $device?"
 
 #: ezinstall.sh:239
 msgid "Select boot partition"
@@ -174,6 +224,16 @@ msgstr "Enter username for main user\\n(default is aamoo)"
 #: ezinstall.sh:290
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr "Username must only contain lowercase letters or the dash (-) symbol."
+
+#: ezinstall.sh:302
+#, sh-format
+msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
+msgstr "Enter password for user ${lirixuser}\\n(default is apioforms)"
+
+#: ezinstall.sh:314
+#, sh-format
+msgid "Enter description/full name for user ${lirixuser}"
+msgstr "Enter description/full name for user ${lirixuser}"
 
 #: ezinstall.sh:326
 msgid "Do you wish to add an additional user?"

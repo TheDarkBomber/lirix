@@ -26,7 +26,7 @@ ezconfirmno() {
 
 ezbtrfs() {
 	btsubvols="\n/\n/usr/people\n/var/log"
-	ezmessage `gettext -s "Will create subvolumes: ${btsubvols}"`
+	ezmessage `gettext -s "Will create subvolumes: \\\${btsubvols}"`
 	mkfs.btrfs -f "$1"
 	mount -v "$1" /mnt/lirix
 	btrfs su cr /mnt/lirix/@
@@ -37,7 +37,7 @@ ezbtrfs() {
 	mkdir -pv /mnt/lirix/{usr/people,var/log}
 	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@usrpeople "$1" /mnt/lirix/usr/people
 	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@varlog "$1" /mnt/lirix/var/log
-	ezmessage `gettext -s "Created BTRFS filesystem on $1"`
+	ezmessage `gettext -s "Created BTRFS filesystem on \\\$$1"`
 }
 
 ezfilesystem() {
@@ -49,21 +49,21 @@ ezfilesystem() {
 		
 		"XFS")
 			mkfs.xfs -f -m bigtime=1 "$1"
-			ezmessage `gettext -s "Created XFS filesystem on $1"`
+			ezmessage `gettext -s "Created XFS filesystem on \\\$1"`
 			mount -v "$1" /mnt/lirix
 			;;
 		
 		"EXT4")
 			mkfs.ext4 "$1"
-			ezmessage `gettext -s "Created EXT4 filesystem on $1"`
+			ezmessage `gettext -s "Created EXT4 filesystem on \\\$1"`
 			mount -v "$1" /mnt/lirix
 			;;
 		
 		"Shell")
 			echo `gettext -s ">> Entering interactive Bourne Again Shell."`
-			echo `gettext -s ">> Format partition $1 in whichever way you desire."`
+			echo `gettext -s ">> Format partition \\\$1 in whichever way you desire."`
 			echo `gettext -s ">> The mountpoint for your Lirix installation is /mnt/lirix"`
-			echo `gettext -s ">> Mount $1 to there when you have completed your manual formatting."`
+			echo `gettext -s ">> Mount \\\$1 to there when you have completed your manual formatting."`
 			echo `gettext -s ">> To return to EZInstall, type exit."`
 			/usr/bin/env PS1="\d \t [EZInstall] (\w) > " /bin/bash --norc -i
 			;;
@@ -75,7 +75,7 @@ ezfilesystem() {
 }
 
 ezautopart() {
-	ezmessage `gettext -s "EZAutopartitioning selected.\nWill partition device $1"`
+	ezmessage `gettext -s "EZAutopartitioning selected.\nWill partition device \\\$1"`
 	if [ -d "/sys/firmware/efi/efivars" ]; then
 		ezmessage `gettext -s "UEFI detected. Will use GPT for partitioning."`
 		if ezconfirmno `gettext -s "Specify swap size in MiB?"`; then
@@ -173,7 +173,7 @@ ezadduser() {
 	newlirixpasswdconf="aaa"
 
 	while ! [[ "$newlirixpasswd" == "$newlirixpasswdconf" ]]; do
-		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Enter password for user ${newlirixuser}\n(default is apioforms)"` 0 0)
+		newlirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Enter password for user \\\${newlirixuser}\n(default is apioforms)"` 0 0)
 		if [[ "$newlirixpasswd" == "" ]]; then
 			newlirixpasswd="apioforms"
 			newlirixpasswdconf="apioforms"
@@ -185,14 +185,14 @@ ezadduser() {
 		fi
 	done
 
-	ezuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter description/full name for user ${newlirixuser}"` 0 0 "${newlirixuser}")
+	ezuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter description/full name for user \\\${newlirixuser}"` 0 0 "${newlirixuser}")
 
 	ezgroups="uucp,video,audio,storage,games,input"
 	if ezconfirm `gettext -s "Do you wish to enable administrative (sudo) privileges for this user?"`; then
 		ezgroups="wheel,${ezgroups}"
 	fi
 
-	ezhomedir=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter home directory for user ${newlirixuser}"` 0 0 "/usr/people/${newlirixuser}")
+	ezhomedir=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter home directory for user \\\${newlirixuser}"` 0 0 "/usr/people/${newlirixuser}")
 
 	if ezconfirm `gettext -s "Do you want this user to be able to login?"`; then
 		arch-chroot /mnt/lirix useradd -d "$ezhomedir" -mU -G "$ezgroups" -k /etc/skel -c "$ezuserdescription" "$newlirixuser"
@@ -223,8 +223,8 @@ devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac
 if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu `gettext -s "Select installation disk"` 0 0 0 ${devicelist}); then
 	exit 1;
 else
-	if ezconfirm `gettext -s "Do you wish to partition $device?"`; then
-		if $(ezconfirm `gettext -s "Do you wish to autopartition $device?"`); then
+	if ezconfirm `gettext -s "Do you wish to partition \\\$device?"`; then
+		if $(ezconfirm `gettext -s "Do you wish to autopartition \\\$device?"`); then
 			autopart="value"
 			ezautopart $device
 		else
@@ -299,7 +299,7 @@ lirixpasswd="apa"
 lirixpasswdconf="aaa"
 
 while ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; do
-	lirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Enter password for user ${lirixuser}\n(default is apioforms)"` 0 0)
+	lirixpasswd=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --passwordbox `gettext -s "Enter password for user \\\${lirixuser}\n(default is apioforms)"` 0 0)
 	if [[ "$lirixpasswd" == "" ]]; then
 		lirixpasswd="apioforms"
 		lirixpasswdconf="apioforms"
@@ -311,7 +311,7 @@ while ! [[ "$lirixpasswd" == "$lirixpasswdconf" ]]; do
 	fi
 done
 
-lirixuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter description/full name for user ${lirixuser}"` 0 0 "${lirixuser}")
+lirixuserdescription=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --inputbox `gettext -s "Enter description/full name for user \\\${lirixuser}"` 0 0 "${lirixuser}")
 
 echo "${hostname}" >> /mnt/lirix/etc/hostname
 echo "127.0.0.1		localhost" >> /mnt/lirix/etc/hosts
