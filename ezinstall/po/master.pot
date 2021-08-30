@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 12:11+0100\n"
+"POT-Creation-Date: 2021-08-30 12:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,15 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ezinstall.sh:29
-#, sh-format
-msgid "Will create subvolumes: ${btsubvols}"
-msgstr ""
-
-#: ezinstall.sh:41
-msgid "Created BTRFS filesystem on $1"
-msgstr ""
 
 #: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"
@@ -48,36 +39,16 @@ msgstr ""
 msgid "Manually format partition using a shell."
 msgstr ""
 
-#: ezinstall.sh:59
-msgid "Created XFS filesystem on $1"
-msgstr ""
-
-#: ezinstall.sh:66
-msgid "Created EXT4 filesystem on $1"
-msgstr ""
-
-#: ezinstall.sh:72 ezinstall.sh:301
+#: ezinstall.sh:72 ezinstall.sh:302
 msgid ">> Entering interactive Bourne Again Shell."
-msgstr ""
-
-#: ezinstall.sh:73
-msgid ">> Format partition $1 in whichever way you desire."
 msgstr ""
 
 #: ezinstall.sh:74
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ""
 
-#: ezinstall.sh:75
-msgid ">> Mount $1 to there when you have completed your manual formatting."
-msgstr ""
-
 #: ezinstall.sh:76
 msgid ">> To return to EZInstall, type exit."
-msgstr ""
-
-#: ezinstall.sh:87
-msgid "EZAutopartitioning selected.\\nWill partition device $1"
 msgstr ""
 
 #: ezinstall.sh:90
@@ -118,31 +89,16 @@ msgid ""
 "not be empty."
 msgstr ""
 
-#: ezinstall.sh:200
-#, sh-format
-msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
-msgstr ""
-
-#: ezinstall.sh:207 ezinstall.sh:357
+#: ezinstall.sh:207 ezinstall.sh:358
 msgid "Me password again."
 msgstr ""
 
-#: ezinstall.sh:210 ezinstall.sh:360
+#: ezinstall.sh:210 ezinstall.sh:361
 msgid "Passwords do NOT match!!"
-msgstr ""
-
-#: ezinstall.sh:215
-#, sh-format
-msgid "Enter description/full name for user ${newlirixuser}"
 msgstr ""
 
 #: ezinstall.sh:219
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
-msgstr ""
-
-#: ezinstall.sh:224
-#, sh-format
-msgid "Enter home directory for user ${newlirixuser}"
 msgstr ""
 
 #: ezinstall.sh:227
@@ -165,94 +121,74 @@ msgstr ""
 msgid "Select installation disk"
 msgstr ""
 
-#: ezinstall.sh:262
-#, sh-format
-msgid "Do you wish to partition $device?"
-msgstr ""
-
-#: ezinstall.sh:264
-#, sh-format
-msgid "Do you wish to autopartition $device?"
-msgstr ""
-
-#: ezinstall.sh:277
+#: ezinstall.sh:278
 msgid "Select boot partition"
 msgstr ""
 
-#: ezinstall.sh:280
+#: ezinstall.sh:281
 msgid "Select swap partition"
 msgstr ""
 
-#: ezinstall.sh:282
+#: ezinstall.sh:283
 msgid "Select Lirix partition"
 msgstr ""
 
-#: ezinstall.sh:299
+#: ezinstall.sh:300
 msgid ""
 "Would you like to enter an interactive shell to manually configure more "
 "advanced options before proceeding?"
 msgstr ""
 
-#: ezinstall.sh:302
+#: ezinstall.sh:303
 msgid ">> The root mountpoint of the Lirix installation is /mnt/lirix"
 msgstr ""
 
-#: ezinstall.sh:303
+#: ezinstall.sh:304
 msgid ">> Once complete, return to EZInstall by typing exit."
 msgstr ""
 
-#: ezinstall.sh:308
+#: ezinstall.sh:309
 msgid "Starting installation of Lirix. Setup will continue shortly hereafter."
 msgstr ""
 
-#: ezinstall.sh:311
+#: ezinstall.sh:312
 msgid "Installation complete. Setup will now continue."
 msgstr ""
 
-#: ezinstall.sh:320
+#: ezinstall.sh:321
 msgid "Enter hostname for system\\n(default is apioform-hive)"
 msgstr ""
 
-#: ezinstall.sh:323
+#: ezinstall.sh:324
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 
-#: ezinstall.sh:334
+#: ezinstall.sh:335
 msgid "Enter username for main user\\n(default is aamoo)"
 msgstr ""
 
-#: ezinstall.sh:337
+#: ezinstall.sh:338
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 
-#: ezinstall.sh:350
-#, sh-format
-msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
-msgstr ""
-
-#: ezinstall.sh:365
-#, sh-format
-msgid "Enter description/full name for user ${lirixuser}"
-msgstr ""
-
-#: ezinstall.sh:378
+#: ezinstall.sh:379
 msgid "Do you wish to add an additional user?"
 msgstr ""
 
-#: ezinstall.sh:387
+#: ezinstall.sh:388
 msgid "Select timezone"
 msgstr ""
 
-#: ezinstall.sh:399
+#: ezinstall.sh:400
 msgid ""
 "Select locale. To check a box, press the spacebar key. When you have "
 "completed your selection of locales, press the enter key."
 msgstr ""
 
-#: ezinstall.sh:409
+#: ezinstall.sh:410
 msgid "Select preferred locale"
 msgstr ""
 
-#: ezinstall.sh:431
+#: ezinstall.sh:432
 msgid "Lirix setup complete. Reboot now?"
 msgstr ""
