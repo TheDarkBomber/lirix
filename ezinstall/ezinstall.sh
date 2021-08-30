@@ -237,7 +237,7 @@ ezadduser() {
 ezselectlanguage() {
 	languagelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g' | awk '1; {printf "-\n"}')
 	language=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "josar." 0 0 0 ${languagelist})
-	sed -i 's/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/' /etc/locale.gen
+	sed -i "s/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/" /etc/locale.gen
 	locale-gen
 	LC_ALL="${language}.UTF-8"
 }
@@ -414,7 +414,7 @@ else
 fi
 
 for ezlocale in locales; do
-	sed -i 's/#${ezlocale}.UTF-8 UTF-8/${ezlocale}.UTF-8 UTF-8/' /mnt/lirix/etc/locale.gen
+	sed -i "s/#${ezlocale}.UTF-8 UTF-8/${ezlocale}.UTF-8 UTF-8/" /mnt/lirix/etc/locale.gen
 done
 
 arch-chroot /mnt/lirix locale-gen
