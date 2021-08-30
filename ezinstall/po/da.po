@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 12:11+0100\n"
-"PO-Revision-Date: 2021-08-29 18:52+0000\n"
-"Last-Translator: Tobias SN <tobi897a2@outlook.dk>\n"
+"PO-Revision-Date: 2021-08-30 11:33+0000\n"
+"Last-Translator: Caesar Rylan <thedarkbomber80@gmail.com>\n"
 "Language-Team: Danish <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/da/>\n"
 "Language: da\n"
@@ -24,7 +24,7 @@ msgstr "Vil lave undervolume: ${btsubvols}"
 
 #: ezinstall.sh:41
 msgid "Created BTRFS filesystem on $1"
-msgstr "Har lavet XFS-filsystem på $1"
+msgstr "Har lavet BTRFS-filsystem på $1"
 
 #: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"
