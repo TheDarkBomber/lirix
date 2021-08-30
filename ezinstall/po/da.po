@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 13:10+0100\n"
+"POT-Creation-Date: 2021-08-30 13:32+0100\n"
 "PO-Revision-Date: 2021-08-30 12:18+0000\n"
 "Last-Translator: Caesar Rylan <thedarkbomber80@gmail.com>\n"
 "Language-Team: Danish <https://translate.vicr123.com/projects/lirix/"
@@ -234,9 +234,7 @@ msgstr "Brugernavnet må kun indeholde små bogstaver og bindestreg (-)."
 #: ezinstall.sh:351
 #, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
-msgstr ""
-"Vælg kodeord til brugeren ${newlirixuser}\\n"
-"(standard er apioforms)"
+msgstr "Vælg kodeord til brugeren ${newlirixuser}\\n(standard er apioforms)"
 
 #: ezinstall.sh:366
 #, sh-format
