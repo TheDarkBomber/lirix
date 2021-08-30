@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 13:58+0100\n"
+"POT-Creation-Date: 2021-08-30 14:54+0100\n"
 "PO-Revision-Date: 2021-08-29 21:07+0000\n"
 "Last-Translator: Adrian Ulbrich <adrian.ulbrich.2003@gmail.com>\n"
 "Language-Team: German <https://translate.vicr123.com/projects/lirix/"
@@ -22,26 +22,27 @@ msgstr ""
 msgid "Will create subvolumes: ${btsubvols}"
 msgstr "Wird folgende Untervolumen erstellen: ${btsubvols}"
 
-#: ezinstall.sh:42
-msgid "Created BTRFS filesystem on $1"
-msgstr "BTRFS Dateisystem auf $1 erstellt"
+#: ezinstall.sh:43
+#, sh-format
+msgid "Created BTRFS filesystem on $cfv"
+msgstr ""
 
-#: ezinstall.sh:47
+#: ezinstall.sh:48
 #, sh-format
 msgid "Select filesystem to use for Lirix"
 msgstr "Wähle ein Dateisystem das für Lirix verwendet werden soll"
 
-#: ezinstall.sh:48
+#: ezinstall.sh:49
 #, sh-format
 msgid "Stable filesystem that uses B-Trees. Very good."
 msgstr "Stabiles Dateisystem das auf B-Trees setzt. Eine gute wahl."
 
-#: ezinstall.sh:49
+#: ezinstall.sh:50
 #, sh-format
 msgid "Default filesystem for SGI's IRIX. Journaling cannot be disabled."
 msgstr "Standard für SGI's IRIX. Journaling kann nicht deaktiviert werden."
 
-#: ezinstall.sh:50
+#: ezinstall.sh:51
 #, sh-format
 msgid ""
 "Default filesystem for many Linux distributions. Use if uncomfortable with "
@@ -50,88 +51,92 @@ msgstr ""
 "Standard vieler Linux-Distributionen. Empfohlen falls nicht mit anderen "
 "Optionen vertraut."
 
-#: ezinstall.sh:51
+#: ezinstall.sh:52
 #, sh-format
 msgid "Manually format partition using a shell."
 msgstr "Partitionen manuell über die Kommandozeile verwalten."
 
-#: ezinstall.sh:60
-msgid "Created XFS filesystem on $1"
-msgstr "XFS Dateisystem auf $1 erstellt"
+#: ezinstall.sh:62
+#, sh-format
+msgid "Created XFS filesystem on $cfv"
+msgstr ""
 
-#: ezinstall.sh:67
-msgid "Created EXT4 filesystem on $1"
-msgstr "EXT4 Dateisystem auf $1 erstellt"
+#: ezinstall.sh:70
+#, sh-format
+msgid "Created EXT4 filesystem on $cfv"
+msgstr ""
 
-#: ezinstall.sh:73 ezinstall.sh:303
+#: ezinstall.sh:77 ezinstall.sh:308
 #, sh-format
 msgid ">> Entering interactive Bourne Again Shell."
 msgstr ">> Betrete interaktive Bourne Again Shell."
 
-#: ezinstall.sh:74
-msgid ">> Format partition $1 in whichever way you desire."
-msgstr ">> Formatiere Partition $1 wie gewünscht."
+#: ezinstall.sh:78
+#, sh-format
+msgid ">> Format partition $cfv in whichever way you desire."
+msgstr ""
 
-#: ezinstall.sh:75
+#: ezinstall.sh:79
 #, sh-format
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ">> Der Einhängepunkt für deine Lirix-Installation lautet /mnt/lirix"
 
-#: ezinstall.sh:76
-msgid ">> Mount $1 to there when you have completed your manual formatting."
+#: ezinstall.sh:80
+#, sh-format
+msgid ">> Mount $cfv to there when you have completed your manual formatting."
 msgstr ""
-">> Hänge $1 dort ein sobald du mit der manuellen partitionierung fertig bist."
 
-#: ezinstall.sh:77
+#: ezinstall.sh:81
 #, sh-format
 msgid ">> To return to EZInstall, type exit."
 msgstr ">> Verwende den Befehl \"exit\" um zu EZInstall zurückzukehren."
 
-#: ezinstall.sh:88
-msgid "EZAutopartitioning selected.\\nWill partition device $1"
-msgstr "EZAutopartitionierung ausgewählt.\\nPartitioniere Datenträger $1"
+#: ezinstall.sh:93
+#, sh-format
+msgid "EZAutopartitioning selected.\\nWill partition device $cfv"
+msgstr ""
 
-#: ezinstall.sh:91
+#: ezinstall.sh:96
 #, sh-format
 msgid "UEFI detected. Will use GPT for partitioning."
 msgstr "UEFI erkannt. Eine GPT Partitionstabelle wird verwendet."
 
-#: ezinstall.sh:93 ezinstall.sh:142
+#: ezinstall.sh:98 ezinstall.sh:147
 #, sh-format
 msgid "Specify swap size in MiB?"
 msgstr "Eine größe für den Swapspeicher in MiB angeben?"
 
-#: ezinstall.sh:97 ezinstall.sh:146
+#: ezinstall.sh:102 ezinstall.sh:151
 #, sh-format
 msgid "Enter swap size"
 msgstr "Swapgröße angeben"
 
-#: ezinstall.sh:100 ezinstall.sh:149
+#: ezinstall.sh:105 ezinstall.sh:154
 #, sh-format
 msgid "Swap size must be an integer!"
 msgstr "Swapgröße muss eine Ganzzahl sein!"
 
-#: ezinstall.sh:107 ezinstall.sh:156
+#: ezinstall.sh:112 ezinstall.sh:161
 #, sh-format
 msgid "Selecting yes now WILL cause data loss.\\nContinue?"
 msgstr "Daten WERDEN verloren gehen wenn hier ja gewählt wird.\\nFortfahren?"
 
-#: ezinstall.sh:129 ezinstall.sh:173
+#: ezinstall.sh:134 ezinstall.sh:178
 #, sh-format
 msgid "EZAutopartitioning complete."
 msgstr "EZAutopartitionierung abgeschlossen."
 
-#: ezinstall.sh:140
+#: ezinstall.sh:145
 #, sh-format
 msgid "LegacyBIOS detected. Will use MBR for partitioning."
 msgstr "Legacy BIOS erkannt. Eine MBR Partitionstabelle wird verwendet."
 
-#: ezinstall.sh:188
+#: ezinstall.sh:193
 #, sh-format
 msgid "Enter username for new user"
 msgstr "Nutzernamen des neuen Nutzers angeben"
 
-#: ezinstall.sh:191
+#: ezinstall.sh:196
 #, sh-format
 msgid ""
 "Username must only contain lowercase letters or the dash (-) symbol and must "
@@ -140,167 +145,175 @@ msgstr ""
 "Nutzername darf nur Kleinbuchstaben oder Bindestriche (-) enthalten und darf "
 "nicht leer sein."
 
-#: ezinstall.sh:201
+#: ezinstall.sh:206
 #, sh-format
 msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
 msgstr ""
 "Gib ein Passwort für Nutzer ${newlirixuser} ein\\n(Standard ist apioforms)"
 
-#: ezinstall.sh:208 ezinstall.sh:359
+#: ezinstall.sh:213 ezinstall.sh:364
 #, sh-format
 msgid "Me password again."
 msgstr "Gib das Passwort erneut ein."
 
-#: ezinstall.sh:211 ezinstall.sh:362
+#: ezinstall.sh:216 ezinstall.sh:367
 #, sh-format
 msgid "Passwords do NOT match!!"
 msgstr "Die Passwörter stimmen NICHT überein!"
 
-#: ezinstall.sh:216
+#: ezinstall.sh:221
 #, sh-format
 msgid "Enter description/full name for user ${newlirixuser}"
 msgstr ""
 
-#: ezinstall.sh:220
+#: ezinstall.sh:225
 #, sh-format
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
 msgstr ""
 
-#: ezinstall.sh:225
+#: ezinstall.sh:230
 #, sh-format
 msgid "Enter home directory for user ${newlirixuser}"
 msgstr ""
 
-#: ezinstall.sh:228
+#: ezinstall.sh:233
 #, sh-format
 msgid "Do you want this user to be able to login?"
 msgstr ""
 
-#: ezinstall.sh:247
+#: ezinstall.sh:252
 #, sh-format
 msgid "Welcome to EZInstall, the installer for Lirix!"
 msgstr ""
 
-#: ezinstall.sh:249
+#: ezinstall.sh:254
 #, sh-format
 msgid "Would you like to install Lirix at this moment?"
 msgstr ""
 
-#: ezinstall.sh:255
+#: ezinstall.sh:260
 #, sh-format
 msgid "Select your keymap"
 msgstr ""
 
-#: ezinstall.sh:260
+#: ezinstall.sh:265
 #, sh-format
 msgid "Select installation disk"
 msgstr ""
 
-#: ezinstall.sh:264
+#: ezinstall.sh:269
 #, sh-format
 msgid "Do you wish to partition $device?"
 msgstr ""
 
-#: ezinstall.sh:266
+#: ezinstall.sh:271
 #, sh-format
 msgid "Do you wish to autopartition $device?"
 msgstr ""
 
-#: ezinstall.sh:279
+#: ezinstall.sh:284
 #, sh-format
 msgid "Select boot partition"
 msgstr ""
 
-#: ezinstall.sh:282
+#: ezinstall.sh:287
 #, sh-format
 msgid "Select swap partition"
 msgstr ""
 
-#: ezinstall.sh:284
+#: ezinstall.sh:289
 #, sh-format
 msgid "Select Lirix partition"
 msgstr ""
 
-#: ezinstall.sh:301
+#: ezinstall.sh:306
 #, sh-format
 msgid ""
 "Would you like to enter an interactive shell to manually configure more "
 "advanced options before proceeding?"
 msgstr ""
 
-#: ezinstall.sh:304
+#: ezinstall.sh:309
 #, sh-format
 msgid ">> The root mountpoint of the Lirix installation is /mnt/lirix"
 msgstr ""
 
-#: ezinstall.sh:305
+#: ezinstall.sh:310
 #, sh-format
 msgid ">> Once complete, return to EZInstall by typing exit."
 msgstr ""
 
-#: ezinstall.sh:310
+#: ezinstall.sh:315
 #, sh-format
 msgid "Starting installation of Lirix. Setup will continue shortly hereafter."
 msgstr ""
 
-#: ezinstall.sh:313
+#: ezinstall.sh:318
 #, sh-format
 msgid "Installation complete. Setup will now continue."
 msgstr ""
 
-#: ezinstall.sh:322
+#: ezinstall.sh:327
 #, sh-format
 msgid "Enter hostname for system\\n(default is apioform-hive)"
 msgstr ""
 
-#: ezinstall.sh:325
+#: ezinstall.sh:330
 #, sh-format
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 
-#: ezinstall.sh:336
+#: ezinstall.sh:341
 #, sh-format
 msgid "Enter username for main user\\n(default is aamoo)"
 msgstr ""
 
-#: ezinstall.sh:339
+#: ezinstall.sh:344
 #, sh-format
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 
-#: ezinstall.sh:352
+#: ezinstall.sh:357
 #, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
 msgstr ""
 
-#: ezinstall.sh:367
+#: ezinstall.sh:372
 #, sh-format
 msgid "Enter description/full name for user ${lirixuser}"
 msgstr ""
 
-#: ezinstall.sh:380
+#: ezinstall.sh:385
 #, sh-format
 msgid "Do you wish to add an additional user?"
 msgstr ""
 
-#: ezinstall.sh:389
+#: ezinstall.sh:394
 #, sh-format
 msgid "Select timezone"
 msgstr ""
 
-#: ezinstall.sh:401
-#, sh-format
-msgid ""
-"Select locale. To check a box, press the spacebar key. When you have "
-"completed your selection of locales, press the enter key."
-msgstr ""
-
-#: ezinstall.sh:411
-#, sh-format
-msgid "Select preferred locale"
-msgstr ""
-
-#: ezinstall.sh:433
+#: ezinstall.sh:414
 #, sh-format
 msgid "Lirix setup complete. Reboot now?"
 msgstr ""
+
+#~ msgid "Created BTRFS filesystem on $1"
+#~ msgstr "BTRFS Dateisystem auf $1 erstellt"
+
+#~ msgid "Created XFS filesystem on $1"
+#~ msgstr "XFS Dateisystem auf $1 erstellt"
+
+#~ msgid "Created EXT4 filesystem on $1"
+#~ msgstr "EXT4 Dateisystem auf $1 erstellt"
+
+#~ msgid ">> Format partition $1 in whichever way you desire."
+#~ msgstr ">> Formatiere Partition $1 wie gewünscht."
+
+#~ msgid ">> Mount $1 to there when you have completed your manual formatting."
+#~ msgstr ""
+#~ ">> Hänge $1 dort ein sobald du mit der manuellen partitionierung fertig "
+#~ "bist."
+
+#~ msgid "EZAutopartitioning selected.\\nWill partition device $1"
+#~ msgstr "EZAutopartitionierung ausgewählt.\\nPartitioniere Datenträger $1"
