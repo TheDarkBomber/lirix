@@ -39,7 +39,8 @@ ezbtrfs() {
 	mkdir -pv /mnt/lirix/{usr/people,var/log}
 	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@usrpeople "$1" /mnt/lirix/usr/people
 	mount -v -o noatime,compress=lzo,space_cache=v2,subvol=@varlog "$1" /mnt/lirix/var/log
-	csr=`eval_gettext "Created BTRFS filesystem on \\\$1"`
+	cfv="$1"
+	csr=`eval_gettext "Created BTRFS filesystem on \\\$cfv"`
 	ezmessage "$csr"
 }
 
@@ -57,23 +58,26 @@ ezfilesystem() {
 		
 		"XFS")
 			mkfs.xfs -f -m bigtime=1 "$1"
-			csr=`eval_gettext "Created XFS filesystem on \\\$1"`
+			cfv="$1"
+			csr=`eval_gettext "Created XFS filesystem on \\\$cfv"`
 			ezmessage "$csr"
 			mount -v "$1" /mnt/lirix
 			;;
 		
 		"EXT4")
 			mkfs.ext4 "$1"
-			csr=`eval_gettext "Created EXT4 filesystem on \\\$1"`
+			cfv="$1"
+			csr=`eval_gettext "Created EXT4 filesystem on \\\$cfv"`
 			ezmessage "$csr"
 			mount -v "$1" /mnt/lirix
 			;;
 		
 		"Shell")
+			cfv="$1"
 			echo `eval_gettext ">> Entering interactive Bourne Again Shell."`
-			echo `eval_gettext ">> Format partition \\\$1 in whichever way you desire."`
+			echo `eval_gettext ">> Format partition \\\$cfv in whichever way you desire."`
 			echo `eval_gettext ">> The mountpoint for your Lirix installation is /mnt/lirix"`
-			echo `eval_gettext ">> Mount \\\$1 to there when you have completed your manual formatting."`
+			echo `eval_gettext ">> Mount \\\$cfv to there when you have completed your manual formatting."`
 			echo `eval_gettext ">> To return to EZInstall, type exit."`
 			/usr/bin/env PS1="\d \t [EZInstall] (\w) > " /bin/bash --norc -i
 			;;
@@ -85,7 +89,8 @@ ezfilesystem() {
 }
 
 ezautopart() {
-	csr=`eval_gettext "EZAutopartitioning selected.\nWill partition device \\\$1"`
+	cfv="$1"
+	csr=`eval_gettext "EZAutopartitioning selected.\nWill partition device \\\$cfv"`
 	ezmessage "$csr"
 	if [ -d "/sys/firmware/efi/efivars" ]; then
 		csr=`eval_gettext "UEFI detected. Will use GPT for partitioning."`
@@ -392,31 +397,7 @@ timezone=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt
 ln -sfv /mnt/lirix/usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
 arch-chroot /mnt/lirix hwclock --systohc
 
-localelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g')
-checklistInDialogIsBad=()
-while IFS= read -r line; do
-	checklistInDialogIsBad+=("$line" "-" "off")
-done <<< "$localelist"
-IFS=" "
-csr=`eval_gettext "Select locale. To check a box, press the spacebar key. When you have completed your selection of locales, press the enter key."`
-locales=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --checklist "$csr" 0 0 0 "${checklistInDialogIsBad[@]}"})
-localenumber=$(echo -e "${locales}" | wc)
-if [[ "${localenumber}" == "0" ]]; then
-	locales="en_US"
-	localenumber="1"
-fi
-
-if ! [[ "${localenumber}" == "1"]]; then
-	localepreferencelist=$(echo -e "${locales}" | awk -v RS=" " '{print}' | awk '1 ; {printf "-\n"'})
-	csr=`eval_gettext "Select preferred locale"`
-	preferredlocale=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "$csr" 0 0 0 "${localepreferencelist}")
-else
-	preferredlocale=locales
-fi
-
-for ezlocale in locales; do
-	sed -i "s/#${ezlocale}.UTF-8 UTF-8/${ezlocale}.UTF-8 UTF-8/" /mnt/lirix/etc/locale.gen
-done
+sed -i "s/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/" /mnt/lirix/etc/locale.gen
 
 arch-chroot /mnt/lirix locale-gen
 touch /mnt/lirix/etc/locale.conf
