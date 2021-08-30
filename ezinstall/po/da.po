@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: 2021-08-30 12:18+0000\n"
-"Last-Translator: Caesar Rylan <thedarkbomber80@gmail.com>\n"
+"POT-Creation-Date: 2021-08-30 12:11+0100\n"
+"PO-Revision-Date: 2021-08-29 18:52+0000\n"
+"Last-Translator: Tobias SN <tobi897a2@outlook.dk>\n"
 "Language-Team: Danish <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/da/>\n"
 "Language: da\n"
@@ -17,33 +17,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.7.2\n"
 
-#: ezinstall.sh:30
+#: ezinstall.sh:29
 #, sh-format
 msgid "Will create subvolumes: ${btsubvols}"
 msgstr "Vil lave undervolume: ${btsubvols}"
 
-#: ezinstall.sh:43
-#, sh-format
+#: ezinstall.sh:41
 msgid "Created BTRFS filesystem on $cfv"
-msgstr ""
+msgstr "Har lavet BTRFS-filsystem på $cfv"
 
-#: ezinstall.sh:48
-#, sh-format
+#: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"
 msgstr "Vælg det filsystem du vil bruge til Lirix"
 
-#: ezinstall.sh:49
-#, sh-format
+#: ezinstall.sh:47
 msgid "Stable filesystem that uses B-Trees. Very good."
 msgstr "Stabilt filsystem der bruger B-træer. Meget god."
 
-#: ezinstall.sh:50
-#, sh-format
+#: ezinstall.sh:48
 msgid "Default filesystem for SGI's IRIX. Journaling cannot be disabled."
 msgstr "Standard-filsystem til SGI's IRIX. Journaling kan ikke deaktiveres."
 
-#: ezinstall.sh:51
-#, sh-format
+#: ezinstall.sh:49
 msgid ""
 "Default filesystem for many Linux distributions. Use if uncomfortable with "
 "other options."
@@ -51,93 +46,75 @@ msgstr ""
 "Standard-filsystem for mange Linux-distributioner. Brug hvis du er utryg med "
 "de andre muligheder."
 
-#: ezinstall.sh:52
-#, sh-format
+#: ezinstall.sh:50
 msgid "Manually format partition using a shell."
 msgstr "Formater partitioner manuelt med et shell."
 
-#: ezinstall.sh:62
-#, sh-format
+#: ezinstall.sh:59
 msgid "Created XFS filesystem on $cfv"
-msgstr ""
+msgstr "Har lavet XFS-filsystem på $cfv"
 
-#: ezinstall.sh:70
-#, sh-format
+#: ezinstall.sh:66
 msgid "Created EXT4 filesystem on $cfv"
-msgstr ""
+msgstr "Har lavet EXT4-filsystem på $cfv"
 
-#: ezinstall.sh:77 ezinstall.sh:308
-#, sh-format
+#: ezinstall.sh:72 ezinstall.sh:301
 msgid ">> Entering interactive Bourne Again Shell."
 msgstr ">> Starter interaktivt Bourne Again Shell."
 
-#: ezinstall.sh:78
-#, sh-format
+#: ezinstall.sh:73
 msgid ">> Format partition $cfv in whichever way you desire."
-msgstr ""
+msgstr ">> Formater partitionen $cfv på din foretrukne måde."
 
-#: ezinstall.sh:79
-#, sh-format
+#: ezinstall.sh:74
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ">> Monteringspunktet for din Lirix-installation er /mnt/lirix"
 
-#: ezinstall.sh:80
-#, sh-format
+#: ezinstall.sh:75
 msgid ">> Mount $cfv to there when you have completed your manual formatting."
-msgstr ""
+msgstr ">> Monter $cfv der når du er færdig."
 
-#: ezinstall.sh:81
-#, sh-format
+#: ezinstall.sh:76
 msgid ">> To return to EZInstall, type exit."
 msgstr ">> Skriv 'exit' for at komme tilbage til EZInstall."
 
-#: ezinstall.sh:93
-#, sh-format
+#: ezinstall.sh:87
 msgid "EZAutopartitioning selected.\\nWill partition device $cfv"
-msgstr ""
+msgstr "Du har valgt EZAutopartitioning.\\nVil formatere disken $cfv"
 
-#: ezinstall.sh:96
-#, sh-format
+#: ezinstall.sh:90
 msgid "UEFI detected. Will use GPT for partitioning."
 msgstr "UEFI detekteret. Vil formatere disk med GPT."
 
-#: ezinstall.sh:98 ezinstall.sh:147
-#, sh-format
+#: ezinstall.sh:92 ezinstall.sh:141
 msgid "Specify swap size in MiB?"
 msgstr "Swap-størrelse i MiB?"
 
-#: ezinstall.sh:102 ezinstall.sh:151
-#, sh-format
+#: ezinstall.sh:96 ezinstall.sh:145
 msgid "Enter swap size"
 msgstr "Skriv swap-størrelse"
 
-#: ezinstall.sh:105 ezinstall.sh:154
-#, sh-format
+#: ezinstall.sh:99 ezinstall.sh:148
 msgid "Swap size must be an integer!"
 msgstr "Swap-størrelsen skal være et heltal!"
 
-#: ezinstall.sh:112 ezinstall.sh:161
-#, sh-format
+#: ezinstall.sh:106 ezinstall.sh:155
 msgid "Selecting yes now WILL cause data loss.\\nContinue?"
 msgstr "At vælge ja nu VIL forårsage tab af data.\\nFortsæt?"
 
-#: ezinstall.sh:134 ezinstall.sh:178
-#, sh-format
+#: ezinstall.sh:128 ezinstall.sh:172
 msgid "EZAutopartitioning complete."
 msgstr "EZAutopartitioning færdig."
 
-#: ezinstall.sh:145
-#, sh-format
+#: ezinstall.sh:139
 msgid "LegacyBIOS detected. Will use MBR for partitioning."
 msgstr "LegacyBIOS detekteret. Vil formatere disk med MBR."
 
-#: ezinstall.sh:193
-#, sh-format
+#: ezinstall.sh:187
 msgid "Enter username for new user"
 msgstr "Vælg brugernavn"
 
-#: ezinstall.sh:196
-#, sh-format
+#: ezinstall.sh:190
 msgid ""
 "Username must only contain lowercase letters or the dash (-) symbol and must "
 "not be empty."
@@ -145,88 +122,76 @@ msgstr ""
 "Brugernavnet må kun indeholde små bogstaver og bindestreg (-), og må ikke "
 "være tomt."
 
-#: ezinstall.sh:206
+#: ezinstall.sh:200
 #, sh-format
 msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
 msgstr "Vælg kodeord til brugeren ${newlirixuser}\\n(standard er apioforms)"
 
-#: ezinstall.sh:213 ezinstall.sh:364
-#, sh-format
+#: ezinstall.sh:207 ezinstall.sh:357
 msgid "Me password again."
 msgstr "Skriv kodeord igen."
 
-#: ezinstall.sh:216 ezinstall.sh:367
-#, sh-format
+#: ezinstall.sh:210 ezinstall.sh:360
 msgid "Passwords do NOT match!!"
 msgstr "Kodeordene er ikke ens!"
 
-#: ezinstall.sh:221
+#: ezinstall.sh:215
 #, sh-format
 msgid "Enter description/full name for user ${newlirixuser}"
 msgstr "Skriv beskrivelse/fuldt navn til brugeren ${newlirixuser}"
 
-#: ezinstall.sh:225
-#, sh-format
+#: ezinstall.sh:219
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
 msgstr "Ønsker du at give denne bruger administrative (sudo) rettigheder?"
 
-#: ezinstall.sh:230
+#: ezinstall.sh:224
 #, sh-format
 msgid "Enter home directory for user ${newlirixuser}"
 msgstr "Skriv sti til hjemmemappen for brugeren ${newlirixuser}"
 
-#: ezinstall.sh:233
-#, sh-format
+#: ezinstall.sh:227
 msgid "Do you want this user to be able to login?"
 msgstr "Skal denne bruger kunne logge ind?"
 
-#: ezinstall.sh:252
-#, sh-format
+#: ezinstall.sh:246
 msgid "Welcome to EZInstall, the installer for Lirix!"
 msgstr "Velkommen til EZInstall, installationsprogrammet til Lirix!"
 
-#: ezinstall.sh:254
-#, sh-format
+#: ezinstall.sh:248
 msgid "Would you like to install Lirix at this moment?"
 msgstr "Ønsker du at installere Lirix?"
 
-#: ezinstall.sh:260
-#, sh-format
+#: ezinstall.sh:254
 msgid "Select your keymap"
 msgstr "Vælg dit tastaturlayout"
 
-#: ezinstall.sh:265
-#, sh-format
+#: ezinstall.sh:259
 msgid "Select installation disk"
 msgstr "Vælg installationsdisk"
 
-#: ezinstall.sh:269
+#: ezinstall.sh:262
 #, sh-format
 msgid "Do you wish to partition $device?"
 msgstr "Ønsker du at formatere $device?"
 
-#: ezinstall.sh:271
+#: ezinstall.sh:264
 #, sh-format
 msgid "Do you wish to autopartition $device?"
 msgstr "Ønsker du at formatere $device automatisk?"
 
-#: ezinstall.sh:284
-#, sh-format
+#: ezinstall.sh:277
 msgid "Select boot partition"
 msgstr "Vælg opstarts-partition"
 
-#: ezinstall.sh:287
-#, sh-format
+#: ezinstall.sh:280
 msgid "Select swap partition"
 msgstr "Vælg swap-partition"
 
-#: ezinstall.sh:289
-#, sh-format
+#: ezinstall.sh:282
 msgid "Select Lirix partition"
 msgstr "Vælg Lirix-partition"
 
-#: ezinstall.sh:306
-#, sh-format
+#: ezinstall.sh:299
 msgid ""
 "Would you like to enter an interactive shell to manually configure more "
 "advanced options before proceeding?"
@@ -234,95 +199,68 @@ msgstr ""
 "Ønsker du at bruge et interaktivt shell til at manuelt konfigurere mere "
 "avancerede indstillinger før du fortsætter?"
 
-#: ezinstall.sh:309
-#, sh-format
+#: ezinstall.sh:302
 msgid ">> The root mountpoint of the Lirix installation is /mnt/lirix"
 msgstr ">> Root-monterings-punktet for Lirix-installationen er /mnt/lirix"
 
-#: ezinstall.sh:310
-#, sh-format
+#: ezinstall.sh:303
 msgid ">> Once complete, return to EZInstall by typing exit."
 msgstr ">> Skriv 'exit' for at komme tilbage til EZInstall."
 
-#: ezinstall.sh:315
-#, sh-format
+#: ezinstall.sh:308
 msgid "Starting installation of Lirix. Setup will continue shortly hereafter."
 msgstr "Begynder installation af Lirix. Opsætningen vil fortsætte efter."
 
-#: ezinstall.sh:318
-#, sh-format
+#: ezinstall.sh:311
 msgid "Installation complete. Setup will now continue."
 msgstr "Installation færdig. Opsætningen vil nu fortsætte."
 
-#: ezinstall.sh:327
-#, sh-format
+#: ezinstall.sh:320
 msgid "Enter hostname for system\\n(default is apioform-hive)"
 msgstr "Skriv navn til system\\n(standard er apioform-hive)"
 
-#: ezinstall.sh:330
-#, sh-format
+#: ezinstall.sh:323
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
 msgstr "Navnet må kun indeholde små bogstaver og bindestreg (-)."
 
-#: ezinstall.sh:341
-#, sh-format
+#: ezinstall.sh:334
 msgid "Enter username for main user\\n(default is aamoo)"
 msgstr "Skriv brugernavn til hovedbruger\\n(standard er aamoo)"
 
-#: ezinstall.sh:344
-#, sh-format
+#: ezinstall.sh:337
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr "Brugernavnet må kun indeholde små bogstaver og bindestreg (-)."
 
-#: ezinstall.sh:357
+#: ezinstall.sh:350
 #, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
-msgstr "Vælg kodeord til brugeren ${newlirixuser}\\n(standard er apioforms)"
+msgstr "Vælg kodeord til brugeren ${lirixuser}\\n(standard er apioforms)"
 
-#: ezinstall.sh:372
+#: ezinstall.sh:365
 #, sh-format
 msgid "Enter description/full name for user ${lirixuser}"
-msgstr "Skriv beskrivelse/fuldt navn til brugeren ${newlirixuser}"
+msgstr "Skriv beskrivelse/fuldt navn til brugeren ${lirixuser}"
 
-#: ezinstall.sh:385
-#, sh-format
+#: ezinstall.sh:378
 msgid "Do you wish to add an additional user?"
 msgstr "Ønsker du at tilføje flere brugere?"
 
-#: ezinstall.sh:394
-#, sh-format
+#: ezinstall.sh:387
 msgid "Select timezone"
 msgstr "Vælg tidszone"
 
-#: ezinstall.sh:414
-#, sh-format
+#: ezinstall.sh:399
+msgid ""
+"Select locale. To check a box, press the spacebar key. When you have "
+"completed your selection of locales, press the enter key."
+msgstr ""
+"Vælg sprog. For at vælge et sprog, tryk på mellemrum. Når du er færdig med "
+"at vælge sprog, så tryk på Enter."
+
+#: ezinstall.sh:409
+msgid "Select preferred locale"
+msgstr "Vælg foretrukket sprog"
+
+#: ezinstall.sh:431
 msgid "Lirix setup complete. Reboot now?"
 msgstr "Opsætningen af Lirix er færdig. Ønsker du at genstarte?"
-
-#~ msgid "Created BTRFS filesystem on $1"
-#~ msgstr "Har lavet BTRFS-filsystem på $1"
-
-#~ msgid "Created XFS filesystem on $1"
-#~ msgstr "Har lavet XFS-filsystem på $1"
-
-#~ msgid "Created EXT4 filesystem on $1"
-#~ msgstr "Har lavet EXT4-filsystem på $1"
-
-#~ msgid ">> Format partition $1 in whichever way you desire."
-#~ msgstr ">> Formater partitionen $1 på din foretrukne måde."
-
-#~ msgid ">> Mount $1 to there when you have completed your manual formatting."
-#~ msgstr ">> Monter $1 der når du er færdig."
-
-#~ msgid "EZAutopartitioning selected.\\nWill partition device $1"
-#~ msgstr "Du har valgt EZAutopartitioning.\\nVil formatere disken $1"
-
-#~ msgid ""
-#~ "Select locale. To check a box, press the spacebar key. When you have "
-#~ "completed your selection of locales, press the enter key."
-#~ msgstr ""
-#~ "Vælg sprog. For at vælge et sprog, tryk på mellemrum. Når du er færdig "
-#~ "med at vælge sprog, så tryk på Enter."
-
-#~ msgid "Select preferred locale"
-#~ msgstr "Vælg foretrukket sprog"
