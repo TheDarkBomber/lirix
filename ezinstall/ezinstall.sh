@@ -241,7 +241,8 @@ ezadduser() {
 }
 
 ezselectlanguage() {
-	languagelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g' | awk '1; {printf "-\n"}')
+	languagelist=$(cat /etc/ezinstall/languages)
+	languagelist+=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g' | awk '1; {printf "-\n"}')
 	language=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "josar." 0 0 0 ${languagelist})
 	sed -i "s/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/" /etc/locale.gen
 	locale-gen
