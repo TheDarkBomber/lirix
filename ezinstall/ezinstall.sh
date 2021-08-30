@@ -9,8 +9,8 @@ mkdir -p /var/log/ezinstall
 exec 1> >(tee "/var/log/ezinstall/stdout.log")
 exec 2> >(tee "/var/log/ezinstall/stderr.log")
 
-TEXTDOMAINDIR=/usr/local/share/locale
-TEXTDOMAIN=ezinstall
+export TEXTDOMAINDIR=/usr/local/share/locale
+export TEXTDOMAIN=ezinstall
 
 ezmessage() {
 	dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --msgbox "$@" 0 0
@@ -239,7 +239,7 @@ ezselectlanguage() {
 	language=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "josar." 0 0 0 ${languagelist})
 	sed -i "s/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/" /etc/locale.gen
 	locale-gen
-	LC_ALL="${language}.UTF-8"
+	export LC_ALL="${language}.UTF-8"
 }
 
 ezselectlanguage
