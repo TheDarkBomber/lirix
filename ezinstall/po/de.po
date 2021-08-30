@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 12:54+0100\n"
+"POT-Creation-Date: 2021-08-30 13:10+0100\n"
 "PO-Revision-Date: 2021-08-29 21:07+0000\n"
 "Last-Translator: Adrian Ulbrich <adrian.ulbrich.2003@gmail.com>\n"
 "Language-Team: German <https://translate.vicr123.com/projects/lirix/"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.7.2\n"
+
+#: ezinstall.sh:29
+#, sh-format
+msgid "Will create subvolumes: ${btsubvols}"
+msgstr "Wird folgende Untervolumen erstellen: ${btsubvols}"
+
+#: ezinstall.sh:41
+msgid "Created BTRFS filesystem on $1"
+msgstr "BTRFS Dateisystem auf $1 erstellt"
 
 #: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"
@@ -41,17 +50,38 @@ msgstr ""
 msgid "Manually format partition using a shell."
 msgstr "Partitionen manuell über die Kommandozeile verwalten."
 
+#: ezinstall.sh:59
+msgid "Created XFS filesystem on $1"
+msgstr "XFS Dateisystem auf $1 erstellt"
+
+#: ezinstall.sh:66
+msgid "Created EXT4 filesystem on $1"
+msgstr "EXT4 Dateisystem auf $1 erstellt"
+
 #: ezinstall.sh:72 ezinstall.sh:302
 msgid ">> Entering interactive Bourne Again Shell."
 msgstr ">> Betrete interaktive Bourne Again Shell."
+
+#: ezinstall.sh:73
+msgid ">> Format partition $1 in whichever way you desire."
+msgstr ">> Formatiere Partition $1 wie gewünscht."
 
 #: ezinstall.sh:74
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ">> Der Einhängepunkt für deine Lirix-Installation lautet /mnt/lirix"
 
+#: ezinstall.sh:75
+msgid ">> Mount $1 to there when you have completed your manual formatting."
+msgstr ""
+">> Hänge $1 dort ein sobald du mit der manuellen partitionierung fertig bist."
+
 #: ezinstall.sh:76
 msgid ">> To return to EZInstall, type exit."
 msgstr ">> Verwende den Befehl \"exit\" um zu EZInstall zurückzukehren."
+
+#: ezinstall.sh:87
+msgid "EZAutopartitioning selected.\\nWill partition device $1"
+msgstr "EZAutopartitionierung ausgewählt.\\nPartitioniere Datenträger $1"
 
 #: ezinstall.sh:90
 msgid "UEFI detected. Will use GPT for partitioning."
@@ -93,6 +123,12 @@ msgstr ""
 "Nutzername darf nur Kleinbuchstaben oder Bindestriche (-) enthalten und darf "
 "nicht leer sein."
 
+#: ezinstall.sh:200
+#, sh-format
+msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
+msgstr ""
+"Gib ein Passwort für Nutzer ${newlirixuser} ein\\n(Standard ist apioforms)"
+
 #: ezinstall.sh:207 ezinstall.sh:358
 msgid "Me password again."
 msgstr "Gib das Passwort erneut ein."
@@ -101,8 +137,18 @@ msgstr "Gib das Passwort erneut ein."
 msgid "Passwords do NOT match!!"
 msgstr "Die Passwörter stimmen NICHT überein!"
 
+#: ezinstall.sh:215
+#, sh-format
+msgid "Enter description/full name for user ${newlirixuser}"
+msgstr ""
+
 #: ezinstall.sh:219
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
+msgstr ""
+
+#: ezinstall.sh:224
+#, sh-format
+msgid "Enter home directory for user ${newlirixuser}"
 msgstr ""
 
 #: ezinstall.sh:227
@@ -123,6 +169,16 @@ msgstr ""
 
 #: ezinstall.sh:259
 msgid "Select installation disk"
+msgstr ""
+
+#: ezinstall.sh:263
+#, sh-format
+msgid "Do you wish to partition $device?"
+msgstr ""
+
+#: ezinstall.sh:265
+#, sh-format
+msgid "Do you wish to autopartition $device?"
 msgstr ""
 
 #: ezinstall.sh:278
@@ -175,6 +231,16 @@ msgstr ""
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 
+#: ezinstall.sh:351
+#, sh-format
+msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
+msgstr ""
+
+#: ezinstall.sh:366
+#, sh-format
+msgid "Enter description/full name for user ${lirixuser}"
+msgstr ""
+
 #: ezinstall.sh:379
 msgid "Do you wish to add an additional user?"
 msgstr ""
@@ -196,30 +262,3 @@ msgstr ""
 #: ezinstall.sh:432
 msgid "Lirix setup complete. Reboot now?"
 msgstr ""
-
-#~ msgid "Will create subvolumes: ${btsubvols}"
-#~ msgstr "Wird folgende Untervolumen erstellen: ${btsubvols}"
-
-#~ msgid "Created BTRFS filesystem on $1"
-#~ msgstr "BTRFS Dateisystem auf $1 erstellt"
-
-#~ msgid "Created XFS filesystem on $1"
-#~ msgstr "XFS Dateisystem auf $1 erstellt"
-
-#~ msgid "Created EXT4 filesystem on $1"
-#~ msgstr "EXT4 Dateisystem auf $1 erstellt"
-
-#~ msgid ">> Format partition $1 in whichever way you desire."
-#~ msgstr ">> Formatiere Partition $1 wie gewünscht."
-
-#~ msgid ">> Mount $1 to there when you have completed your manual formatting."
-#~ msgstr ""
-#~ ">> Hänge $1 dort ein sobald du mit der manuellen partitionierung fertig "
-#~ "bist."
-
-#~ msgid "EZAutopartitioning selected.\\nWill partition device $1"
-#~ msgstr "EZAutopartitionierung ausgewählt.\\nPartitioniere Datenträger $1"
-
-#~ msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
-#~ msgstr ""
-#~ "Gib ein Passwort für Nutzer ${newlirixuser} ein\\n(Standard ist apioforms)"
