@@ -24,7 +24,7 @@ msgstr "Vil lave undervolume: ${btsubvols}"
 
 #: ezinstall.sh:41
 msgid "Created BTRFS filesystem on $1"
-msgstr ""
+msgstr "Har lavet XFS-filsystem på $1"
 
 #: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"

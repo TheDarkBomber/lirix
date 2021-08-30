@@ -24,7 +24,7 @@ msgstr "Wird folgende Untervolumen erstellen: ${btsubvols}"
 
 #: ezinstall.sh:41
 msgid "Created BTRFS filesystem on $1"
-msgstr ""
+msgstr "BTRFS Dateisystem auf $1 erstellt"
 
 #: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"
