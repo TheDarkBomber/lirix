@@ -251,12 +251,13 @@ if ! ezconfirm "$csr"; then
 fi
 
 keymaplist=$(localectl list-keymaps | awk '1; {printf "-\n"}')
-keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu `gettext -s "Select your keymap"` 0 0 0 ${keymaplist})
+csr=`gettext -s "Select your keymap"`
+keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "$csr" 0 0 0 ${keymaplist})
 localectl set-keymap "${keymap}"
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
-csr=
-if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu `gettext -s "Select installation disk"` 0 0 0 ${devicelist}); then
+csr=`gettext -s "Select installation disk"`
+if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "$csr" 0 0 0 ${devicelist}); then
 	exit 1;
 else
 	csr=`gettext -s "Do you wish to partition \$device?"`
