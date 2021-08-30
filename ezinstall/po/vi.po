@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 12:11+0100\n"
+"POT-Creation-Date: 2021-08-30 12:54+0100\n"
 "PO-Revision-Date: 2021-08-29 18:08+0000\n"
 "Last-Translator: Victor Tran <vicr12345@gmail.com>\n"
 "Language-Team: Vietnamese <https://translate.vicr123.com/projects/lirix/"
@@ -16,15 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.7.2\n"
-
-#: ezinstall.sh:29
-#, sh-format
-msgid "Will create subvolumes: ${btsubvols}"
-msgstr ""
-
-#: ezinstall.sh:41
-msgid "Created BTRFS filesystem on $1"
-msgstr ""
 
 #: ezinstall.sh:46
 msgid "Select filesystem to use for Lirix"
@@ -51,37 +42,17 @@ msgstr ""
 msgid "Manually format partition using a shell."
 msgstr "Định dạng đĩa thủ công dùng đầu cuối."
 
-#: ezinstall.sh:59
-msgid "Created XFS filesystem on $1"
-msgstr ""
-
-#: ezinstall.sh:66
-msgid "Created EXT4 filesystem on $1"
-msgstr ""
-
-#: ezinstall.sh:72 ezinstall.sh:301
+#: ezinstall.sh:72 ezinstall.sh:302
 msgid ">> Entering interactive Bourne Again Shell."
 msgstr ">> Vào Bourne Again Shell."
-
-#: ezinstall.sh:73
-msgid ">> Format partition $1 in whichever way you desire."
-msgstr ""
 
 #: ezinstall.sh:74
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
 msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 
-#: ezinstall.sh:75
-msgid ">> Mount $1 to there when you have completed your manual formatting."
-msgstr ""
-
 #: ezinstall.sh:76
 msgid ">> To return to EZInstall, type exit."
 msgstr ">> Để trở về EZInstall, gõ exit."
-
-#: ezinstall.sh:87
-msgid "EZAutopartitioning selected.\\nWill partition device $1"
-msgstr ""
 
 #: ezinstall.sh:90
 msgid "UEFI detected. Will use GPT for partitioning."
@@ -123,32 +94,17 @@ msgstr ""
 "Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-) "
 "và không thể để trống."
 
-#: ezinstall.sh:200
-#, sh-format
-msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
-msgstr ""
-
-#: ezinstall.sh:207 ezinstall.sh:357
+#: ezinstall.sh:207 ezinstall.sh:358
 msgid "Me password again."
 msgstr "Mật khẩu lại."
 
-#: ezinstall.sh:210 ezinstall.sh:360
+#: ezinstall.sh:210 ezinstall.sh:361
 msgid "Passwords do NOT match!!"
 msgstr "Mật khẩu không có khớp!!"
-
-#: ezinstall.sh:215
-#, sh-format
-msgid "Enter description/full name for user ${newlirixuser}"
-msgstr ""
 
 #: ezinstall.sh:219
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
 msgstr "Bạn có muốn bắt quyền quản lý (sudo) cho người dùng này?"
-
-#: ezinstall.sh:224
-#, sh-format
-msgid "Enter home directory for user ${newlirixuser}"
-msgstr ""
 
 #: ezinstall.sh:227
 msgid "Do you want this user to be able to login?"
@@ -170,29 +126,19 @@ msgstr "Chọn bố trí bàn phím"
 msgid "Select installation disk"
 msgstr "Chọn đĩa để cài đặt vào"
 
-#: ezinstall.sh:262
-#, sh-format
-msgid "Do you wish to partition $device?"
-msgstr ""
-
-#: ezinstall.sh:264
-#, sh-format
-msgid "Do you wish to autopartition $device?"
-msgstr ""
-
-#: ezinstall.sh:277
+#: ezinstall.sh:278
 msgid "Select boot partition"
 msgstr "Chọn phân vùng khởi động"
 
-#: ezinstall.sh:280
+#: ezinstall.sh:281
 msgid "Select swap partition"
 msgstr "Chọn phân vùng trao đổi"
 
-#: ezinstall.sh:282
+#: ezinstall.sh:283
 msgid "Select Lirix partition"
 msgstr "Chọn phân vùng dành cho Lirix"
 
-#: ezinstall.sh:299
+#: ezinstall.sh:300
 msgid ""
 "Would you like to enter an interactive shell to manually configure more "
 "advanced options before proceeding?"
@@ -200,58 +146,48 @@ msgstr ""
 "Bạn có muốn vào một đầu cuối để cấu hình tùy chọn nâng cao thủ công trước "
 "chị bạn tiếp tục?"
 
-#: ezinstall.sh:302
+#: ezinstall.sh:303
 msgid ">> The root mountpoint of the Lirix installation is /mnt/lirix"
 msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 
-#: ezinstall.sh:303
+#: ezinstall.sh:304
 msgid ">> Once complete, return to EZInstall by typing exit."
 msgstr ">> Khi hoàn thành, trở về EZInstall bởi cách gõ exit."
 
-#: ezinstall.sh:308
+#: ezinstall.sh:309
 msgid "Starting installation of Lirix. Setup will continue shortly hereafter."
 msgstr "Đang bắt đầu cài đặt Lirix. Trình cài đặt sẽ tiếp tục sau đó."
 
-#: ezinstall.sh:311
+#: ezinstall.sh:312
 msgid "Installation complete. Setup will now continue."
 msgstr "Quá trình cài đặt hoàn thành. Trình cài đặt sẽ tiếp tục."
 
-#: ezinstall.sh:320
+#: ezinstall.sh:321
 msgid "Enter hostname for system\\n(default is apioform-hive)"
 msgstr "Điền tên mạng cho hệ thống\\n(mặc định là apioform-hive)"
 
-#: ezinstall.sh:323
+#: ezinstall.sh:324
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
 msgstr "Tên mạng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-)."
 
-#: ezinstall.sh:334
+#: ezinstall.sh:335
 msgid "Enter username for main user\\n(default is aamoo)"
 msgstr "Điền tên người dùng cho người dùng chính\\n(mặc định là aamoo)"
 
-#: ezinstall.sh:337
+#: ezinstall.sh:338
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
 msgstr ""
 "Tên người dùng phải bao gồm chi chữ viết thường với ký hiệu gạch ngang (-)."
 
-#: ezinstall.sh:350
-#, sh-format
-msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
-msgstr ""
-
-#: ezinstall.sh:365
-#, sh-format
-msgid "Enter description/full name for user ${lirixuser}"
-msgstr ""
-
-#: ezinstall.sh:378
+#: ezinstall.sh:379
 msgid "Do you wish to add an additional user?"
 msgstr "Bạn có muốn thêm vào nữa một người dùng không?"
 
-#: ezinstall.sh:387
+#: ezinstall.sh:388
 msgid "Select timezone"
 msgstr "Chọn múi giờ"
 
-#: ezinstall.sh:399
+#: ezinstall.sh:400
 msgid ""
 "Select locale. To check a box, press the spacebar key. When you have "
 "completed your selection of locales, press the enter key."
@@ -259,10 +195,10 @@ msgstr ""
 "Chọn ngôn ngữ. Để đánh dấu một hộp, sử dụng phím đầu cách. Khi bạn chọn các "
 "ngôn ngữ bạn muốn sử dụng, sử dụng phím Enter."
 
-#: ezinstall.sh:409
+#: ezinstall.sh:410
 msgid "Select preferred locale"
 msgstr "Chọn ngôn ngữ chính"
 
-#: ezinstall.sh:431
+#: ezinstall.sh:432
 msgid "Lirix setup complete. Reboot now?"
 msgstr "Cài đặt Lirix hoàn thành. Khởi động lại bây giờ?"
