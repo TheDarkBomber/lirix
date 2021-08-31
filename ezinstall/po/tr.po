@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: 2021-08-31 14:27+0000\n"
+"PO-Revision-Date: 2021-08-31 15:38+0000\n"
 "Last-Translator: Agnomilted <agnomilted@gmail.com>\n"
 "Language-Team: Turkish <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/tr/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 #: ezinstall.sh:43
 #, sh-format
 msgid "Created BTRFS filesystem on $cfv"
-msgstr ""
+msgstr "$cfv'de BTRFS dosya sistemi ayarlandı"
 
 #: ezinstall.sh:48
 #, sh-format
@@ -50,21 +50,23 @@ msgid ""
 "Default filesystem for many Linux distributions. Use if uncomfortable with "
 "other options."
 msgstr ""
+"Çoğu Linux dağıtımlarında varsayılan dosya sistemi. Öbür seçenekleri "
+"bilmiyorsanız bunu kullanın."
 
 #: ezinstall.sh:52
 #, sh-format
 msgid "Manually format partition using a shell."
-msgstr ""
+msgstr "Bir komut isteminde diski kendiniz bölümlere ayırın."
 
 #: ezinstall.sh:62
 #, sh-format
 msgid "Created XFS filesystem on $cfv"
-msgstr ""
+msgstr "$cfv'de XFS dosya sistemi ayarlandı"
 
 #: ezinstall.sh:70
 #, sh-format
 msgid "Created EXT4 filesystem on $cfv"
-msgstr ""
+msgstr "$cfv'de EXT4 dosya sistemi ayarlandı"
 
 #: ezinstall.sh:77 ezinstall.sh:308
 #, sh-format
@@ -74,7 +76,7 @@ msgstr ""
 #: ezinstall.sh:78
 #, sh-format
 msgid ">> Format partition $cfv in whichever way you desire."
-msgstr ""
+msgstr ">> $cfv disk bölümünü istediğiniz şekilde biçimlendirin."
 
 #: ezinstall.sh:79
 #, sh-format
@@ -89,7 +91,7 @@ msgstr ""
 #: ezinstall.sh:81
 #, sh-format
 msgid ">> To return to EZInstall, type exit."
-msgstr ""
+msgstr ">> EZInstall'a geri dönmek için \"exit\" yazınız."
 
 #: ezinstall.sh:93
 #, sh-format
@@ -99,27 +101,29 @@ msgstr ""
 #: ezinstall.sh:96
 #, sh-format
 msgid "UEFI detected. Will use GPT for partitioning."
-msgstr "UEFI algılandı. Disk ayırması için GPT kullanılacaktır."
+msgstr "UEFI algılandı. Disk bölmesi için GPT kullanılacaktır."
 
 #: ezinstall.sh:98 ezinstall.sh:147
 #, sh-format
 msgid "Specify swap size in MiB?"
-msgstr ""
+msgstr "Takas bölümünün boyutunu MiB birimiyle söyleyiniz."
 
 #: ezinstall.sh:102 ezinstall.sh:151
 #, sh-format
 msgid "Enter swap size"
-msgstr ""
+msgstr "Takas bölümünün boyutunu yazınız"
 
 #: ezinstall.sh:105 ezinstall.sh:154
 #, sh-format
 msgid "Swap size must be an integer!"
-msgstr ""
+msgstr "Takas bölümünün boyutu tam sayı olmalı!"
 
 #: ezinstall.sh:112 ezinstall.sh:161
 #, sh-format
 msgid "Selecting yes now WILL cause data loss.\\nContinue?"
 msgstr ""
+"Dikkat: Evet'i seçmek veri kaybına yol açacaktır.\\n"
+"Devam edecek misiniz?"
 
 #: ezinstall.sh:134 ezinstall.sh:178
 #, sh-format
@@ -129,12 +133,12 @@ msgstr ""
 #: ezinstall.sh:145
 #, sh-format
 msgid "LegacyBIOS detected. Will use MBR for partitioning."
-msgstr ""
+msgstr "LegacyBIOS algılandı. Disk bölmesi için MBR kullanılacaktır."
 
 #: ezinstall.sh:193
 #, sh-format
 msgid "Enter username for new user"
-msgstr ""
+msgstr "Yeni kullanıcının kullanıcı adını yazınız"
 
 #: ezinstall.sh:196
 #, sh-format
@@ -142,11 +146,15 @@ msgid ""
 "Username must only contain lowercase letters or the dash (-) symbol and must "
 "not be empty."
 msgstr ""
+"Kullanıcı adında sadece küçük harfler ve tire(-) bulunmalı ve boş "
+"olmamalıdır."
 
 #: ezinstall.sh:206
 #, sh-format
 msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
 msgstr ""
+"${newlirixuser} kullanıcısının şifresini yazınız\\n"
+"(varsayılan şifre apioforms'tur)"
 
 #: ezinstall.sh:213 ezinstall.sh:364
 #, sh-format
@@ -161,7 +169,7 @@ msgstr ""
 #: ezinstall.sh:221
 #, sh-format
 msgid "Enter description/full name for user ${newlirixuser}"
-msgstr ""
+msgstr "${newlirixuser}'ın tam adını veya açıklamasını yazın"
 
 #: ezinstall.sh:225
 #, sh-format
@@ -256,43 +264,49 @@ msgstr "İndirilme bitti. Kurulum şimdi devam edecektir."
 #, sh-format
 msgid "Enter hostname for system\\n(default is apioform-hive)"
 msgstr ""
+"Bilgisayar adını yazın\\n"
+"(varsayılan ad apioform-hive'dır)"
 
 #: ezinstall.sh:330
 #, sh-format
 msgid "Hostname must only contain lowercase letters or the dash (-) symbol."
-msgstr ""
+msgstr "Bilgisayar adında sadece küçük harfler ve tire(-) bulunmalı."
 
 #: ezinstall.sh:341
 #, sh-format
 msgid "Enter username for main user\\n(default is aamoo)"
 msgstr ""
+"Ana hesabın adını yazın\\n"
+"(varsayılan ad aamoo'dur)"
 
 #: ezinstall.sh:344
 #, sh-format
 msgid "Username must only contain lowercase letters or the dash (-) symbol."
-msgstr ""
+msgstr "Kullanıcı adında sadece küçük harfler ve tire(-) bulunmalı."
 
 #: ezinstall.sh:357
 #, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
 msgstr ""
+"${lirixuser}'ın şifresini yazın\\n"
+"(varsayılan şifre apioform'dur)"
 
 #: ezinstall.sh:372
 #, sh-format
 msgid "Enter description/full name for user ${lirixuser}"
-msgstr ""
+msgstr "${lirixuser}'ın tam adını veya açıklamasını yazın"
 
 #: ezinstall.sh:385
 #, sh-format
 msgid "Do you wish to add an additional user?"
-msgstr ""
+msgstr "Ekstra kullanıcı eklemek ister misiniz?"
 
 #: ezinstall.sh:394
 #, sh-format
 msgid "Select timezone"
-msgstr ""
+msgstr "Saat dilimini seçiniz"
 
 #: ezinstall.sh:414
 #, sh-format
 msgid "Lirix setup complete. Reboot now?"
-msgstr ""
+msgstr "Lirix kurulumu bitmiştir. Bilgisayar yeniden başlatılsın mı?"
