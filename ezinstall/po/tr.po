@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-08-31 14:27+0000\n"
+"Last-Translator: Agnomilted <agnomilted@gmail.com>\n"
+"Language-Team: Turkish <https://translate.vicr123.com/projects/lirix/"
+"ezinstall/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.7.2\n"
 
 #: ezinstall.sh:30
 #, sh-format
@@ -29,7 +32,7 @@ msgstr ""
 #: ezinstall.sh:48
 #, sh-format
 msgid "Select filesystem to use for Lirix"
-msgstr ""
+msgstr "Lirix'te kullanılacak dosya sistemini seçiniz"
 
 #: ezinstall.sh:49
 #, sh-format
@@ -96,7 +99,7 @@ msgstr ""
 #: ezinstall.sh:96
 #, sh-format
 msgid "UEFI detected. Will use GPT for partitioning."
-msgstr ""
+msgstr "UEFI algılandı. Disk ayırması için GPT kullanılacaktır."
 
 #: ezinstall.sh:98 ezinstall.sh:147
 #, sh-format
@@ -178,47 +181,47 @@ msgstr ""
 #: ezinstall.sh:252
 #, sh-format
 msgid "Welcome to EZInstall, the installer for Lirix!"
-msgstr ""
+msgstr "Lirix'in indirme programı, EZInstall'a hoş geldiniz!"
 
 #: ezinstall.sh:254
 #, sh-format
 msgid "Would you like to install Lirix at this moment?"
-msgstr ""
+msgstr "Lirix'i şimdi indirmek ister misiniz?"
 
 #: ezinstall.sh:260
 #, sh-format
 msgid "Select your keymap"
-msgstr ""
+msgstr "Tuş diziliminizi seçiniz"
 
 #: ezinstall.sh:265
 #, sh-format
 msgid "Select installation disk"
-msgstr ""
+msgstr "İndirilecek diski seçiniz"
 
 #: ezinstall.sh:269
 #, sh-format
 msgid "Do you wish to partition $device?"
-msgstr ""
+msgstr "$device'ı bölmek ister misiniz?"
 
 #: ezinstall.sh:271
 #, sh-format
 msgid "Do you wish to autopartition $device?"
-msgstr ""
+msgstr "$device'ı otomatik bölme ile bölmek ister misiniz?"
 
 #: ezinstall.sh:284
 #, sh-format
 msgid "Select boot partition"
-msgstr ""
+msgstr "Diskin önyükleme(boot) bölümünü seçiniz"
 
 #: ezinstall.sh:287
 #, sh-format
 msgid "Select swap partition"
-msgstr ""
+msgstr "Diskin takas(swap) bölümünü seçiniz"
 
 #: ezinstall.sh:289
 #, sh-format
 msgid "Select Lirix partition"
-msgstr ""
+msgstr "Diskin Lirix bölümünü seçiniz"
 
 #: ezinstall.sh:306
 #, sh-format
@@ -226,6 +229,8 @@ msgid ""
 "Would you like to enter an interactive shell to manually configure more "
 "advanced options before proceeding?"
 msgstr ""
+"Devam etmeden önce daha gelişmiş ayarlar için bir komut istemine girmek "
+"ister misiniz?"
 
 #: ezinstall.sh:309
 #, sh-format
@@ -235,17 +240,17 @@ msgstr ""
 #: ezinstall.sh:310
 #, sh-format
 msgid ">> Once complete, return to EZInstall by typing exit."
-msgstr ""
+msgstr "İşiniz bitince EZInstall'a geri dönmek için \"exit\" yazın."
 
 #: ezinstall.sh:315
 #, sh-format
 msgid "Starting installation of Lirix. Setup will continue shortly hereafter."
-msgstr ""
+msgstr "Lirix indirilmesine başlanıyor. Kurulum birazdan devam edecektir."
 
 #: ezinstall.sh:318
 #, sh-format
 msgid "Installation complete. Setup will now continue."
-msgstr ""
+msgstr "İndirilme bitti. Kurulum şimdi devam edecektir."
 
 #: ezinstall.sh:327
 #, sh-format
