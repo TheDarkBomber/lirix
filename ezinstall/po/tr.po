@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: 2021-08-31 15:38+0000\n"
+"PO-Revision-Date: 2021-09-04 11:25+0000\n"
 "Last-Translator: Agnomilted <agnomilted@gmail.com>\n"
 "Language-Team: Turkish <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/tr/>\n"
@@ -71,7 +71,7 @@ msgstr "$cfv'de EXT4 dosya sistemi ayarlandı"
 #: ezinstall.sh:77 ezinstall.sh:308
 #, sh-format
 msgid ">> Entering interactive Bourne Again Shell."
-msgstr ""
+msgstr ">> İnteraktif Bash komut satırı kabuğuna giriliyor."
 
 #: ezinstall.sh:78
 #, sh-format
@@ -81,12 +81,12 @@ msgstr ">> $cfv disk bölümünü istediğiniz şekilde biçimlendirin."
 #: ezinstall.sh:79
 #, sh-format
 msgid ">> The mountpoint for your Lirix installation is /mnt/lirix"
-msgstr ""
+msgstr ">> Lirix indirilecek cihaz /mnt/lirix'e takılacaktır"
 
 #: ezinstall.sh:80
 #, sh-format
 msgid ">> Mount $cfv to there when you have completed your manual formatting."
-msgstr ""
+msgstr ">> Manuel biçimlendirmeniz bitince $cfv'yi oraya takınız."
 
 #: ezinstall.sh:81
 #, sh-format
@@ -97,6 +97,8 @@ msgstr ">> EZInstall'a geri dönmek için \"exit\" yazınız."
 #, sh-format
 msgid "EZAutopartitioning selected.\\nWill partition device $cfv"
 msgstr ""
+"EZAutopartitioning seçildi.\\n"
+"$cfv cihazı bölünecektir"
 
 #: ezinstall.sh:96
 #, sh-format
@@ -128,7 +130,7 @@ msgstr ""
 #: ezinstall.sh:134 ezinstall.sh:178
 #, sh-format
 msgid "EZAutopartitioning complete."
-msgstr ""
+msgstr "EZAutopartitioning bitti."
 
 #: ezinstall.sh:145
 #, sh-format
@@ -159,12 +161,12 @@ msgstr ""
 #: ezinstall.sh:213 ezinstall.sh:364
 #, sh-format
 msgid "Me password again."
-msgstr ""
+msgstr "Şifreyi yeniden yazınız."
 
 #: ezinstall.sh:216 ezinstall.sh:367
 #, sh-format
 msgid "Passwords do NOT match!!"
-msgstr ""
+msgstr "Şifreyi hatalı girdiniz!"
 
 #: ezinstall.sh:221
 #, sh-format
@@ -175,16 +177,18 @@ msgstr "${newlirixuser}'ın tam adını veya açıklamasını yazın"
 #, sh-format
 msgid "Do you wish to enable administrative (sudo) privileges for this user?"
 msgstr ""
+"Bu kullanıcının administratör (sudo) yetkilerine sahip olmasını istiyor "
+"musunuz?"
 
 #: ezinstall.sh:230
 #, sh-format
 msgid "Enter home directory for user ${newlirixuser}"
-msgstr ""
+msgstr "${newlirixuser}'ın kullanıcı klasörünü yazın"
 
 #: ezinstall.sh:233
 #, sh-format
 msgid "Do you want this user to be able to login?"
-msgstr ""
+msgstr "Bu kullanıcının giriş yapabilmesini istiyor musunuz?"
 
 #: ezinstall.sh:252
 #, sh-format
@@ -243,7 +247,7 @@ msgstr ""
 #: ezinstall.sh:309
 #, sh-format
 msgid ">> The root mountpoint of the Lirix installation is /mnt/lirix"
-msgstr ""
+msgstr ">> Lirix indirilen cihazın root noktası /mnt/lirix"
 
 #: ezinstall.sh:310
 #, sh-format
