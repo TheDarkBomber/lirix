@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: 2021-08-29 18:08+0000\n"
+"PO-Revision-Date: 2021-09-05 12:25+0000\n"
 "Last-Translator: Victor Tran <vicr12345@gmail.com>\n"
 "Language-Team: Vietnamese <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/vi/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: ezinstall.sh:30
 #, sh-format
 msgid "Will create subvolumes: ${btsubvols}"
-msgstr ""
+msgstr "Sẽ tạo khối lượng bên trong: ${btsubvols}"
 
 #: ezinstall.sh:43
 #, sh-format
