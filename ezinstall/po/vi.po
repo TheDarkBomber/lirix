@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: 2021-09-05 12:25+0000\n"
+"PO-Revision-Date: 2021-09-08 00:25+0000\n"
 "Last-Translator: Victor Tran <vicr12345@gmail.com>\n"
 "Language-Team: Vietnamese <https://translate.vicr123.com/projects/lirix/"
 "ezinstall/vi/>\n"
@@ -25,7 +25,7 @@ msgstr "Sẽ tạo khối lượng bên trong: ${btsubvols}"
 #: ezinstall.sh:43
 #, sh-format
 msgid "Created BTRFS filesystem on $cfv"
-msgstr ""
+msgstr "Đã tạo hệ thống tệp BTRFS trên $cfv"
 
 #: ezinstall.sh:48
 #, sh-format
@@ -60,12 +60,12 @@ msgstr "Định dạng đĩa thủ công dùng đầu cuối."
 #: ezinstall.sh:62
 #, sh-format
 msgid "Created XFS filesystem on $cfv"
-msgstr ""
+msgstr "Đã tạo hệ thống tệp XFS trên $cfv"
 
 #: ezinstall.sh:70
 #, sh-format
 msgid "Created EXT4 filesystem on $cfv"
-msgstr ""
+msgstr "Đã tạo hệ thống tệp EXT4 trên $cfv"
 
 #: ezinstall.sh:77 ezinstall.sh:308
 #, sh-format
@@ -75,7 +75,7 @@ msgstr ">> Vào Bourne Again Shell."
 #: ezinstall.sh:78
 #, sh-format
 msgid ">> Format partition $cfv in whichever way you desire."
-msgstr ""
+msgstr ">> Định dạng phân vùng $cfv theo tùy chọn của bạn."
 
 #: ezinstall.sh:79
 #, sh-format
@@ -85,7 +85,7 @@ msgstr ">> Điểm gán cho cài đặt Lirix của bạn là /mnt/lirix"
 #: ezinstall.sh:80
 #, sh-format
 msgid ">> Mount $cfv to there when you have completed your manual formatting."
-msgstr ""
+msgstr ">> Gắn $cfv vào đó sau khi bạn hoàn thành việc định dạng."
 
 #: ezinstall.sh:81
 #, sh-format
@@ -96,6 +96,8 @@ msgstr ">> Để trở về EZInstall, gõ exit."
 #, sh-format
 msgid "EZAutopartitioning selected.\\nWill partition device $cfv"
 msgstr ""
+"Đã chọn EZAutopartitioning.\\n"
+"Sẽ định dạng thiết bị $cfv"
 
 #: ezinstall.sh:96
 #, sh-format
@@ -150,6 +152,8 @@ msgstr ""
 #, sh-format
 msgid "Enter password for user ${newlirixuser}\\n(default is apioforms)"
 msgstr ""
+"Điền vào mật khẩu cho người dùng ${newlirixuser}\\n"
+"(mặc định là apioforms)"
 
 #: ezinstall.sh:213 ezinstall.sh:364
 #, sh-format
@@ -164,7 +168,7 @@ msgstr "Mật khẩu không có khớp!!"
 #: ezinstall.sh:221
 #, sh-format
 msgid "Enter description/full name for user ${newlirixuser}"
-msgstr ""
+msgstr "Điền vào mô tả hoặc tên cho người dùng ${newlirixuser}"
 
 #: ezinstall.sh:225
 #, sh-format
@@ -174,7 +178,7 @@ msgstr "Bạn có muốn bắt quyền quản lý (sudo) cho người dùng này
 #: ezinstall.sh:230
 #, sh-format
 msgid "Enter home directory for user ${newlirixuser}"
-msgstr ""
+msgstr "Điền vào thư mục chính cho người dùng ${newlirixuser}"
 
 #: ezinstall.sh:233
 #, sh-format
@@ -204,12 +208,12 @@ msgstr "Chọn đĩa để cài đặt vào"
 #: ezinstall.sh:269
 #, sh-format
 msgid "Do you wish to partition $device?"
-msgstr ""
+msgstr "Bạn có muốn định dạng $device?"
 
 #: ezinstall.sh:271
 #, sh-format
 msgid "Do you wish to autopartition $device?"
-msgstr ""
+msgstr "Bạn có muốn định dạng $device tự động?"
 
 #: ezinstall.sh:284
 #, sh-format
@@ -280,11 +284,13 @@ msgstr ""
 #, sh-format
 msgid "Enter password for user ${lirixuser}\\n(default is apioforms)"
 msgstr ""
+"Điền vào mật khẩu cho người dùng ${lirixuser}\\n"
+"(mặc định là apioforms)"
 
 #: ezinstall.sh:372
 #, sh-format
 msgid "Enter description/full name for user ${lirixuser}"
-msgstr ""
+msgstr "Điền vào mô tả hoặc tên cho người dùng ${lirixuser}"
 
 #: ezinstall.sh:385
 #, sh-format
