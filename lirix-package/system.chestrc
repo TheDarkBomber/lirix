@@ -161,6 +161,7 @@ Menu Media_apps
 Menu Desktop_apps
 {
 	"Clock"			f.checkexec.sh.le "xclock"
+	"Simple Calculator"		f.checkexec.sh.le "xcalc"
 	"Calculator"		f.checkexec.sh.le "xcas"
 	"Font Selector"		f.checkexec.sh.le "xfontsel"
 	"Character Map"		f.checkexec.sh.le "gucharmap"
