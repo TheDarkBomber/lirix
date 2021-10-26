@@ -16,7 +16,6 @@ if srpconf "Synchronise the following packages?\n$pkglist"; then
 		pacman -Syu
 	fi
 	pacman -S $(<mklirix/packages);
-	pacman -R --noconfirm gdm gnome-shell gnome-session
 fi;
 
 echo "Package synchronisation complete. No packages were removed."

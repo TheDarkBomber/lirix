@@ -14,4 +14,3 @@ sed -i 's/OS="${GRUB_DISTRIBUTOR} Linux"/OS="${GRUB_DISTRIBUTOR}"/' /etc/grub.d/
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 sed -i 's@#background=@background=/opt/MaXX/share/wallpapers/sgi-startup-bg.png@' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's@export XDG_DATA_DIRS=$MAXX_HOME/share:$XDG_DATA_DIRS@export XDG_DATA_DIRS=$HOME/.maxxdesktop:$XDG_DATA_DIRS:/usr/share:/usr/share/local@' /opt/MaXX/etc/system.desktopenv
-pacman -R gdm gnome-shell gnome-session

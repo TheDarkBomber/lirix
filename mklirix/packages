@@ -14,7 +14,6 @@ maxxdesktop
 libjpeg6-turbo
 ncurses5-compat-libs
 ttf-dejavu
-gdm
 networkmanager
 sgi-openinventor
 alsa-utils
@@ -79,7 +78,6 @@ xorg-xfontsel
 xorg-xcalc
 xcas
 luit
-git
 htop
 micro
 vim
