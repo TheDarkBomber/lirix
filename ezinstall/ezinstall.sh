@@ -394,7 +394,7 @@ zonelist=$(find /usr/share/zoneinfo ! -type d | awk '1 ; {printf "-\n"}' | sed '
 csr=`eval_gettext "Select timezone"`
 timezone=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "$csr" 0 0 0 ${zonelist});
 
-ln -sfv /mnt/lirix/usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
+ln -sfv /usr/share/zoneinfo/${timezone} /mnt/lirix/etc/localtime
 arch-chroot /mnt/lirix hwclock --systohc
 
 sed -i "s/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/" /mnt/lirix/etc/locale.gen
