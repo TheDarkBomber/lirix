@@ -256,7 +256,7 @@ ezselectlanguage() {
 	locale=$(echo ${language} | head -c 5)
 	locale+="."
 	locale+=$(echo ${language} | awk '{print $NF}')
-	export LC_ALL="${language}.UTF-8"
+	export LC_ALL="${language}"
 }
 
 ezselectlanguage
