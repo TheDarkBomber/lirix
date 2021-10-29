@@ -241,10 +241,21 @@ ezadduser() {
 }
 
 ezselectlanguage() {
-	languagelist=$(cat /etc/locale.gen | grep -Ev '^# |^#$' | sed 's/  //' | grep 'UTF-8 UTF-8' | sed 's/.UTF-8 UTF-8//' | sed 's@#@@g' | awk '1; {printf "-\n"}')
+	languagelist="en_GB.UTF-8*UTF-8 English*(UK)"
+	languagelist+="da_DK.UTF-8*UTF-8 Dansk"
+	languagelist+="ja_JP.UTF-8*UTF-8 日本語"
+	languagelist+="tr_TR.UTF-8*UTF-8 Türkçe"
+	languagelist+="de_DE.UTF-8*UTF-8 Deutsch"
+	languagelist+="ar_SA.UTF-8*UTF-8 عربي*(العربية*السعودية)"
+	languagelist+="vi_VN*UTF-8 Tiếng*Việt"
+	languagelist+=$(cat /etc/locale.gen | grep -Ev '^#\s|^#$' | sed 's/  //' | sed 's/ /*/' | sed 's@#@@g' | awk '1; {printf "-\n"}')
 	language=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "josar." 0 0 0 ${languagelist})
-	sed -i "s/#${language}.UTF-8 UTF-8/${language}.UTF-8 UTF-8/" /etc/locale.gen
+	language=$(echo ${language} | sed 's/*/ /')
+	sed -i "s/#${language}/${language}/" /etc/locale.gen
 	locale-gen
+	locale=$(echo ${language} | head -c 5)
+	locale+="."
+	locale+=$(echo ${language} | awk '{print $NF}')
 	export LC_ALL="${language}.UTF-8"
 }
 
