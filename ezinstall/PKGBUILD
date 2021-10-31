@@ -1,0 +1,27 @@
+pkgname=ezinstall
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Text-based installer for the Lirix system'
+arch=('x86_64')
+license=('BSD3')
+source=()
+# Use with no extract.
+
+build() {
+				mkdir -v mo
+				cd ../po
+				for f in *.po; do
+						msgfmt -vo "$srcdir"/mo/${f%.*}.mo ${f}
+				done;
+				cp -v ../ezinstall.sh "$srcdir"
+}
+
+package() {
+					cd $srcdir/mo
+					for f in *.mo; do
+							install -D -m644 ${f} "$pkgdir"/usr/local/share/locale/${f%.*}/LC_MESSAGES/ezinstall.mo	
+					done;
+					cd ..
+					install -D -m644 ezinstall.sh "$pkgdir"/usr/bin/ezinstall
+					chmod +x "$pkgdir"/usr/bin/ezinstall
+}
