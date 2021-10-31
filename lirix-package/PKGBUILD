@@ -15,7 +15,7 @@ source=('syncrecpkg.sh'
 		'lirix-lsb-release.hook')
 sha256sums=('d6a054280f34c99de08f6ae5238cae8ac2e9dee4f42cec23bc493c1b47fdbd2d'
             'b636bbc09ef4d190a871b214ab5bf25b95e74a4afe05d845b55ed1d44ccb68ce'
-            '94c101d1cbe4fbc9d03e58742a6bcfc105d8e08b0baf1d4f1a08f98d4089714f'
+            'ab68cd61380e5a5be1aa87eff73e81f254b7933e8fb983bb38b38d87190b35f2'
             'e2d2bfce136de936ff77dc266d7774af4cca9229b93e5b8a46c816a3201d6ae6'
             '35408d894eabf1792a6ae6ca0ceb484e6e61ec4bf77b064b67699f3460313b8c'
             '1eb17d5753db769147c7ce0b080b16977114977ffb40e1ec00eba5556b0cb1dc'
