@@ -297,23 +297,3 @@ msgstr ""
 #, sh-format
 msgid "Lirix setup complete. Reboot now?"
 msgstr ""
-
-#~ msgid "Created BTRFS filesystem on $cfv"
-#~ msgstr "BTRFS Dateisystem auf $cfv erstellt"
-
-#~ msgid "Created XFS filesystem on $cfv"
-#~ msgstr "XFS Dateisystem auf $cfv erstellt"
-
-#~ msgid "Created EXT4 filesystem on $cfv"
-#~ msgstr "EXT4 Dateisystem auf $cfv erstellt"
-
-#~ msgid ">> Format partition $cfv in whichever way you desire."
-#~ msgstr ">> Formatiere Partition $cfv wie gewünscht."
-
-#~ msgid ">> Mount $cfv to there when you have completed your manual formatting."
-#~ msgstr ""
-#~ ">> Hänge $cfv dort ein sobald du mit der manuellen partitionierung fertig "
-#~ "bist."
-
-#~ msgid "EZAutopartitioning selected.\\nWill partition device $cfv"
-#~ msgstr "EZAutopartitionierung ausgewählt.\\nPartitioniere Datenträger $cfv"
