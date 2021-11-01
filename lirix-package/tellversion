@@ -1,0 +1,24 @@
+#!/bin/bash
+xset b off
+
+
+version=`cat /opt/MaXX/etc/version`
+arch=`/bin/uname -m`
+arch64=x86_64
+distribution=$(cat /etc/os-release | grep '^NAME="' | sed 's/^.\{6\}//' | sed 's/.$//')
+if [ -f /etc/lirix-release ]; then
+	 distribution=`cat /etc/lirix-release`
+fi
+
+if [ $arch == $arch64  ]; then
+
+	xconfirm -icon info -c -C -t "Congratulations! 
+
+You are running MaXX Interactive Desktop (${arch})
+
+version: $version 
+
+$distribution"  >> /dev/null
+else
+ 	xconfirm -icon error -C -t "Darn, MaXXdesktop is not fully supported yet on 32bit Linux platforms" >> /dev/null
+fi
