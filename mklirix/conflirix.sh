@@ -12,6 +12,7 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Lirix"/' /etc/default/grub
 sed -i 's/OS="${GRUB_DISTRIBUTOR} Linux"/OS="${GRUB_DISTRIBUTOR}"/' /etc/grub.d/10_linux
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+sed -i 's@HOME=/home@HOME=/usr/people@' /etc/default/useradd
 sed -i 's@#background=@background=/opt/MaXX/share/wallpapers/sgi-startup-bg.png@' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#theme-name=/theme-name=IndigoMagic/' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#font-name=/font-name=DejaVu Serif Condensed/' /etc/lightdm/lightdm-gtk-greeter.conf
