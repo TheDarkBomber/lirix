@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-30 14:54+0100\n"
-"PO-Revision-Date: 2021-11-03 15:06+0000\n"
-"Last-Translator: Mart Koster <the947thtokay@codingtime.nl>\n"
+"PO-Revision-Date: 2021-11-03 15:07+0000\n"
+"Last-Translator: Caesar Rylan <thedarkbomber80@gmail.com>\n"
 "Language-Team: Dutch <https://translate.vicr123.com/projects/lirix/ezinstall/"
 "nl/>\n"
 "Language: nl\n"
@@ -40,7 +40,7 @@ msgid "Stable filesystem that uses B-Trees. Very good."
 msgstr "Een stabiel bestandssysteem dat B-Trees gebruikt. Erg goed."
 
 #: ezinstall.sh:50
-#, fuzzy, sh-format
+#, sh-format
 msgid "Default filesystem for SGI's IRIX. Journaling cannot be disabled."
 msgstr ""
 "Standaard bestandssysteem voor SGI's IRIX. Journalling kan niet worden "
