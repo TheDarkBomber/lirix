@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # EZInstall - Script to install Lirix
 # Licensed under the BSD 3-Clause License; for more information, see LICENSE.
 
@@ -272,7 +272,7 @@ csr=`eval_gettext "Select your keymap"`
 keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt"  --default-item "us" --menu "$csr" 0 0 0 ${keymaplist})
 localectl set-keymap "${keymap}"
 
-devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
+devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr|fd" | tac)
 csr=`eval_gettext "Select installation disk"`
 if ! device=$(dialog --stdout --aspect 120 --backtitle "EZInstall $ezbt" --menu "$csr" 0 0 0 ${devicelist}); then
 	exit 1;
