@@ -269,7 +269,7 @@ fi
 
 keymaplist=$(localectl list-keymaps | awk '1; {printf "-\n"}')
 csr=`eval_gettext "Select your keymap"`
-keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt" --menu "$csr" 0 0 0 ${keymaplist})
+keymap=$(dialog --stdout --aspect 120 --no-cancel --backtitle "EZInstall $ezbt"  --default-item "us" --menu "$csr" 0 0 0 ${keymaplist})
 localectl set-keymap "${keymap}"
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop|sr" | tac)
