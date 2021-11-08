@@ -17,8 +17,8 @@ sed -i 's@#background=@background=/opt/MaXX/share/wallpapers/sgi-startup-bg.png@
 sed -i 's/#theme-name=/theme-name=IndigoMagic/' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#font-name=/font-name=DejaVu Serif Condensed/' /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#clock-format=/clock-format=%c/' /etc/lightdm/lightdm-gtk-greeter.conf
-echo "cursor-theme-name=redSGI" /etc/lightdm/lightdm-gtk-greeter.conf
-echo "panel-position=bottom" /etc/lightdm/lightdm-gtk-greeter.conf
-echo "hide-user-image=true" /etc/lightdm/lightdm-gtk-greeter.conf
+echo "cursor-theme-name=redSGI" >> /etc/lightdm/lightdm-gtk-greeter.conf
+echo "panel-position=bottom" >> /etc/lightdm/lightdm-gtk-greeter.conf
+echo "hide-user-image=true" >> /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's@export XDG_DATA_DIRS=$MAXX_HOME/share:$XDG_DATA_DIRS@export XDG_DATA_DIRS=$HOME/.maxxdesktop:$XDG_DATA_DIRS:/usr/share:/usr/share/local@' /opt/MaXX/etc/system.desktopenv
 ln -sfv /opt/MaXX/share/themes/IndigoMagic /usr/share/themes/IndigoMagic
