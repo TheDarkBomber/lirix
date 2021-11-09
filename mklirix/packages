@@ -6,6 +6,7 @@ linux-firmware
 amd-ucode
 intel-ucode
 grub
+lirix-grub-theme
 lirix-files
 lirix
 lightdm
