@@ -6,6 +6,7 @@ echo "Installer for the Lirix distribution of XFree86/Linux"
 ezbt=`cat /etc/lirix-release`
 
 mkdir -p /var/log/ezinstall
+exec 3>&1 4>&2
 exec 1> >(tee "/var/log/ezinstall/stdout.log")
 exec 2> >(tee "/var/log/ezinstall/stderr.log")
 
@@ -285,7 +286,10 @@ else
 			autopart="value"
 			ezautopart $device
 		else
+			exec 1>&3 2>&4
 			cfdisk -L $device
+			exec 1> >(tee "/var/log/ezinstall/stdout2.log")
+			exec 2> >(tee "/var/log/ezinstall/stderr2.log")
 		fi
 	fi
 fi
