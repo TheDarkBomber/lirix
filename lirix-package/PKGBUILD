@@ -11,15 +11,17 @@ source=('syncrecpkg.sh'
 		'packages'
 		'pacman.conf'
 		'grub-unlinux.hook'
+		'grub-uefi-class.hook'
 		'noto-warning.hook'
 		'lirix-lsb-release.hook')
 sha256sums=('d6a054280f34c99de08f6ae5238cae8ac2e9dee4f42cec23bc493c1b47fdbd2d'
             'b636bbc09ef4d190a871b214ab5bf25b95e74a4afe05d845b55ed1d44ccb68ce'
-            '2e3e0ff0d4399697d80fb79ab15fc0d6672ab8c5ea14cd58004dac7300cf59cf'
+            'fc9f00829afbc5ae89ca2ab571d5957256246446d7d8dd44d23de85969007286'
             'e2d2bfce136de936ff77dc266d7774af4cca9229b93e5b8a46c816a3201d6ae6'
             'dc09ec0b1ac62a8ca1f4826d2e2cd8e66a9f9357bf108aab7079f21aa611b1aa'
             '1eb17d5753db769147c7ce0b080b16977114977ffb40e1ec00eba5556b0cb1dc'
             'd090e8dba66b8430b0fd54587f14dd5b41e09c5f8e7e279f3f30c35444765665'
+            '950ae2145901eb40eb4a92408ff2324f8753eeff2adcecc4ce6f56337505334a'
             '7311bb6dac6486fe3c883393fd2edb7970024ecb3b7afd81f20ed7877c44de5f'
             'e4d365f26e02ad9898c7b85e8c9988b2c7309086696596f1b8c0b0c6b9a007d9')
 package() {
@@ -32,6 +34,7 @@ package() {
 	install -m644 "$srcdir"/packages opt/lirix/mklirix/packages
 	install -m644 "$srcdir"/pacman.conf opt/lirix/mklirix/pacman.conf
 	install -D -m644 "$srcdir"/grub-unlinux.hook usr/share/libalpm/hooks/grub-unlinux.hook
+	install -m644 "$srcdir"/grub-uefi-class.hook usr/share/libalpm/hooks/grub-uefi-class.hook
 	install -m644 "$srcdir"/noto-warning.hook usr/share/libalpm/hooks/noto-warning.hook
 	install -m644 "$srcdir"/lirix-lsb-release.hook usr/share/libalpm/hooks/lirix-lsb-release.hook
 	chmod +x opt/lirix/syncrecpkg

@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = grub
+
+[Action]
+Description = Add class to UEFI Firmware Settings option in GRUB.
+When = PostTransaction
+Depends = lirix
+Exec = /usr/bin/sed -i "s/'uefi-firmware'/'uefi-firmware' --class 'uefi'/" /etc/grub.d/30_uefi-firmware
