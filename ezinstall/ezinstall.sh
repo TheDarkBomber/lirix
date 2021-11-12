@@ -243,7 +243,7 @@ ezadduser() {
 
 ezselectlanguage() {
 	languagelist="en_US.UTF-8*UTF-8 English*(US) "
-	languagelist="en_GB.UTF-8*UTF-8 English*(UK) "
+	languagelist+="en_GB.UTF-8*UTF-8 English*(UK) "
 	languagelist+="da_DK.UTF-8*UTF-8 Dansk "
 	languagelist+="vi_VN*UTF-8 Tiếng*Việt "
 	languagelist+="nl_NL.UTF-8*UTF-8 Nederlands "
@@ -417,8 +417,8 @@ sed -i "s/#${language}/${language}/" /mnt/lirix/etc/locale.gen
 
 arch-chroot /mnt/lirix locale-gen
 touch /mnt/lirix/etc/locale.conf
-echo "LANG=${locale}.UTF-8" >> /mnt/lirix/etc/locale.conf
-echo "LC_ALL=${locale}.UTF-8" >> /mnt/lirix/etc/locale.conf
+echo "LANG=${locale}" >> /mnt/lirix/etc/locale.conf
+echo "LC_ALL=${locale}" >> /mnt/lirix/etc/locale.conf
 
 if [ -d "/sys/firmware/efi/efivars" ]; then
 	arch-chroot /mnt/lirix grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
