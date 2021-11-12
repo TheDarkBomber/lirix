@@ -1,28 +1,26 @@
-
+![Lirix, get fully MaXXinated.](https://repository-images.githubusercontent.com/381812569/d49f0cb2-55b7-4a40-b595-e2bd29da2777)
 # Table of Contents
 
-1.  [Installation](#org3133e12)
-    1.  [Acquiration](#orge61af2d)
-    2.  [EZInstall](#orgc419115)
-
-<span class="underline">Lirix</span>
+1.  [Installation](#org6c3af4f)
+    1.  [Acquiration](#orga12d4df)
+    2.  [EZInstall](#orgb65afd1)
 
 Lirix is an XFree86/Linux distribution based upon [Arch Linux](<https://archlinux.org>) that ships with the [MaXX Interactive Desktop](<https://maxxinteractive.com>).
 
 
-<a id="org3133e12"></a>
+<a id="org6c3af4f"></a>
 
 # Installation
 
 
-<a id="orge61af2d"></a>
+<a id="orga12d4df"></a>
 
 ## Acquiration
 
 An ISO for Lirix can be found at [Lirix ISO](<https://caesar-rylan.60.nu/lirix/iso>). The current release era of Lirix is Mellifera.
 
 
-<a id="orgc419115"></a>
+<a id="orgb65afd1"></a>
 
 ## EZInstall
 
@@ -35,7 +33,10 @@ After booting the ISO, you should find one of two screens:
     Essentially, this means you are using LegacyBIOS mode, check something in your firmware I guess if you were expecting EFI mode. Or do that contacting manufacturer thing, whichever works.
 
 Select the first option if you wish to install Lirix. There are other options that may work and some that definitely won't.
+
 This will present you with a language selection screen. This will also set your locale for the installation. Also, some languages may appear broken æsthetically. This is expected, there is no way to have a font that supports any character set with more than 512 characters in TTY.
+
 For a quick installation, pressing ENTER after this point for every option presented to you will put you into a working installation. By the end of it you'll be using the bootloader, GRUB, a modern bootloader, well not even modern but it's keeping up with the changing technologies in a mutatis mutandis way which counts as modern, that has automatic configuration and is very pleasant, especially for me, the creator of the distribution.
+
 And from there, EZInstall should guide you. Fun fact: EZInstall is named after EZsetup, the Out-of-Box Experience equivalent (though not exactly like an OOBE) for IRIX. Note that Lirix does not have an OOBE.
 
