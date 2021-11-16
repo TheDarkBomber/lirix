@@ -72,7 +72,7 @@ package() {
 		install -m600 "$srcdir"/$f usr/share/factory/etc/
 	done
 	touch etc/lirix-release
-	echo "Lirix GAMMA // rolling" > etc/lirix-release
+	echo "Lirix Mellifera // rolling" > etc/lirix-release
 	
 	install -m644 "$srcdir"/locale.sh etc/profile.d/locale.sh
 	install -Dm644 "$srcdir"/os-release usr/lib/os-release
