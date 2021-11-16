@@ -2,9 +2,9 @@
 # SGI Scheme Selector using Dialog
 
 updateScheme() {
-	killall -SIGTERM toolchest > /dev/null
 	$MAXX_HOME/bin/update-desktop
 	$MAXX_HOME/bin/tellwm fast_restart
+	killall -SIGTERM toolchest > /dev/null
 	exec $MAXX_BIN/toolchest -geometry +33+152 >> $HOME/.console &
 }
 
