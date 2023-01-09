@@ -4,6 +4,7 @@
 1.  [Installation](#org6c3af4f)
     1.  [Acquiration](#orga12d4df)
     2.  [EZInstall](#orgb65afd1)
+2.  [LICENSING regarding MaXXdesktop](#maxxlicense)
 
 Lirix is an XFree86/Linux distribution based upon [Arch Linux](<https://archlinux.org>) that ships with the [MaXX Interactive Desktop](<https://maxxinteractive.com>).
 
@@ -40,3 +41,10 @@ For a quick installation, pressing ENTER after this point for every option prese
 
 And from there, EZInstall should guide you. Fun fact: EZInstall is named after EZsetup, the Out-of-Box Experience equivalent (though not exactly like an OOBE) for IRIX. Note that Lirix does not have an OOBE.
 
+<a id="maxxlicense"></a>
+
+## LICENSING regarding MaXXdesktop
+
+Lirix ships with the MaXX Interactive Desktop which is built with legacy code that is under license via the SGI Special License Agreement. [For more details, view the license.](<https://docs.maxxinteractive.com/books/licensing/page/sgi-special-license-agreement>)
+
+All new code under the MaXX Interactive Desktop project is under a BSD 3-Clause license and is available at [https://gitlab.com/maxxdesktop](<https://gitlab.com/maxxdesktop>)
